@@ -46,7 +46,6 @@ public class RegisterProc extends HttpServlet {
 		MemberDAO mdao = new MemberDAO();
 		
 		if(passL > 7 ) {
-			
 			mdao.insertMember(bean);
 			System.out.println("님의 데이터베이스 insert success");
 			request.setAttribute("msg", "회원 가입 성공! 로그인 하세요.");

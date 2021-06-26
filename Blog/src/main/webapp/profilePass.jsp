@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
   <head>
@@ -54,10 +55,7 @@
   </head>
 
   <body>
-	 <%
-	// 세션값 가져오기
-	String id = (String) session.getAttribute("id"); // Object 타입이므로 다운캐스팅
-	%>
+
     <!--========  헤더영역  =========-->
     <header class="header">
       <div class="header-mid-area">
@@ -220,13 +218,13 @@
                   <div class="login-header mb-40">
                     <h5>프로필확인하기</h5>
                   </div>
-
+				<jsp:useBean id="member" scope="session" type="dto.MemberBean"/>
                   <form action="./passProc" method="post">
                     <input
                       type="text"
                       name="id"
                       placeholder="사용자ID"
-                      value="ID :   ${id}   "
+                      value="${member.id}"
                       readonly
                       required
                     />
@@ -234,12 +232,14 @@
                       type="password"
                       name="pass"
                       placeholder="현재 비밀번호"
+                      minlength="8"
                       required
                     />
 					<input
                       type="password"
                       name="pass2"
                       placeholder="새 비밀번호"
+                      minlength="8"
                       required
                     />
                     <%-- 요청범위에 alert이 있는 경우 --%>

@@ -54,6 +54,7 @@
   </head>
 
   <body>
+ 
     <!--========  헤더영역  =========-->
     <header class="header">
       <div class="header-mid-area">
@@ -222,7 +223,7 @@
                     <img src="assets/images/author/author-001.jpg" alt="" />
                   </div>
                   <div class="author-title add">
-                    <h4 class="author-name"><a href="#">여을심</a></h4>
+                    <h4 class="author-name"><a href="#">여을심(${member.id} })</a></h4>
                     <p>작가, 개발자</p>
                   </div>
                   <div class="author-details">
@@ -245,7 +246,7 @@
                     </div>
 
                     <div class="button-box">
-                      <a href="#" class="btn"
+                      <a href="profilePass.jsp" class="btn"
                         >프로필 수정하기 <i class="icofont-long-arrow-right"></i
                       ></a>
                     </div>

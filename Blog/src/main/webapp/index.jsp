@@ -56,6 +56,7 @@
   <body>
     <!--========  헤더영역  =========-->
 
+	<jsp:useBean id="member" scope="session" type="dto.MemberBean"/>
     <header class="header">
       <div class="header-mid-area">
         <div class="container">
@@ -161,7 +162,7 @@
                           <a href="register.html"><span>회원가입</span></a>
                         </li>
                         <li>
-                          <a href="write-post.html"><span>글작성</span></a>
+                          <a href="./writePostProc"><span>글작성</span></a>
                         </li>
                       </ul>
                     </li>

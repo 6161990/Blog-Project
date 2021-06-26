@@ -1,7 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html class="no-js" lang="ko">
+  <!-- 회원가입화면 -->
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -54,11 +56,8 @@
   </head>
 
   <body>
-
-	<jsp:useBean id="member" scope="session" type="dto.MemberBean"/>
     <!--========  헤더영역  =========-->
     <header class="header">
-     
       <div class="header-mid-area">
         <div class="container">
           <div class="row align-items-center">
@@ -72,9 +71,9 @@
             <div class="col-lg-6 col-md-6 d-md-block d-none">
               <div class="header-add-banner text-center">
                 <a href="#">
-                    <img src="assets/images/banners/net01.jpg" alt="" />
-                    <h6 class="header-add-text">딱! 한달 프리미엄 이용권</h6>
-                  </a>
+                  <img src="assets/images/banners/net01.jpg" alt="" />
+                  <h6 class="header-add-text">딱! 한달 프리미엄 이용권</h6>
+                </a>
               </div>
             </div>
             <div class="col-lg-3 col-md-4 col-7">
@@ -142,7 +141,9 @@
                           <a href="category.html"><span>랭킹</span></a>
                         </li>
                         <li>
-                          <a href="category.html"><span>전문가리뷰 & 평점</span></a>
+                          <a href="category.html"
+                            ><span>전문가리뷰 & 평점</span></a
+                          >
                         </li>
                       </ul>
                     </li>
@@ -197,7 +198,7 @@
               <!-- breadcrumb-list start -->
               <ul class="breadcrumb-list">
                 <li class="breadcrumb-item"><a href="index.html">홈</a></li>
-                <li class="breadcrumb-item active">글작성</li>
+                <li class="breadcrumb-item active">비밀번호찾기</li>
               </ul>
               <!-- breadcrumb-list end -->
             </div>
@@ -209,82 +210,39 @@
 
     <div id="main-wrapper">
       <div class="site-wrapper-reveal">
-        <!-- Blog Details Wrapper Start -->
-        <div class="blog-details-wrapper section-space--ptb_80">
+        <div class="login-register-page-area section-space--ptb_80">
           <div class="container">
-            <div class="row row--17">
-                  <!-- writing Area Start -->
-                  <div class="comment-area section-space--pt_60">
-                    <div class="section-title">
-                      <h3 class="title writing">글 작성</h3>
-                    </div>
-                    <form action="./registerPostProc" class="comment-form-area">
-                      <div class="row">
-                        <div class="col-lg-6">
-                            <div class="single-input category">
-                              <select name="category">
-                                <option value="">--카테고리를 선택해주세요--</option>
-                                <option value="영화리뷰"> 영화리뷰</option>
-                                <option value="기사"> 기사 </option>
-                                <option value="랭킹"> 랭킹 </option>
-                                <option value="전문가평점 & 리뷰"> 전문가평점 & 리뷰 </option>
-                            </select> <!-- input 넓이 정리  -->
-                            </div>
-                     	</div>
-                        <div class="col-lg-6">
-                          <div class="single-input email">
-                            <input type="email" placeholder="이메일" name="member_email" value ="${member.email}" readonly />
-                          </div>
-                        </div>
-                       
-                          <div class="single-input title">
-                            <input type="text" placeholder="제목" name="title"/>
-                          </div>
-                        
-                        <div class="col-lg-12">
-                          <div class="single-input">
-                            <textarea 
-                              name="content"
-                              placeholder="내용" 
-                               ></textarea>
-                          </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="single-input">
-                              <input type="text" placeholder="# 해시태그" name="tag"/>  <!-- input 넓이 정리  -->
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="single-input email">
-                              <input type="text" placeholder="이미지" name="img" value ="[이미지파일]" readonly />
-                            </div>
-                        </div>
-                        <!-- hidden 값 -->
-                        <input type="hidden" placeholder="작성자id"  name="member_id" value ="${member.id}" />
-                       
-                        <div class="col-lg-12">
-                          <div class="submit-button text-center">
-                            <a href="author-post.html"> <button class="btn-large btn-primary" type="submit">
-                              등록 <i class="icofont-long-arrow-right"></i>
-                            </button></a>
-                          </div>
-                        </div>  
-                                  
-                    </form>
+            <div class="row">
+              <div class="col-lg-6 m-auto">
+                <div class="login-content">
+                  <div class="login-header mb-40">
+                    <h3 class="mb-2">비밀번호찾기</h3>
+                    <h5>해당 정보를 입력하세요</h5>
                   </div>
-                  <!-- writing Area End -->
+					<%-- 요청범위에 alert이 있는 경우 --%>
+					<c:if
+						test="${requestScope.msg != null && requestScope.msg != ''}">
+							<%-- 요청범위내 alert값 출력 --%>
+							<div class="color-error"><c:out value="${requestScope.msg}"/></div>
+					</c:if>
+                  <form action="./searchPass" method="post">
+                    <input type="text" placeholder="사용자ID" name="id"/>
+                    <input type="email" placeholder="이메일 주소" name="email"/>
+                    <div class="button-box mt-4">
+                      <button type="submit" class="btn-primary btn-large">
+                        비밀번호찾기
+                      </button>
+                    </div>
+                  </form>
                 </div>
-
-                <!-- blog details Post End -->
-              
-            
+              </div>
             </div>
           </div>
         </div>
-        <!-- Blog Details Wrapper End --> -
       </div>
     </div>
-    <!--======  바닥글 영역  =======-->
+
+    <!--======  바닥글 영역 =======-->
     <footer class="footer-area footer-one">
       <div class="footer-bottom-area">
         <div class="container">
@@ -301,7 +259,7 @@
         </div>
       </div>
     </footer>
-    <!--=====  바닥글 영역 종료 ========-->
+    <!--=====  바닥글 종료 ========-->
 
     <!--====================  search overlay ====================-->
     <div class="search-overlay" id="search-overlay">

@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import dao.MemberDAO;
 
 
-@WebServlet("/passProc")
-public class ProfilePassProc extends HttpServlet {
+@WebServlet("/searchPass")
+public class SearchPassProc extends HttpServlet {
 	
-   
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		reqPro(request,response);
 	}
@@ -28,22 +28,20 @@ public class ProfilePassProc extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 	    
 		String id = request.getParameter("id");
-	    String pass = request.getParameter("pass");
-	    String pass2 = request.getParameter("pass2");
-	    
+	    String email = request.getParameter("email");
+	    System.out.println(id);
+	    System.out.println(email);
 	    MemberDAO mdao = new MemberDAO();
-	    String dbPass = mdao.getPass(id);
+	    String dbPass = mdao.getPassforsearch(id,email);
 
-	    if(pass.equals(dbPass)){ //현재 비밀번호가 db비번과 일치하다면
-	    	mdao.updatePass(id, pass2);
-	    	request.setAttribute("msg", "비밀번호를 변경하였습니다. 다시 로그인해주세요.");
-			RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
-			dis.forward(request, response);
-		}else {
-			request.setAttribute("msg", "비밀번호가 맞지 않습니다.");
-			RequestDispatcher dis = request.getRequestDispatcher("profilePass.jsp");
+	    if(dbPass!=null){ 
+	    	request.setAttribute("msg", "현재 비밀번호는  "+dbPass+"  입니다.");
+	    	RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
+	    	dis.forward(request, response);
+	    }else {
+			request.setAttribute("msg", "입력한 정보와 일치하는 비밀번호를 찾을 수 없습니다.");
+			RequestDispatcher dis = request.getRequestDispatcher("searchPass.jsp");
 			dis.forward(request, response);
 		}
 	}
-
 }
