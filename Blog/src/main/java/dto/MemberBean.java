@@ -1,29 +1,37 @@
 package dto;
 
 public class MemberBean {
-	private String id;
-	private String pass;
-	private String email;
-
 	
-	public String getId() {
-		return id;
+	private String memberId;
+	private String memberPass;
+	private String memberEmail;
+	private String memberName;
+	
+	public String getMemberId() {
+		return memberId;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
-	public String getPass() {
-		return pass;
+	public String getMemberPass() {
+		return memberPass;
 	}
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setMemberPass(String memberPass) {
+		this.memberPass = memberPass;
 	}
-	public String getEmail() {
-		return email;
+	public String getMemberEmail() {
+		return memberEmail;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMemberEmail(String memberEmail) {
+		this.memberEmail = memberEmail;
 	}
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
+	
 	
 
 

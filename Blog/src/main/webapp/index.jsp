@@ -56,7 +56,7 @@
   <body>
     <!--========  헤더영역  =========-->
 
-	<jsp:useBean id="member" scope="session" type="dto.MemberBean"/>
+
     <header class="header">
       <div class="header-mid-area">
         <div class="container">

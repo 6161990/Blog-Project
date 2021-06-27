@@ -56,6 +56,9 @@
   <body>
 
 	<jsp:useBean id="member" scope="session" type="dto.MemberBean"/>
+
+	
+	
     <!--========  헤더영역  =========-->
     <header class="header">
      
@@ -222,45 +225,45 @@
                       <div class="row">
                         <div class="col-lg-6">
                             <div class="single-input category">
-                              <select name="category">
+                              <select name="category_category_num">
                                 <option value="">--카테고리를 선택해주세요--</option>
-                                <option value="영화리뷰"> 영화리뷰</option>
-                                <option value="기사"> 기사 </option>
-                                <option value="랭킹"> 랭킹 </option>
-                                <option value="전문가평점 & 리뷰"> 전문가평점 & 리뷰 </option>
+                                <option value="1"> 영화리뷰</option>
+                                <option value="2"> 기사 </option>
+                                <option value="3"> 랭킹 </option>
+                                <option value="4"> 전문가평점 & 리뷰 </option>
                             </select> <!-- input 넓이 정리  -->
                             </div>
                      	</div>
                         <div class="col-lg-6">
                           <div class="single-input email">
-                            <input type="email" placeholder="이메일" name="member_email" value ="${member.email}" readonly />
+                            <input type="email" placeholder="이메일" value ="${member.memberEmail}" readonly />
                           </div>
                         </div>
                        
                           <div class="single-input title">
-                            <input type="text" placeholder="제목" name="title"/>
+                            <input type="text" placeholder="제목" name="post_title"/>
                           </div>
                         
                         <div class="col-lg-12">
                           <div class="single-input">
                             <textarea 
-                              name="content"
+                              name="post_content"
                               placeholder="내용" 
                                ></textarea>
                           </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="single-input">
-                              <input type="text" placeholder="# 해시태그" name="tag"/>  <!-- input 넓이 정리  -->
+                              <input type="text" placeholder="#해시태그   ' , '로 구분해주세요" name="post_tag"/>  <!-- input 넓이 정리  -->
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="single-input email">
-                              <input type="text" placeholder="이미지" name="img" value ="[이미지파일]" readonly />
+                              <input type="text" placeholder="이미지" name="post_img" value ="[이미지파일]" readonly />
                             </div>
                         </div>
                         <!-- hidden 값 -->
-                        <input type="hidden" placeholder="작성자id"  name="member_id" value ="${member.id}" />
+                        <input type="hidden" name="member_memberId" value ="${member.memberId}" />
                        
                         <div class="col-lg-12">
                           <div class="submit-button text-center">

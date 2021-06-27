@@ -5,13 +5,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Vector;
 
-import dto.LoginMemberBean;
+
 import dto.MemberBean;
 
-
+// 회원 데이터베이스 접근 객체
 public class MemberDAO {
 	
 	private final String DSN = "jdbc:mysql://localhost:3306/blog?useSSL=false";
@@ -40,19 +38,44 @@ public class MemberDAO {
 			return conn;
 		}
 		
-		//회원 한 사람에 대한 정보를 저장하는 메소드
-		public void insertMember(MemberBean bean) {
+		//회원등록을 위한 id검증 메소드
+		public int validIDforRegister(String Id) {
+			int result=0;
+			
 			getCon();
 			
 			try {
 				//쿼리 준비
-				String sql ="insert into member values(?,?,?)";
+				String sql ="select count(*) from member where memberId=?";
+	    		pstmt  = conn.prepareStatement(sql); 
+	    		pstmt.setString(1, Id);
+	    		
+				rs = pstmt.executeQuery();
+				//패스워드 값을 지정
+				if(rs.next()) {
+					result=rs.getInt(1);
+				}
+				//자원 반납
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
+			return result;
+		}
+		
+		//회원 한 사람에 대한 정보를 저장하는 메소드
+		public void insertMember(MemberBean member) {
+			getCon();
+			
+			try {
+				//쿼리 준비
+				String sql ="insert into member values(?,?,?,?)";
 				//쿼리 실행 객체 선언
 				pstmt=conn.prepareStatement(sql);
-				pstmt.setString(1, bean.getId());
-				pstmt.setString(2, bean.getPass());
-				pstmt.setString(3, bean.getEmail());
-		
+				pstmt.setString(1, member.getMemberId());
+				pstmt.setString(2, member.getMemberPass());
+				pstmt.setString(3, member.getMemberEmail());
+				pstmt.setString(4, member.getMemberName());
 	
 				//쿼리 실행
 				pstmt.executeUpdate();
@@ -63,23 +86,24 @@ public class MemberDAO {
 		}
 
 		//회원정보가 있는지 비교
-		public MemberBean getLoginValid(String id, String pass) {
+		public MemberBean getLoginValid(String memberId, String memberPass) {
 			MemberBean member = new MemberBean();  //0이면 회원 없음
 			getCon();
 			   
 			   	try {
-		    		String sql ="select * from member where id=? and pass=?";
+		    		String sql ="select * from member where memberId=? and memberPass=?";
 		    		pstmt  = conn.prepareStatement(sql); 
-		    		pstmt.setString(1, id);
-		    		pstmt.setString(2, pass);
+		    		pstmt.setString(1, memberId);
+		    		pstmt.setString(2, memberPass);
 		    		
 		    		//쿼리 실행
 		    		rs = pstmt.executeQuery();
 		    		
 		    		if(rs.next()) {
-		    			member.setId(rs.getString(1));
-		    			member.setPass(rs.getString(2));
-		    			member.setEmail(rs.getString(3));
+		    			member.setMemberId(rs.getString(1));
+		    			member.setMemberPass(rs.getString(2));
+		    			member.setMemberEmail(rs.getString(3));
+		    			member.setMemberName(rs.getString(4));
 					}
 		    		conn.close();
 		    	} catch (SQLException e) {
@@ -121,15 +145,15 @@ public class MemberDAO {
 //		   	
 //		}
 
-		public String getPass(String id) {
+		public String getPass(String memberId) {
 			String dbpass="";
 			getCon();
 			
 			try {
 				//쿼리 준비
-				String sql ="select pass from member where id=?";
+				String sql ="select memberPass from member where memberId=?";
 	    		pstmt  = conn.prepareStatement(sql); 
-	    		pstmt.setString(1, id);
+	    		pstmt.setString(1, memberId);
 	    		
 				rs = pstmt.executeQuery();
 				//패스워드 값을 지정
@@ -144,15 +168,15 @@ public class MemberDAO {
 			return dbpass;
 	   }
 		
-		public void updatePass(String id, String pass2) {
+		public void updatePass(String memberId, String memberPass2) {
 			getCon();
 			
 			try {
 				//쿼리 준비
-				String sql ="update member set pass=? where id=?";
+				String sql ="update member set memberPass=? where memberId=?";
 	    		pstmt  = conn.prepareStatement(sql); 
-	    		pstmt.setString(1, pass2);
-	    		pstmt.setString(2, id);
+	    		pstmt.setString(1, memberPass2);
+	    		pstmt.setString(2, memberId);
 	    		
 	    		pstmt.executeUpdate();
 				
@@ -163,16 +187,16 @@ public class MemberDAO {
 			
 	   }
 		
-		public String getPassforsearch(String id, String email) {
+		public String getSearchforPass(String memberId, String memberEmail) {
 			String pass="";
 			getCon();
 			
 			try {
 				//쿼리 준비
-				String sql ="select pass from member where id=? and email=?";
+				String sql ="select memberPass from member where memberId=? and memberEmail=?";
 	    		pstmt  = conn.prepareStatement(sql); 
-	    		pstmt.setString(1, id);
-	    		pstmt.setString(2, email);
+	    		pstmt.setString(1, memberId);
+	    		pstmt.setString(2, memberEmail);
 	    		
 				rs = pstmt.executeQuery();
 				//패스워드 값을 지정

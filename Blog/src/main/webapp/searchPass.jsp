@@ -226,8 +226,8 @@
 							<div class="color-error"><c:out value="${requestScope.msg}"/></div>
 					</c:if>
                   <form action="./searchPass" method="post">
-                    <input type="text" placeholder="사용자ID" name="id"/>
-                    <input type="email" placeholder="이메일 주소" name="email"/>
+                    <input type="text" placeholder="사용자ID" name="memberId"/>
+                    <input type="email" placeholder="이메일 주소" name="memberEmail"/>
                     <div class="button-box mt-4">
                       <button type="submit" class="btn-primary btn-large">
                         비밀번호찾기

@@ -54,6 +54,10 @@
   </head>
 
   <body>
+  <script type="text/javascript">
+  	alert("다시 시도해주세요.");
+  	location.href="write-post.jsp";
+  </script>
     <!--========  헤더영역  =========-->
     <header class="header">
       <div class="header-top-area">

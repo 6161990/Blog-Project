@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.MemberDAO;
 
-
+//비밀번호 찾기 처리 
 @WebServlet("/searchPass")
 public class SearchPassProc extends HttpServlet {
 	
@@ -27,12 +27,12 @@ public class SearchPassProc extends HttpServlet {
 	private void reqPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		request.setCharacterEncoding("UTF-8");
 	    
-		String id = request.getParameter("id");
-	    String email = request.getParameter("email");
-	    System.out.println(id);
-	    System.out.println(email);
+		String memberId = request.getParameter("memberId");
+	    String memberEmail = request.getParameter("memberEmail");
+	    System.out.println(memberId);
+	    System.out.println(memberEmail);
 	    MemberDAO mdao = new MemberDAO();
-	    String dbPass = mdao.getPassforsearch(id,email);
+	    String dbPass = mdao.getSearchforPass(memberId,memberEmail);
 
 	    if(dbPass!=null){ 
 	    	request.setAttribute("msg", "현재 비밀번호는  "+dbPass+"  입니다.");

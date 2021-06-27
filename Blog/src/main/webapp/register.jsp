@@ -58,44 +58,6 @@
   <body>
     <!--========  헤더영역  =========-->
     <header class="header">
-      <!-- <div class="header-top-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6 order-1 order-lg-1">
-                        <ul class="header-top-menu-list">
-                            <li><a href="#">도움말</a></li>
-                            <li><a href="#">상태</a></li>
-                            <li><a href="#">글쓰기</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 order-3 order-lg-2">
-                        <div class="header-top-contact-info">
-                            <div class="header-top-single-contact-item">
-                                <div class="header-top-contact-icon">
-                                    <img src="assets/images/icons/contact-call.png" alt="">
-                                </div>
-                                <div class="header-top-contact-text text-size-small">
-                                    <a href="tel:02-1111-0000">02-1111-0000</a>
-                                </div>
-                            </div>
-
-                            <div class="header-top-single-contact-item">
-                                <div class="header-top-contact-icon">
-                                    <img src="assets/images/icons/contact-emaill.png" alt="">
-                                </div>
-                                <div class="header-top-contact-text">
-                                    <a href="mailto:test@gmail.com">test@gmail.com</a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div> 
-                    <div class="col-lg-3 col-md-6 col-sm-6 order-2 order-lg-3">
-       
-                    </div>
-                </div>
-            </div>
-        </div>-->
       <div class="header-mid-area">
         <div class="container">
           <div class="row align-items-center">
@@ -257,11 +219,16 @@
                     <h3 class="mb-2">회원가입</h3>
                     <h5>회원가입하세요</h5>
                   </div>
-
+				 <c:if
+						test="${requestScope.msg != null && requestScope.msg != ''}">
+							<%-- 요청범위내 alert값 출력 --%>
+							<div class="color-error"><c:out value="${requestScope.msg}" /></div>
+					</c:if>
                   <form action="./registerProc" method="post">
-                    <input type="text" placeholder="사용자ID" name="id" required />
-                    <input type="email" placeholder="이메일 주소" name="email" required/>
-                    <input type="password" placeholder="비밀번호" name="pass" minlength="8" required/> 
+                    <input type="text" placeholder="사용자ID" name="memberId" required />
+                    <input type="text" placeholder="사용자이름" name="memberName" required/>
+                    <input type="email" placeholder="이메일 주소" name="memberEmail" required/>
+                    <input type="password" placeholder="비밀번호" name="memberPass" minlength="8" required/> 
                     <div class="remember-forget-wrap">
                       <div class="remember-wrap">
                         <input type="checkbox" required />
@@ -270,11 +237,7 @@
                       </div>
                     </div>
                     <%-- 요청범위에 alert이 있는 경우 --%>
-					<c:if
-						test="${requestScope.msg != null && requestScope.msg != ''}">
-							<%-- 요청범위내 alert값 출력 --%>
-							<div class="color-pass"><c:out value="${requestScope.msg}" /></div>
-					</c:if>
+					
                     <div class="button-box mt-4">
                       <input type="submit" class="btn-primary btn-large" value="회원가입"/>
                     </div>

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.MemberDAO;
 
-
+//회원 비밀번호 변경 처리 : DB에 있는 비밀번호와 검증 , 현 비번과 새 비번은 비교하지않음.
 @WebServlet("/passProc")
 public class ProfilePassProc extends HttpServlet {
 	
@@ -27,15 +27,15 @@ public class ProfilePassProc extends HttpServlet {
 	private void reqPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		request.setCharacterEncoding("UTF-8");
 	    
-		String id = request.getParameter("id");
-	    String pass = request.getParameter("pass");
-	    String pass2 = request.getParameter("pass2");
+		String memberId = request.getParameter("memberId");
+	    String memberPass = request.getParameter("memberPass");
+	    String memberPass2 = request.getParameter("memberPass2");
 	    
 	    MemberDAO mdao = new MemberDAO();
-	    String dbPass = mdao.getPass(id);
+	    String dbPass = mdao.getPass(memberId);
 
-	    if(pass.equals(dbPass)){ //현재 비밀번호가 db비번과 일치하다면
-	    	mdao.updatePass(id, pass2);
+	    if(memberPass.equals(dbPass)){ //현재 비밀번호가 db비번과 일치하다면
+	    	mdao.updatePass(memberId, memberPass2);
 	    	request.setAttribute("msg", "비밀번호를 변경하였습니다. 다시 로그인해주세요.");
 			RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
 			dis.forward(request, response);

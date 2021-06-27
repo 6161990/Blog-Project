@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,12 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.MemberDAO;
+import dao.PostDAO;
 import dto.MemberBean;
+import dto.PostBean;
 
-//회원 프로필 처리 (로그인하지 않은 이용자 로그인유도)
-@WebServlet("/mInfoProc")
-public class MemberInfoProc extends HttpServlet {
+//작성한 글(write-post)을 author-post.html로 넘기기 전 처리, 내가 방금 쓴글 = 상세보기 페이지와같음 
+@WebServlet("/authorPostProc")
+public class AuthorPostProc extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		reqPro(request,response);
@@ -27,19 +26,13 @@ public class MemberInfoProc extends HttpServlet {
 	
 	private void reqPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		request.setCharacterEncoding("UTF-8");
-		HttpSession session = request.getSession();
+		
+		HttpSession session = request.getSession();	
 		MemberBean member = (MemberBean) session.getAttribute("member");
 		
-		if(member == null) {
-			request.setAttribute("msg", "로그인 먼저 이용해주세요.");
-			RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
-			dis.forward(request, response);
-		}
-		else {
-			session.setAttribute("member", member);
-			//request.setAttribute("id", id);
-			RequestDispatcher dis =request.getRequestDispatcher("memberInfo.jsp");
-			dis.forward(request, response);
-		}
+		String member_memberId = (String) request.getAttribute("member_memberId");
+		
+	
 	}
+
 }

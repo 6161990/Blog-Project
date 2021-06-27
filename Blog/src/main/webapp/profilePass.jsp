@@ -216,28 +216,28 @@
               <div class="col-lg-6 m-auto">
                 <div class="login-content">
                   <div class="login-header mb-40">
-                    <h5>프로필확인하기</h5>
+                    <h5>비밀번호 변경하기</h5>
                   </div>
-				<jsp:useBean id="member" scope="session" type="dto.MemberBean"/>
+				
                   <form action="./passProc" method="post">
                     <input
                       type="text"
-                      name="id"
+                      name="memberId"
                       placeholder="사용자ID"
-                      value="${member.id}"
+                      value="${member.memberId}"
                       readonly
                       required
                     />
                     <input
                       type="password"
-                      name="pass"
+                      name="memberPass"
                       placeholder="현재 비밀번호"
                       minlength="8"
                       required
                     />
 					<input
                       type="password"
-                      name="pass2"
+                      name="memberPass2"
                       placeholder="새 비밀번호"
                       minlength="8"
                       required
