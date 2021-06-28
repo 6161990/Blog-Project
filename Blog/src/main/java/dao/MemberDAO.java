@@ -39,16 +39,16 @@ public class MemberDAO {
 		}
 		
 		//회원등록을 위한 id검증 메소드
-		public int validIDforRegister(String Id) {
+		public int validIDforRegister(String member_id) {
 			int result=0;
 			
 			getCon();
 			
 			try {
 				//쿼리 준비
-				String sql ="select count(*) from member where memberId=?";
+				String sql ="select count(*) from member where member_id=?";
 	    		pstmt  = conn.prepareStatement(sql); 
-	    		pstmt.setString(1, Id);
+	    		pstmt.setString(1, member_id);
 	    		
 				rs = pstmt.executeQuery();
 				//패스워드 값을 지정
@@ -64,46 +64,54 @@ public class MemberDAO {
 		}
 		
 		//회원 한 사람에 대한 정보를 저장하는 메소드
-		public void insertMember(MemberBean member) {
+		public boolean insertMember(MemberBean member) {
+			boolean result = false;
 			getCon();
 			
 			try {
 				//쿼리 준비
-				String sql ="insert into member values(?,?,?,?)";
+				String sql ="insert into member(member_id,member_pass,member_email,member_name) values(?,?,?,?)";
 				//쿼리 실행 객체 선언
 				pstmt=conn.prepareStatement(sql);
-				pstmt.setString(1, member.getMemberId());
-				pstmt.setString(2, member.getMemberPass());
-				pstmt.setString(3, member.getMemberEmail());
-				pstmt.setString(4, member.getMemberName());
-	
+				pstmt.setString(1, member.getMember_id());
+				pstmt.setString(2, member.getMember_pass());
+				pstmt.setString(3, member.getMember_email());
+				pstmt.setString(4, member.getMember_name());
+				
 				//쿼리 실행
-				pstmt.executeUpdate();
+				int cnt = pstmt.executeUpdate();
+				if(cnt == 1) {
+					//INSERT문 실행결과 1이면 등록 성공
+					result = true;
+				}
 				conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			return result;
 		}
 
 		//회원정보가 있는지 비교
-		public MemberBean getLoginValid(String memberId, String memberPass) {
+		public MemberBean getLoginValid(String member_id, String member_pass) {
 			MemberBean member = new MemberBean();  //0이면 회원 없음
 			getCon();
 			   
 			   	try {
-		    		String sql ="select * from member where memberId=? and memberPass=?";
+		    		String sql ="select * from member where member_id=? and member_pass=?";
 		    		pstmt  = conn.prepareStatement(sql); 
-		    		pstmt.setString(1, memberId);
-		    		pstmt.setString(2, memberPass);
+		    		pstmt.setString(1, member_id);
+		    		pstmt.setString(2, member_pass);
 		    		
 		    		//쿼리 실행
 		    		rs = pstmt.executeQuery();
 		    		
 		    		if(rs.next()) {
-		    			member.setMemberId(rs.getString(1));
-		    			member.setMemberPass(rs.getString(2));
-		    			member.setMemberEmail(rs.getString(3));
-		    			member.setMemberName(rs.getString(4));
+		    			member.setMember_idx(rs.getInt(1));
+		    			member.setMember_id(rs.getString(2));
+		    			member.setMember_pass(rs.getString(3));
+		    			member.setMember_email(rs.getString(4));
+		    			member.setMember_name(rs.getString(5));
+		    			member.setMember_regdate(rs.getString(6));
 					}
 		    		conn.close();
 		    	} catch (SQLException e) {
@@ -145,15 +153,16 @@ public class MemberDAO {
 //		   	
 //		}
 
-		public String getPass(String memberId) {
+		public String getPass(String member_id,String member_name) {
 			String dbpass="";
 			getCon();
 			
 			try {
 				//쿼리 준비
-				String sql ="select memberPass from member where memberId=?";
+				String sql ="select member_pass from member where member_id=? and member_name=?";
 	    		pstmt  = conn.prepareStatement(sql); 
-	    		pstmt.setString(1, memberId);
+	    		pstmt.setString(1, member_id);
+	    		pstmt.setString(2, member_name);
 	    		
 				rs = pstmt.executeQuery();
 				//패스워드 값을 지정
@@ -168,15 +177,15 @@ public class MemberDAO {
 			return dbpass;
 	   }
 		
-		public void updatePass(String memberId, String memberPass2) {
+		public void updatePass(String member_id, String member_pass2) {
 			getCon();
 			
 			try {
 				//쿼리 준비
-				String sql ="update member set memberPass=? where memberId=?";
+				String sql ="update member set member_pass=? where member_id=?";
 	    		pstmt  = conn.prepareStatement(sql); 
-	    		pstmt.setString(1, memberPass2);
-	    		pstmt.setString(2, memberId);
+	    		pstmt.setString(1, member_pass2);
+	    		pstmt.setString(2, member_id);
 	    		
 	    		pstmt.executeUpdate();
 				
@@ -187,22 +196,34 @@ public class MemberDAO {
 			
 	   }
 		
-		public String getSearchforPass(String memberId, String memberEmail) {
+		public String getSearchforPass(String member_id, String member_email) {
 			String pass="";
+			int member_idx = 0;
 			getCon();
 			
 			try {
-				//쿼리 준비
-				String sql ="select memberPass from member where memberId=? and memberEmail=?";
+				//아이디, 이메일 가지고 회원 고유번호 가져오기 쿼리 준비
+				String sql ="select member_idx from member where member_id=? and member_email=?";
 	    		pstmt  = conn.prepareStatement(sql); 
-	    		pstmt.setString(1, memberId);
-	    		pstmt.setString(2, memberEmail);
+	    		pstmt.setString(1, member_id);
+	    		pstmt.setString(2, member_email);
 	    		
 				rs = pstmt.executeQuery();
 				//패스워드 값을 지정
 				if(rs.next()) {
-					pass=rs.getString(1);
+					member_idx = rs.getInt(1);
 				}
+				
+				//가져온 회원 고유번호로 비밀번호 알려주기
+				String sql2 = "select member_pass from member where member_idx=?";
+				pstmt  = conn.prepareStatement(sql2); 
+	    		pstmt.setInt(1, member_idx);
+	    		
+	    		rs = pstmt.executeQuery();
+	    		if(rs.next()) {
+	    			pass = rs.getString(1);
+	    		}
+	    		
 				//자원 반납
 				conn.close();
 			} catch (Exception e) {

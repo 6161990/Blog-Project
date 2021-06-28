@@ -63,7 +63,7 @@
           <div class="row align-items-center">
             <div class="col-lg-3 col-md-2 col-5">
               <div class="logo">
-                <a href="index.html">
+                <a href="index.jsp">
                   <img src="assets/images/logo/logo.png" alt="" />
                 </a>
               </div>
@@ -91,7 +91,7 @@
                 <a href="#" class="single-action-item">
                   <img src="assets/images/icons/bookmark.png" alt="" />
                 </a>
-                <a href="register.html" class="single-action-item">
+                <a href="./forMemberInfo" class="single-action-item">
                   <img src="assets/images/icons/user.png" alt="" />
                 </a>
               </div>
@@ -123,25 +123,25 @@
                 <nav class="navigation-menu">
                   <ul>
                     <li>
-                      <a href="index.html"><span>홈</span></a>
+                      <a href="index.jsp"><span>홈</span></a>
                     </li>
                     <li>
-                      <a href="about-us.html"><span>소개</span></a>
+                      <a href="about-us.jsp"><span>소개</span></a>
                     </li>
                     <li class="has-children">
-                      <a href="category.html"><span>카테고리</span></a>
+                      <a href="category.jsp"><span>카테고리</span></a>
                       <ul class="submenu">
                         <li>
-                          <a href="category.html"><span>영화 리뷰</span></a>
+                          <a href="category.jsp"><span>영화 리뷰</span></a>
                         </li>
                         <li>
-                          <a href="category.html"><span>기사</span></a>
+                          <a href="category.jsp"><span>기사</span></a>
                         </li>
                         <li>
-                          <a href="category.html"><span>랭킹</span></a>
+                          <a href="category.jsp"><span>랭킹</span></a>
                         </li>
                         <li>
-                          <a href="category.html"
+                          <a href="category.jsp"
                             ><span>전문가리뷰 & 평점</span></a
                           >
                         </li>
@@ -151,23 +151,23 @@
                       <a href="#"><span>기타페이지</span></a>
                       <ul class="submenu">
                         <li>
-                          <a href="blog-details.html"
+                          <a href="blog-details.jsp"
                             ><span>블로그 상세페이지</span></a
                           >
                         </li>
                         <li>
-                          <a href="author-post.html"><span>작성자 글</span></a>
+                          <a href="author-post.jsp"><span>작성자 글</span></a>
                         </li>
                         <li>
-                          <a href="register.html"><span>회원가입</span></a>
+                          <a href="register.jsp"><span>회원가입</span></a>
                         </li>
                         <li>
-                          <a href="write-post.html"><span>글작성</span></a>
+                          <a href="./forWritePost"><span>글작성</span></a>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="contact-us.html"><span>연락 </span></a>
+                      <a href="contact-us.jsp"><span>연락 </span></a>
                     </li>
                   </ul>
                 </nav>
@@ -197,7 +197,7 @@
               <!-- <h2 class="breadcrumb-title">@@title</h2> -->
               <!-- breadcrumb-list start -->
               <ul class="breadcrumb-list">
-                <li class="breadcrumb-item"><a href="index.html">홈</a></li>
+                <li class="breadcrumb-item"><a href="index.jsp">홈</a></li>
                 <li class="breadcrumb-item active">회원가입</li>
               </ul>
               <!-- breadcrumb-list end -->
@@ -225,10 +225,10 @@
 							<div class="color-error"><c:out value="${requestScope.msg}" /></div>
 					</c:if>
                   <form action="./registerProc" method="post">
-                    <input type="text" placeholder="사용자ID" name="memberId" required />
-                    <input type="text" placeholder="사용자이름" name="memberName" required/>
-                    <input type="email" placeholder="이메일 주소" name="memberEmail" required/>
-                    <input type="password" placeholder="비밀번호" name="memberPass" minlength="8" required/> 
+                    <input type="text" placeholder="사용자ID" name="member_id" required />
+                    <input type="text" placeholder="사용자이름" name="member_name" required/>
+                    <input type="email" placeholder="이메일 주소" name="member_email" required/>
+                    <input type="password" placeholder="비밀번호" name="member_pass" minlength="8" required/> 
                     <div class="remember-forget-wrap">
                       <div class="remember-wrap">
                         <input type="checkbox" required />
@@ -316,7 +316,7 @@
               <div class="col-md-6 col-8">
                 <!-- logo -->
                 <div class="logo">
-                  <a href="index.html">
+                  <a href="index.jsp">
                     <img
                       src="assets/images/logo/logo.png"
                       class="img-fluid"
@@ -341,36 +341,36 @@
           <nav class="offcanvas-navigation">
             <ul>
               <li>
-                <a href="index.html"><span>홈</span></a>
+                <a href="index.jsp"><span>홈</span></a>
               </li>
               <li>
-                <a href="about-us.html"><span>소개</span></a>
+                <a href="about-us.jsp"><span>소개</span></a>
               </li>
               <li>
-                <a href="category.html"><span>카테고리</span></a>
+                <a href="category.jsp"><span>카테고리</span></a>
               </li>
 
               <li class="has-children">
                 <a href="#">기타페이지</a>
                 <ul class="sub-menu">
                   <li>
-                    <a href="blog-details.html"
+                    <a href="blog-details.jsp"
                       ><span>블로그 상세페이지</span></a
                     >
                   </li>
                   <li>
-                    <a href="author-post.html"><span>작성자 글</span></a>
+                    <a href="author-post.jsp"><span>작성자 글</span></a>
                   </li>
                   <li>
-                    <a href="register.html"><span>회원가입</span></a>
+                    <a href="register.jsp"><span>회원가입</span></a>
                   </li>
                   <li>
-                    <a href="write-post.html"><span>글쓰기</span></a>
+                    <a href="write-post.jsp"><span>글쓰기</span></a>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="contact-us.html"><span>연락 </span></a>
+                <a href="contact-us.jsp"><span>연락 </span></a>
               </li>
             </ul>
           </nav>

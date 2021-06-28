@@ -27,12 +27,13 @@ public class SearchPassProc extends HttpServlet {
 	private void reqPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		request.setCharacterEncoding("UTF-8");
 	    
-		String memberId = request.getParameter("memberId");
-	    String memberEmail = request.getParameter("memberEmail");
-	    System.out.println(memberId);
-	    System.out.println(memberEmail);
+		String member_id = request.getParameter("member_id");
+	    String member_email = request.getParameter("member_email");
+	    
+	    System.out.println(member_id);
+	    System.out.println(member_email);
 	    MemberDAO mdao = new MemberDAO();
-	    String dbPass = mdao.getSearchforPass(memberId,memberEmail);
+	    String dbPass = mdao.getSearchforPass(member_id,member_email);
 
 	    if(dbPass!=null){ 
 	    	request.setAttribute("msg", "현재 비밀번호는  "+dbPass+"  입니다.");

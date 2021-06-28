@@ -89,7 +89,7 @@
                 <a href="#" class="single-action-item">
                   <img src="assets/images/icons/bookmark.png" alt="" />
                 </a>
-                <a href="register.jsp" class="single-action-item">
+                <a href="./forMemberInfo" class="single-action-item">
                   <img src="assets/images/icons/user.png" alt="" />
                 </a>
               </div>
@@ -160,7 +160,7 @@
                           <a href="register.jsp"><span>회원가입</span></a>
                         </li>
                         <li>
-                          <a href="./writePostProc"><span>글작성</span></a>
+                          <a href="./forWritePost"><span>글작성</span></a>
                         </li>
                       </ul>
                     </li>
@@ -223,8 +223,8 @@
 							<div class="color-error"><c:out value="${requestScope.msg}"/></div>
 					</c:if>
                   <form action="./loginProc" method="post">
-                    <input type="text" name="memberId" placeholder="사용자ID" required />
-                    <input type="password" name="memberPass" placeholder="비밀번호" required />
+                    <input type="text" name="member_id" placeholder="사용자ID" required />
+                    <input type="password" name="member_pass" placeholder="비밀번호" required />
                   
                     <div class="remember-forget-wrap mb-30">
                       <div class="remember-wrap">

@@ -30,7 +30,7 @@ public class AuthorPostProc extends HttpServlet {
 		HttpSession session = request.getSession();	
 		MemberBean member = (MemberBean) session.getAttribute("member");
 		
-		String member_memberId = (String) request.getAttribute("member_memberId");
+		String member_id = (String) request.getAttribute("member_id");
 		
 	
 	}

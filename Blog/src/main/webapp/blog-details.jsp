@@ -89,7 +89,7 @@
                 <a href="#" class="single-action-item">
                   <img src="assets/images/icons/bookmark.png" alt="" />
                 </a>
-                <a href="register.jsp" class="single-action-item">
+                <a href="./forMemberInfo" class="single-action-item">
                   <img src="assets/images/icons/user.png" alt="" />
                 </a>
               </div>
@@ -160,7 +160,7 @@
                           <a href="register.jsp"><span>회원가입</span></a>
                         </li>
                         <li>
-                          <a href="write-post.jsp"><span>글작성</span></a>
+                          <a href="./forWritePost"><span>글작성</span></a>
                         </li>
                       </ul>
                     </li>

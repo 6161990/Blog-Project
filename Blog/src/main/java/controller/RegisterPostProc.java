@@ -29,27 +29,33 @@ public class RegisterPostProc extends HttpServlet {
 	
 	private void reqPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		request.setCharacterEncoding("UTF-8");
-
+		RequestDispatcher dis =null;
+		boolean result = false;
+		
+		
 		//전송정보 얻기 date 빼고
 		PostBean post = new PostBean();
-		post.setMember_memberId(request.getParameter("member_memberId"));
-	    post.setCategory_category_num(Integer.parseInt(request.getParameter("category_category_num")));
+		post.setPost_member_idx(Integer.parseInt(request.getParameter("post_member_idx")));
+	    post.setPost_category_idx(Integer.parseInt(request.getParameter("post_category_idx")));
 	    post.setPost_title(request.getParameter("post_title"));
 	    post.setPost_content(request.getParameter("post_content"));
-	    post.setPost_tag(request.getParameter("post_tag"));
-	    post.setPost_img(request.getParameter("post_img"));
+	    post.setPost_tag1(request.getParameter("post_tag1"));
+	    post.setPost_tag2(request.getParameter("post_tag2"));
+	    
 		
 		PostDAO pdao = new PostDAO();
-		pdao.insertPost(post);
+		result=pdao.insertPost(post);
 		
-		RequestDispatcher dis =null;
 		
-		if(post != null) {
+		if(result == true) {
 			HttpSession session = request.getSession();	
 			MemberBean member = (MemberBean) session.getAttribute("member");
 			session.setAttribute("member", member);
-			session.setAttribute("post", post);
-			System.out.println(member.getMemberId()+"님의 post insert success!!!!!");
+			System.out.println(member.getMember_id()+"님의 post insert success!!!!!");
+			
+			ArrayList<PostBean> postList = pdao.getMyPostList(member.getMember_idx());
+			session.setAttribute("postList",postList);
+			
 			dis = request.getRequestDispatcher("authorPostProc");
 			dis.forward(request, response);
 		}else {

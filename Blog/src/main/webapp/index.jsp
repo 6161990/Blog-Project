@@ -63,7 +63,7 @@
           <div class="row align-items-center">
             <div class="col-lg-3 col-md-2 col-5">
               <div class="logo">
-                <a href="index.html">
+                <a href="index.jsp">
                   <img src="assets/images/logo/logo.png" alt="" />
                 </a>
               </div>
@@ -91,7 +91,7 @@
                 <a href="#" class="single-action-item">
                   <img src="assets/images/icons/bookmark.png" alt="" />
                 </a>
-                <a href="./mInfoProc" class="single-action-item">
+                <a href="./forMemberInfo" class="single-action-item">
                   <img src="assets/images/icons/user.png" alt="" />
                 </a>
               </div>
@@ -123,25 +123,25 @@
                 <nav class="navigation-menu">
                   <ul>
                     <li>
-                      <a href="index.html"><span>홈</span></a>
+                      <a href="index.jsp"><span>홈</span></a>
                     </li>
                     <li>
-                      <a href="about-us.html"><span>소개</span></a>
+                      <a href="about-us.jsp"><span>소개</span></a>
                     </li>
                     <li class="has-children">
-                      <a href="category.html"><span>카테고리</span></a>
+                      <a href="category.jsp"><span>카테고리</span></a>
                       <ul class="submenu">
                         <li>
-                          <a href="category.html"><span>영화 리뷰</span></a>
+                          <a href="category.jsp"><span>영화 리뷰</span></a>
                         </li>
                         <li>
-                          <a href="category.html"><span>기사</span></a>
+                          <a href="category.jsp"><span>기사</span></a>
                         </li>
                         <li>
-                          <a href="category.html"><span>랭킹</span></a>
+                          <a href="category.jsp"><span>랭킹</span></a>
                         </li>
                         <li>
-                          <a href="category.html"
+                          <a href="category.jsp"
                             ><span>전문가리뷰 & 평점</span></a
                           >
                         </li>
@@ -151,23 +151,23 @@
                       <a href="#"><span>기타페이지</span></a>
                       <ul class="submenu">
                         <li>
-                          <a href="blog-details.html"
+                          <a href="blog-details.jsp"
                             ><span>블로그 상세페이지</span></a
                           >
                         </li>
                         <li>
-                          <a href="author-post.html"><span>작성자 글</span></a>
+                          <a href="author-post.jsp"><span>작성자 글</span></a>
                         </li>
                         <li>
-                          <a href="register.html"><span>회원가입</span></a>
+                          <a href="register.jsp"><span>회원가입</span></a>
                         </li>
                         <li>
-                          <a href="./writePostProc"><span>글작성</span></a>
+                          <a href="./forWritePost"><span>글작성</span></a>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="contact-us.html"><span>연락 </span></a>
+                      <a href="contact-us.jsp"><span>연락 </span></a>
                     </li>
                   </ul>
                 </nav>
@@ -199,7 +199,7 @@
                   <!-- 히어로 카테고리 영역 시작 -->
                   <div class="hero-category-area">
                     <a
-                      href="category.html"
+                      href="category.jsp"
                       class="single-hero-category-item"
                       data-aos="fade-up"
                     >
@@ -211,7 +211,7 @@
                       </div>
                     </a>
                     <a
-                      href="category.html"
+                      href="category.jsp"
                       class="single-hero-category-item"
                       data-aos="fade-up"
                     >
@@ -222,7 +222,7 @@
                       </div>
                     </a>
                     <a
-                      href="category.html"
+                      href="category.jsp"
                       class="single-hero-category-item"
                       data-aos="fade-up"
                     >
@@ -233,7 +233,7 @@
                       </div>
                     </a>
                     <a
-                      href="category.html"
+                      href="category.jsp"
                       class="single-hero-category-item"
                       data-aos="fade-up"
                     >
@@ -248,7 +248,7 @@
 
                   <!-- 히어로 배너 영역 시작 -->
                   <div class="hero-banner-area" data-aos="fade-up">
-                    <a href="blog-details.html">
+                    <a href="blog-details.jsp">
                       <img src="assets/images/hero/hero-01.jpg" alt="" />
                     </a>
                   </div>
@@ -266,7 +266,7 @@
                         </div>
                       </div>
                       <h3 class="hero-blog-post-title">
-                        <a href="blog-details.html"
+                        <a href="blog-details.jsp"
                           >현대차기아vs테슬라 전기차 대전 승자는?
                         </a>
                       </h3>
@@ -307,7 +307,7 @@
                         </div>
                       </div>
                       <h3 class="hero-blog-post-title">
-                        <a href="blog-details.html"
+                        <a href="blog-details.jsp"
                           >코로나19 델타 바이러스 확산!
                         </a>
                       </h3>
@@ -380,7 +380,7 @@
                             data-aos="fade-up"
                           >
                             <div class="trending-post-thum">
-                              <a href="blog-details.html">
+                              <a href="blog-details.jsp">
                                 <img
                                   src="assets/images/trending/1-trending-img.jpg"
                                   alt=""
@@ -397,7 +397,7 @@
                                 </div>
                               </div>
                               <h5 class="trending-blog-post-title">
-                                <a href="blog-details.html"
+                                <a href="blog-details.jsp"
                                   >올 추석에 인원제한 없이 가족 모임 할 수
                                   있나요?
                                 </a>
@@ -432,7 +432,7 @@
                             data-aos="fade-up"
                           >
                             <div class="trending-post-thum">
-                              <a href="blog-details.html">
+                              <a href="blog-details.jsp">
                                 <img
                                   src="assets/images/trending/2-trending-img.jpg"
                                   alt=""
@@ -449,7 +449,7 @@
                                 </div>
                               </div>
                               <h5 class="trending-blog-post-title">
-                                <a href="blog-details.html"
+                                <a href="blog-details.jsp"
                                   >올 추석에 인원제한 없이 가족 모임 할 수
                                   있나요?
                                 </a>
@@ -484,7 +484,7 @@
                             data-aos="fade-up"
                           >
                             <div class="trending-post-thum">
-                              <a href="blog-details.html">
+                              <a href="blog-details.jsp">
                                 <img
                                   src="assets/images/trending/3-trending-img.jpg"
                                   alt=""
@@ -501,7 +501,7 @@
                                 </div>
                               </div>
                               <h5 class="trending-blog-post-title">
-                                <a href="blog-details.html"
+                                <a href="blog-details.jsp"
                                   >올 추석에 인원제한 없이 가족 모임 할 수
                                   있나요?
                                 </a>
@@ -540,7 +540,7 @@
                             data-aos="fade-up"
                           >
                             <div class="trending-large-post-thum">
-                              <a href="blog-details.html">
+                              <a href="blog-details.jsp">
                                 <img
                                   src="assets/images/trending/4-trending-img.jpg"
                                   alt=""
@@ -560,7 +560,7 @@
                                     </div>
                                   </div>
                                   <h5 class="trending-blog-post-title">
-                                    <a href="blog-details.html"
+                                    <a href="blog-details.jsp"
                                       >올 추석에 인원제한 없이 가족 모임 할 수
                                       있나요?
                                     </a>
@@ -602,7 +602,7 @@
                                     </div>
                                   </div>
                                   <h5 class="trending-blog-post-title">
-                                    <a href="blog-details.html"
+                                    <a href="blog-details.jsp"
                                       >올 추석에 인원제한 없이 가족 모임 할 수
                                       있나요?
                                     </a>
@@ -640,7 +640,7 @@
                             data-aos="fade-up"
                           >
                             <div class="trending-large-post-thum">
-                              <a href="blog-details.html">
+                              <a href="blog-details.jsp">
                                 <img
                                   src="assets/images/trending/5-trending-img.jpg"
                                   alt=""
@@ -657,7 +657,7 @@
                                 </div>
                               </div>
                               <h5 class="trending-blog-post-title">
-                                <a href="blog-details.html"
+                                <a href="blog-details.jsp"
                                   >올 추석에 인원제한 없이 가족 모임 할 수
                                   있나요?
                                 </a>
@@ -700,7 +700,7 @@
                             data-aos="fade-up"
                           >
                             <div class="trending-post-thum">
-                              <a href="blog-details.html">
+                              <a href="blog-details.jsp">
                                 <img
                                   src="assets/images/trending/1-trending-img.jpg"
                                   alt=""
@@ -717,7 +717,7 @@
                                 </div>
                               </div>
                               <h5 class="trending-blog-post-title">
-                                <a href="blog-details.html"
+                                <a href="blog-details.jsp"
                                   >인기글 왼쪽 사이드
                                 </a>
                               </h5>
@@ -751,7 +751,7 @@
                             data-aos="fade-up"
                           >
                             <div class="trending-post-thum">
-                              <a href="blog-details.html">
+                              <a href="blog-details.jsp">
                                 <img
                                   src="assets/images/trending/2-trending-img.jpg"
                                   alt=""
@@ -768,7 +768,7 @@
                                 </div>
                               </div>
                               <h5 class="trending-blog-post-title">
-                                <a href="blog-details.html"
+                                <a href="blog-details.jsp"
                                   >올 추석에 인원제한 없이 가족 모임 할 수
                                   있나요?
                                 </a>
@@ -803,7 +803,7 @@
                             data-aos="fade-up"
                           >
                             <div class="trending-post-thum">
-                              <a href="blog-details.html">
+                              <a href="blog-details.jsp">
                                 <img
                                   src="assets/images/trending/3-trending-img.jpg"
                                   alt=""
@@ -820,7 +820,7 @@
                                 </div>
                               </div>
                               <h5 class="trending-blog-post-title">
-                                <a href="blog-details.html"
+                                <a href="blog-details.jsp"
                                   >올 추석에 인원제한 없이 가족 모임 할 수
                                   있나요?
                                 </a>
@@ -859,7 +859,7 @@
                             data-aos="fade-up"
                           >
                             <div class="trending-large-post-thum">
-                              <a href="blog-details.html">
+                              <a href="blog-details.jsp">
                                 <img
                                   src="assets/images/trending/4-trending-img.jpg"
                                   alt=""
@@ -879,7 +879,7 @@
                                     </div>
                                   </div>
                                   <h5 class="trending-blog-post-title">
-                                    <a href="blog-details.html"
+                                    <a href="blog-details.jsp"
                                       >올 추석에 인원제한 없이 가족 모임 할 수
                                       있나요?
                                     </a>
@@ -921,7 +921,7 @@
                                     </div>
                                   </div>
                                   <h5 class="trending-blog-post-title">
-                                    <a href="blog-details.html"
+                                    <a href="blog-details.jsp"
                                       >올 추석에 인원제한 없이 가족 모임 할 수
                                       있나요?
                                     </a>
@@ -959,7 +959,7 @@
                             data-aos="fade-up"
                           >
                             <div class="trending-large-post-thum">
-                              <a href="blog-details.html">
+                              <a href="blog-details.jsp">
                                 <img
                                   src="assets/images/trending/5-trending-img.jpg"
                                   alt=""
@@ -976,7 +976,7 @@
                                 </div>
                               </div>
                               <h5 class="trending-blog-post-title">
-                                <a href="blog-details.html"
+                                <a href="blog-details.jsp"
                                   >올 추석에 인원제한 없이 가족 모임 할 수
                                   있나요?
                                 </a>
@@ -1039,7 +1039,7 @@
                     <div class="swiper-wrapper">
                       <div class="swiper-slide" data-aos="fade-up">
                         <div class="single-trending-topic-item">
-                          <a href="category-grid.html">
+                          <a href="category-grid.jsp">
                             <img
                               src="assets/images/topic/01_topic.jpg"
                               alt=""
@@ -1050,7 +1050,7 @@
                       </div>
                       <div class="swiper-slide" data-aos="fade-up">
                         <div class="single-trending-topic-item">
-                          <a href="category-grid.html">
+                          <a href="category-grid.jsp">
                             <img
                               src="assets/images/topic/02_topic.jpg"
                               alt=""
@@ -1061,7 +1061,7 @@
                       </div>
                       <div class="swiper-slide" data-aos="fade-up">
                         <div class="single-trending-topic-item">
-                          <a href="category-grid.html">
+                          <a href="category-grid.jsp">
                             <img
                               src="assets/images/topic/03_topic.jpg"
                               alt=""
@@ -1072,7 +1072,7 @@
                       </div>
                       <div class="swiper-slide" data-aos="fade-up">
                         <div class="single-trending-topic-item">
-                          <a href="category-grid.html">
+                          <a href="category-grid.jsp">
                             <img
                               src="assets/images/topic/04_topic.jpg"
                               alt=""
@@ -1083,7 +1083,7 @@
                       </div>
                       <div class="swiper-slide" data-aos="fade-up">
                         <div class="single-trending-topic-item">
-                          <a href="category-grid.html">
+                          <a href="category-grid.jsp">
                             <img
                               src="assets/images/topic/05_topic.jpg"
                               alt=""
@@ -1126,7 +1126,7 @@
                   <div class="single-recent-reading-post" data-aos="fade-up">
                     <a
                       class="recent-reading-post-thum"
-                      href="blog-details.html"
+                      href="blog-details.jsp"
                     >
                       <img
                         src="assets/images/recent-reading-list/01_reading-list.jpg"
@@ -1138,7 +1138,7 @@
                         By <a href="#">홍길동</a>
                       </div>
                       <h6 class="title">
-                        <a href="blog-details.html"
+                        <a href="blog-details.jsp"
                           >올 추석에 인원제한 없이 가족 모임 할 수 있나요?</a
                         >
                       </h6>
@@ -1157,7 +1157,7 @@
                   <div class="single-recent-reading-post" data-aos="fade-up">
                     <a
                       class="recent-reading-post-thum"
-                      href="blog-details.html"
+                      href="blog-details.jsp"
                     >
                       <img
                         src="assets/images/recent-reading-list/01_reading-list.jpg"
@@ -1169,7 +1169,7 @@
                         By <a href="#">홍길동</a>
                       </div>
                       <h6 class="title">
-                        <a href="blog-details.html"
+                        <a href="blog-details.jsp"
                           >올 추석에 인원제한 없이 가족 모임 할 수 있나요?</a
                         >
                       </h6>
@@ -1188,7 +1188,7 @@
                   <div class="single-recent-reading-post" data-aos="fade-up">
                     <a
                       class="recent-reading-post-thum"
-                      href="blog-details.html"
+                      href="blog-details.jsp"
                     >
                       <img
                         src="assets/images/recent-reading-list/01_reading-list.jpg"
@@ -1200,7 +1200,7 @@
                         By <a href="#">홍길동</a>
                       </div>
                       <h6 class="title">
-                        <a href="blog-details.html"
+                        <a href="blog-details.jsp"
                           >올 추석에 인원제한 없이 가족 모임 할 수 있나요?</a
                         >
                       </h6>
@@ -1220,7 +1220,7 @@
                   <div class="single-recent-reading-post" data-aos="fade-up">
                     <a
                       class="recent-reading-post-thum"
-                      href="blog-details.html"
+                      href="blog-details.jsp"
                     >
                       <img
                         src="assets/images/recent-reading-list/01_reading-list.jpg"
@@ -1232,7 +1232,7 @@
                         By <a href="#">홍길동</a>
                       </div>
                       <h6 class="title">
-                        <a href="blog-details.html"
+                        <a href="blog-details.jsp"
                           >올 추석에 인원제한 없이 가족 모임 할 수 있나요?</a
                         >
                       </h6>
@@ -1251,7 +1251,7 @@
                   <div class="single-recent-reading-post" data-aos="fade-up">
                     <a
                       class="recent-reading-post-thum"
-                      href="blog-details.html"
+                      href="blog-details.jsp"
                     >
                       <img
                         src="assets/images/recent-reading-list/01_reading-list.jpg"
@@ -1263,7 +1263,7 @@
                         By <a href="#">홍길동</a>
                       </div>
                       <h6 class="title">
-                        <a href="blog-details.html"
+                        <a href="blog-details.jsp"
                           >올 추석에 인원제한 없이 가족 모임 할 수 있나요?</a
                         >
                       </h6>
@@ -1281,7 +1281,7 @@
                   <div class="single-recent-reading-post" data-aos="fade-up">
                     <a
                       class="recent-reading-post-thum"
-                      href="blog-details.html"
+                      href="blog-details.jsp"
                     >
                       <img
                         src="assets/images/recent-reading-list/01_reading-list.jpg"
@@ -1293,7 +1293,7 @@
                         By <a href="#">홍길동</a>
                       </div>
                       <h6 class="title">
-                        <a href="blog-details.html"
+                        <a href="blog-details.jsp"
                           >올 추석에 인원제한 없이 가족 모임 할 수 있나요?</a
                         >
                       </h6>
@@ -1313,7 +1313,7 @@
                   <div class="single-recent-reading-post" data-aos="fade-up">
                     <a
                       class="recent-reading-post-thum"
-                      href="blog-details.html"
+                      href="blog-details.jsp"
                     >
                       <img
                         src="assets/images/recent-reading-list/01_reading-list.jpg"
@@ -1325,7 +1325,7 @@
                         By <a href="#">홍길동</a>
                       </div>
                       <h6 class="title">
-                        <a href="blog-details.html"
+                        <a href="blog-details.jsp"
                           >올 추석에 인원제한 없이 가족 모임 할 수 있나요?</a
                         >
                       </h6>
@@ -1344,7 +1344,7 @@
                   <div class="single-recent-reading-post" data-aos="fade-up">
                     <a
                       class="recent-reading-post-thum"
-                      href="blog-details.html"
+                      href="blog-details.jsp"
                     >
                       <img
                         src="assets/images/recent-reading-list/01_reading-list.jpg"
@@ -1356,7 +1356,7 @@
                         By <a href="#">홍길동</a>
                       </div>
                       <h6 class="title">
-                        <a href="blog-details.html"
+                        <a href="blog-details.jsp"
                           >올 추석에 인원제한 없이 가족 모임 할 수 있나요?</a
                         >
                       </h6>
@@ -1375,7 +1375,7 @@
                   <div class="single-recent-reading-post" data-aos="fade-up">
                     <a
                       class="recent-reading-post-thum"
-                      href="blog-details.html"
+                      href="blog-details.jsp"
                     >
                       <img
                         src="assets/images/recent-reading-list/01_reading-list.jpg"
@@ -1387,7 +1387,7 @@
                         By <a href="#">홍길동</a>
                       </div>
                       <h6 class="title">
-                        <a href="blog-details.html"
+                        <a href="blog-details.jsp"
                           >올 추석에 인원제한 없이 가족 모임 할 수 있나요?</a
                         >
                       </h6>
@@ -1495,7 +1495,7 @@
               <div class="col-md-6 col-8">
                 <!-- logo -->
                 <div class="logo">
-                  <a href="index.html">
+                  <a href="index.jsp">
                     <img
                       src="assets/images/logo/logo.png"
                       class="img-fluid"
@@ -1520,36 +1520,36 @@
           <nav class="offcanvas-navigation">
             <ul>
               <li>
-                <a href="index.html"><span>홈</span></a>
+                <a href="index.jsp"><span>홈</span></a>
               </li>
               <li>
-                <a href="about-us.html"><span>소개</span></a>
+                <a href="about-us.jsp"><span>소개</span></a>
               </li>
               <li>
-                <a href="category.html"><span>카테고리</span></a>
+                <a href="category.jsp"><span>카테고리</span></a>
               </li>
 
               <li class="has-children">
                 <a href="#">기타페이지</a>
                 <ul class="sub-menu">
                   <li>
-                    <a href="blog-details.html"
+                    <a href="blog-details.jsp"
                       ><span>블로그 상세페이지</span></a
                     >
                   </li>
                   <li>
-                    <a href="author-post.html"><span>작성자 글</span></a>
+                    <a href="author-post.jsp"><span>작성자 글</span></a>
                   </li>
                   <li>
-                    <a href="register.html"><span>회원가입</span></a>
+                    <a href="register.jsp"><span>회원가입</span></a>
                   </li>
                   <li>
-                    <a href="write-post.html"><span>글쓰기</span></a>
+                    <a href="write-post.jsp"><span>글쓰기</span></a>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="contact-us.html"><span>연락 </span></a>
+                <a href="contact-us.jsp"><span>연락 </span></a>
               </li>
             </ul>
           </nav>

@@ -4,32 +4,36 @@ package dto;
 //게시물 작성 DTO
 public class PostBean {
 	
-	private int post_num;
-	private String member_memberId;
-	private int category_category_num;
-	private String post_title;
-	private String post_content;
-	private String post_date;
-	private String post_tag;
-	private String post_img;
+	private int post_idx;
+	private int post_member_idx;
+	private int post_category_idx; 
+	private String post_title; //제목
+	private String post_content; //내용
+	private String post_regdate; //등록일
+	private String post_update; //수정일
+	private String post_tag1; //태그1
+	private String post_tag2; //태그2
+	private int post_like; //좋아요
+	private int post_cnt;  //조회수
 	
-	public int getPost_num() {
-		return post_num;
+	
+	public int getPost_idx() {
+		return post_idx;
 	}
-	public void setPost_num(int post_num) {
-		this.post_num = post_num;
+	public void setPost_idx(int post_idx) {
+		this.post_idx = post_idx;
 	}
-	public String getMember_memberId() {
-		return member_memberId;
+	public int getPost_member_idx() {
+		return post_member_idx;
 	}
-	public void setMember_memberId(String member_memberId) {
-		this.member_memberId = member_memberId;
+	public void setPost_member_idx(int post_member_idx) {
+		this.post_member_idx = post_member_idx;
 	}
-	public int getCategory_category_num() {
-		return category_category_num;
+	public int getPost_category_idx() {
+		return post_category_idx;
 	}
-	public void setCategory_category_num(int category_category_num) {
-		this.category_category_num = category_category_num;
+	public void setPost_category_idx(int post_category_idx) {
+		this.post_category_idx = post_category_idx;
 	}
 	public String getPost_title() {
 		return post_title;
@@ -43,24 +47,43 @@ public class PostBean {
 	public void setPost_content(String post_content) {
 		this.post_content = post_content;
 	}
-	public String getPost_date() {
-		return post_date;
+	public String getPost_regdate() {
+		return post_regdate;
 	}
-	public void setPost_date(String post_date) {
-		this.post_date = post_date;
+	public void setPost_regdate(String post_regdate) {
+		this.post_regdate = post_regdate;
 	}
-	public String getPost_tag() {
-		return post_tag;
+	public String getPost_update() {
+		return post_update;
 	}
-	public void setPost_tag(String post_tag) {
-		this.post_tag = post_tag;
+	public void setPost_update(String post_update) {
+		this.post_update = post_update;
 	}
-	public String getPost_img() {
-		return post_img;
+	public String getPost_tag1() {
+		return post_tag1;
 	}
-	public void setPost_img(String post_img) {
-		this.post_img = post_img;
+	public void setPost_tag1(String post_tag1) {
+		this.post_tag1 = post_tag1;
 	}
+	public String getPost_tag2() {
+		return post_tag2;
+	}
+	public void setPost_tag2(String post_tag2) {
+		this.post_tag2 = post_tag2;
+	}
+	public int getPost_like() {
+		return post_like;
+	}
+	public void setPost_like(int post_like) {
+		this.post_like = post_like;
+	}
+	public int getPost_cnt() {
+		return post_cnt;
+	}
+	public void setPost_cnt(int post_cnt) {
+		this.post_cnt = post_cnt;
+	}
+	
 	
 	
 	
