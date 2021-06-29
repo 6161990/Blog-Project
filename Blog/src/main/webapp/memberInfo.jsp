@@ -223,7 +223,7 @@
                     <img src="assets/images/author/author-001.jpg" alt="" />
                   </div>
                   <div class="author-title add">
-                    <h4 class="author-name"><a href="#">member.member_name( ${member.member_id} )</a></h4>
+                    <h4 class="author-name"><a href="#"> ${member.member_name} ( ${member.member_id} )</a></h4>
                     <p>작가, 개발자</p>
                   </div>
                   <div class="author-details">

@@ -46,7 +46,7 @@ public class MemberDAO {
 			
 			try {
 				//쿼리 준비
-				String sql ="select count(*) from member where member_id=?";
+				String sql ="select count(*) from member_master where member_id=?";
 	    		pstmt  = conn.prepareStatement(sql); 
 	    		pstmt.setString(1, member_id);
 	    		
@@ -70,13 +70,13 @@ public class MemberDAO {
 			
 			try {
 				//쿼리 준비
-				String sql ="insert into member(member_id,member_pass,member_email,member_name) values(?,?,?,?)";
+				String sql ="insert into member_master(member_id,member_pass,member_name,member_email) values(?,?,?,?)";
 				//쿼리 실행 객체 선언
 				pstmt=conn.prepareStatement(sql);
 				pstmt.setString(1, member.getMember_id());
 				pstmt.setString(2, member.getMember_pass());
-				pstmt.setString(3, member.getMember_email());
-				pstmt.setString(4, member.getMember_name());
+				pstmt.setString(3, member.getMember_name());
+				pstmt.setString(4, member.getMember_email());
 				
 				//쿼리 실행
 				int cnt = pstmt.executeUpdate();
@@ -97,7 +97,7 @@ public class MemberDAO {
 			getCon();
 			   
 			   	try {
-		    		String sql ="select * from member where member_id=? and member_pass=?";
+		    		String sql ="select * from member_master where member_id=? and member_pass=?";
 		    		pstmt  = conn.prepareStatement(sql); 
 		    		pstmt.setString(1, member_id);
 		    		pstmt.setString(2, member_pass);
@@ -109,8 +109,8 @@ public class MemberDAO {
 		    			member.setMember_idx(rs.getInt(1));
 		    			member.setMember_id(rs.getString(2));
 		    			member.setMember_pass(rs.getString(3));
-		    			member.setMember_email(rs.getString(4));
-		    			member.setMember_name(rs.getString(5));
+		    			member.setMember_name(rs.getString(4));
+		    			member.setMember_email(rs.getString(5));
 		    			member.setMember_regdate(rs.getString(6));
 					}
 		    		conn.close();
@@ -159,7 +159,7 @@ public class MemberDAO {
 			
 			try {
 				//쿼리 준비
-				String sql ="select member_pass from member where member_id=? and member_name=?";
+				String sql ="select member_pass from member_master where member_id=? and member_name=?";
 	    		pstmt  = conn.prepareStatement(sql); 
 	    		pstmt.setString(1, member_id);
 	    		pstmt.setString(2, member_name);
@@ -182,7 +182,7 @@ public class MemberDAO {
 			
 			try {
 				//쿼리 준비
-				String sql ="update member set member_pass=? where member_id=?";
+				String sql ="update member_master set member_pass=? where member_id=?";
 	    		pstmt  = conn.prepareStatement(sql); 
 	    		pstmt.setString(1, member_pass2);
 	    		pstmt.setString(2, member_id);
@@ -203,7 +203,7 @@ public class MemberDAO {
 			
 			try {
 				//아이디, 이메일 가지고 회원 고유번호 가져오기 쿼리 준비
-				String sql ="select member_idx from member where member_id=? and member_email=?";
+				String sql ="select member_idx from member_master where member_id=? and member_email=?";
 	    		pstmt  = conn.prepareStatement(sql); 
 	    		pstmt.setString(1, member_id);
 	    		pstmt.setString(2, member_email);
@@ -215,7 +215,7 @@ public class MemberDAO {
 				}
 				
 				//가져온 회원 고유번호로 비밀번호 알려주기
-				String sql2 = "select member_pass from member where member_idx=?";
+				String sql2 = "select member_pass from member_master where member_idx=?";
 				pstmt  = conn.prepareStatement(sql2); 
 	    		pstmt.setInt(1, member_idx);
 	    		

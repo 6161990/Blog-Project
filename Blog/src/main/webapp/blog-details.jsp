@@ -205,6 +205,8 @@
       </div>
     </div>
     <!-- breadcrumb-area end -->
+    
+    
 
     <div id="main-wrapper">
       <div class="site-wrapper-reveal">
@@ -214,7 +216,8 @@
             <div class="row row--17">
               <div class="blog-details-col-8">
                 <!-- blog details Post Start -->
-                <div class="blog-details-post-wrap">
+                
+               <div class="blog-details-post-wrap">
                   <div class="blog-details-thum">
                     <img src="assets/images/blog/blog-details-1.jpg" alt="" />
                   </div>
@@ -225,7 +228,7 @@
                           <a href="#">비즈니스</a>
                         </div>
                         <div class="following-blog-post-author">
-                          By <a href="#">홍길동</a>
+                          By <a href="#">${member_name}</a>
                         </div>
                       </div>
 
@@ -233,7 +236,7 @@
                         <span class="post-meta-left-side">
                           <span class="post-date">
                             <i class="icofont-ui-calendar"></i>
-                            <a href="#">2021.06.15</a>
+                            <a href="#"> ${post.post_regdate} </a>
                           </span>
                         </span>
                         <span>10분 읽기</span>
@@ -251,9 +254,7 @@
                       </div>
                     </div>
                     <h3 class="following-blog-post-title">
-                      <a href="#"
-                        >올 추석에 인원제한 없이 가족 모임 할 수 있나요?
-                      </a>
+                      <a href="#">${post_title}</a>
                     </h3>
 
                     <div class="post-details-text">
@@ -451,7 +452,7 @@
                         </ul>
                       </div>
                     </div>
-
+		
                     <!-- 관련글영역 Start -->
                     <div class="related-post-area section-space--pt_60">
                       <div class="row">
@@ -616,6 +617,7 @@
                     <!-- Comment Area End -->
                   </div>
                 </div>
+                    
                 <!-- blog details Post End -->
               </div>
               <div class="blog-details-col-4">

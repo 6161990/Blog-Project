@@ -42,21 +42,22 @@ public class RegisterPostProc extends HttpServlet {
 	    post.setPost_tag1(request.getParameter("post_tag1"));
 	    post.setPost_tag2(request.getParameter("post_tag2"));
 	    
-		
 		PostDAO pdao = new PostDAO();
 		result=pdao.insertPost(post);
-		
-		
+	
 		if(result == true) {
+			//insert 성공 알림 on console
 			HttpSession session = request.getSession();	
 			MemberBean member = (MemberBean) session.getAttribute("member");
 			session.setAttribute("member", member);
 			System.out.println(member.getMember_id()+"님의 post insert success!!!!!");
 			
-			ArrayList<PostBean> postList = pdao.getMyPostList(member.getMember_idx());
-			session.setAttribute("postList",postList);
+			//post_idx를 알아오기 위해
+			 
 			
-			dis = request.getRequestDispatcher("authorPostProc");
+			request.setAttribute("post_idx", post.getPost_idx());
+		
+			dis = request.getRequestDispatcher("toSeePostProc");
 			dis.forward(request, response);
 		}else {
 			request.setAttribute("alert", "포스팅을 실패하였습니다.");

@@ -44,11 +44,11 @@ public class PostDAO {
 		
 		
 		public boolean insertPost(PostBean post) {
-			boolean result = false;
+			boolean result =false;
 			getCon();
 			try {
 				//쿼리 준비
-				String sql ="insert into post(post_member_idx,post_category_idx,post_title,post_content,post_tag1,post_tag2) values(?,?,?,?,?,?)";
+				String sql ="insert into post_master(post_member_idx,post_category_idx,post_title,post_content,post_tag1,post_tag2) values(?,?,?,?,?,?)";
 				//쿼리 실행 객체 선언
 				pstmt=conn.prepareStatement(sql);
 				pstmt.setInt(1, post.getPost_member_idx());
@@ -79,24 +79,25 @@ public class PostDAO {
 			getCon();
 			try {
 				//쿼리 준비
-				//String sql ="select * from post order by post_date desc where post_member_idx=? ";
+				String sql ="select * from post where post_member_idx=? order by post_regdate desc ";
 				//쿼리 실행 객체 선언
-				//pstmt=conn.prepareStatement(sql);
+				pstmt=conn.prepareStatement(sql);
 				pstmt.setInt(1, member_idx);
 				
 				//쿼리 실행
 				rs = pstmt.executeQuery();
 				while(rs.next()) {
+					
 					PostBean post = new PostBean();
 					post.setPost_idx(rs.getInt(1));
 					post.setPost_member_idx(rs.getInt(2));
 					post.setPost_category_idx(rs.getInt(3));
 					post.setPost_title(rs.getString(4));
 					post.setPost_content(rs.getString(5));
-					post.setPost_regdate(rs.getString(6));
-					post.setPost_update(rs.getString(7));
-					post.setPost_tag1(rs.getString(8));
-					post.setPost_tag2(rs.getString(9));
+					post.setPost_tag1(rs.getString(6));
+					post.setPost_tag2(rs.getString(7));
+					post.setPost_regdate(rs.getString(8));
+					post.setPost_update(rs.getString(9));
 					post.setPost_like(rs.getInt(10));
 					post.setPost_cnt(rs.getInt(11));
 					
@@ -110,6 +111,69 @@ public class PostDAO {
 			}
 			return arrayPost;
 			
+		}
+
+
+
+		public PostBean getOnePost(int post_idx) {
+			PostBean post = null;
+			getCon();
+			try {
+				//쿼리 준비
+				String sql ="select * from post_master where post_idx=?";
+				//쿼리 실행 객체 선언
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setInt(1, post_idx);
+				
+				//쿼리 실행
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					post = new PostBean();
+					
+					post.setPost_idx(rs.getInt(1));
+					post.setPost_member_idx(rs.getInt(2));
+					post.setPost_category_idx(rs.getInt(3));
+					post.setPost_title(rs.getString(4));
+					post.setPost_content(rs.getString(5));
+					post.setPost_tag1(rs.getString(6));
+					post.setPost_tag2(rs.getString(7));
+					post.setPost_regdate(rs.getString(8));
+					post.setPost_update(rs.getString(9));
+					post.setPost_like(rs.getInt(10));
+					post.setPost_cnt(rs.getInt(11));
+				}
+				
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return post;
+		}
+
+
+		//글에 매치된 회원 고유 번호로 회원 이름 가져오기
+		public String getMember_name(int post_member_idx) {
+			String member_name = null;
+			getCon();
+			try {
+				//쿼리 준비
+				String sql = "select member_name from member_master where member_idx=?";
+				//쿼리 실행 객체 선언
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setInt(1, post_member_idx);
+				
+				//쿼리 실행
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					member_name=rs.getString(1);
+				}
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return member_name;
 		}
 
 		
