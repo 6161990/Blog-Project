@@ -249,19 +249,22 @@
                           </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="single-input">
-                              <input type="text" placeholder="#해시태그" name="post_tag1"/>  <!-- input 넓이 정리  -->
-                              <input type="text" placeholder="#해시태그" name="post_tag2"/>  <!-- input 넓이 정리  -->
+                             <div class="single-input">
+                              <input type="text" placeholder="#해시태그" name="post_tag1"/>  
+                            </div>
+                             <div class="single-input">
+                              <input type="text" placeholder="#해시태그" name="post_tag2"/>  
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="single-input email">
-                              <input type="text" placeholder="이미지" name="!!!!!!미정" value ="[이미지파일]" readonly />
+                              <input type="file" placeholder="이미지" name="!!!!!!미정" value ="[이미지파일]" readonly />
                             </div>
                         </div>
                         <!-- hidden 값 -->
                         <input type="hidden" name="post_member_id" value ="${member.member_id}" />
                         <input type="hidden" name="post_member_idx" value ="${member.member_idx}" />
+                        <input type="hidden" name="post_member_name" value ="${member.member_name}" />
                        
                         <div class="col-lg-12">
                           <div class="submit-button text-center">

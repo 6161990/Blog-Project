@@ -42,9 +42,9 @@ public class PostDAO {
 		}
 		
 		
-		
-		public boolean insertPost(PostBean post) {
-			boolean result =false;
+		//게시물 삽입
+		public int insertPost(PostBean post) {
+			int post_idx =0;
 			getCon();
 			try {
 				//쿼리 준비
@@ -61,34 +61,41 @@ public class PostDAO {
 				
 				//쿼리 실행
 				int cnt = pstmt.executeUpdate();
-				if(cnt == 1) {
-					//INSERT문 실행결과 1이면 등록 성공
-					result = true;
+				
+				//INSERT문 실행결과 1이면 등록 성공
+				if(cnt == 1) {		
+					//방금 등록한 post 고유번호(post_idx) 가져오기
+					String sql2 = "SELECT LAST_INSERT_ID()";
+					pstmt=conn.prepareStatement(sql2);
+					rs = pstmt.executeQuery();
+					if(rs.next()) {
+						post_idx = rs.getInt(1);  
+					}
 				}
 				pstmt.close();
 				conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			return result;
+			return post_idx;
 		}
 		
-		public ArrayList<PostBean> getMyPostList(int member_idx){
-
+		
+		//최근 게시물 가져오기
+		public ArrayList<PostBean> getLatestPostList(){
 			ArrayList<PostBean> arrayPost = new ArrayList<>();
 			getCon();
 			try {
 				//쿼리 준비
-				String sql ="select * from post where post_member_idx=? order by post_regdate desc ";
+				String sql ="select * from post_master order by post_regdate desc";
 				//쿼리 실행 객체 선언
 				pstmt=conn.prepareStatement(sql);
-				pstmt.setInt(1, member_idx);
 				
 				//쿼리 실행
 				rs = pstmt.executeQuery();
 				while(rs.next()) {
-					
 					PostBean post = new PostBean();
+					
 					post.setPost_idx(rs.getInt(1));
 					post.setPost_member_idx(rs.getInt(2));
 					post.setPost_category_idx(rs.getInt(3));
@@ -103,18 +110,16 @@ public class PostDAO {
 					
 					arrayPost.add(post);
 				}
-				
-				//pstmt.close();
-				//conn.close();
+				pstmt.close();
+				conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 			return arrayPost;
-			
 		}
 
 
-
+		//게시물 한 개 가져오기
 		public PostBean getOnePost(int post_idx) {
 			PostBean post = null;
 			getCon();
@@ -151,7 +156,7 @@ public class PostDAO {
 			return post;
 		}
 
-
+		
 		//글에 매치된 회원 고유 번호로 회원 이름 가져오기
 		public String getMember_name(int post_member_idx) {
 			String member_name = null;
@@ -176,6 +181,42 @@ public class PostDAO {
 			return member_name;
 		}
 
-		
+
+		public ArrayList<PostBean> categoryPostList(int post_category_idx) {
+			ArrayList<PostBean> arrayPost = new ArrayList<>();
+			getCon();
+			try {
+				//쿼리 준비
+				String sql ="select * from post_master where post_category_idx=? order by post_regdate desc";
+				//쿼리 실행 객체 선언
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setInt(1, post_category_idx);
+				
+				//쿼리 실행
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					PostBean post = new PostBean();
+					
+					post.setPost_idx(rs.getInt(1));
+					post.setPost_member_idx(rs.getInt(2));
+					post.setPost_category_idx(rs.getInt(3));
+					post.setPost_title(rs.getString(4));
+					post.setPost_content(rs.getString(5));
+					post.setPost_tag1(rs.getString(6));
+					post.setPost_tag2(rs.getString(7));
+					post.setPost_regdate(rs.getString(8));
+					post.setPost_update(rs.getString(9));
+					post.setPost_like(rs.getInt(10));
+					post.setPost_cnt(rs.getInt(11));
+					
+					arrayPost.add(post);
+				}
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return arrayPost;
+		}		
 		
 }

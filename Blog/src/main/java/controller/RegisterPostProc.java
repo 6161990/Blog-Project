@@ -30,8 +30,7 @@ public class RegisterPostProc extends HttpServlet {
 	private void reqPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		request.setCharacterEncoding("UTF-8");
 		RequestDispatcher dis =null;
-		boolean result = false;
-		
+		int post_idx = 0;
 		
 		//전송정보 얻기 date 빼고
 		PostBean post = new PostBean();
@@ -43,21 +42,19 @@ public class RegisterPostProc extends HttpServlet {
 	    post.setPost_tag2(request.getParameter("post_tag2"));
 	    
 		PostDAO pdao = new PostDAO();
-		result=pdao.insertPost(post);
+		post_idx=pdao.insertPost(post);
 	
-		if(result == true) {
+		if(post_idx > 0) {
 			//insert 성공 알림 on console
 			HttpSession session = request.getSession();	
 			MemberBean member = (MemberBean) session.getAttribute("member");
 			session.setAttribute("member", member);
-			System.out.println(member.getMember_id()+"님의 post insert success!!!!!");
+			System.out.println(member.getMember_id()+"님의 post insert success!!!!!"); 	//test 확인용
 			
 			//post_idx를 알아오기 위해
-			 
-			
-			request.setAttribute("post_idx", post.getPost_idx());
+			request.setAttribute("post_idx", post_idx);
 		
-			dis = request.getRequestDispatcher("toSeePostProc");
+			dis = request.getRequestDispatcher("PostDetailProc");
 			dis.forward(request, response);
 		}else {
 			request.setAttribute("alert", "포스팅을 실패하였습니다.");

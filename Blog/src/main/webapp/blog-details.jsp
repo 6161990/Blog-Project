@@ -225,7 +225,7 @@
                     <div class="blog-details-meta-box">
                       <div class="post-meta-left-side mb-2">
                         <div class="trending-blog-post-category">
-                          <a href="#">비즈니스</a>
+                          <a href="#">${category_name}</a>
                         </div>
                         <div class="following-blog-post-author">
                           By <a href="#">${member_name}</a>
@@ -239,7 +239,6 @@
                             <a href="#"> ${post.post_regdate} </a>
                           </span>
                         </span>
-                        <span>10분 읽기</span>
                       </div>
 
                       <div class="post-meta-right-side mb-2">
@@ -253,98 +252,44 @@
                         /></a>
                       </div>
                     </div>
+                    <br>
+                    <br>
                     <h3 class="following-blog-post-title">
-                      <a href="#">${post_title}</a>
+                      <a href="#">${post.post_title}</a>
                     </h3>
 
                     <div class="post-details-text">
-                      <p>
-                        다음달 1일부터 새 사회적 거리두기 개편안이 적용된다.
-                        개편안이 적용되면 이전에 견줘 무엇이 달라지는지, 어떤
-                        활동 등이 가능해지는지 문답 형식으로 정리했다.
-                      </p>
-
-                      <p>
-                        “아니다. 정해진 횟수의 접종을 모두 받고 2주가 지난
-                        예방접종 완료자는 모든 거리두기 단계에서 사적모임 제한
-                        조처의 예외로 둔다. 접종 완료자는 모임·행사·집회
-                        인원제한에서도 제외된다. 정부는 예방접종 진행과 유행
-                        상황을 고려해 접종 완료자를 대상으로 행사 개최 때 좌석
-                        띄우기, 스탠딩 공연 금지 해제, 영화·상영관 음식 섭취
-                        금지 해제 방안 등을 검토할 예정이다. 덧붙여 다음달부터
-                        1차 이상 접종자는 실외 다중이용시설 인원제한에서
-                        제외하고, 접종 완료자는 실내·외 다중이용시설
-                        인원제한에서 제외된다.”
-                      </p>
-
+                      <p>${post.post_content}</p>
+	
+						<br>
+						<br>
+						<br>
                       <h3 class="title mb-3">
-                        ―접종 완료자 외에 인원제한 예외 대상은 누가 있나?
+                      	[씨네 광고]
+                        ―칸 국제영화제, 서울에서 필름 마켓 연다!
                       </h3>
 
                       <p>
-                        “동거가족, 아동·노인·장애인 등 돌봄, 임종을 지키는 경우,
-                        스포츠 경기 구성을 위한 최소 인원(종목별 인원 1.5배)이
-                        필요한 경우에도 단계와 상관없이 사적모임 인원제한의 예외
-                        대상이 된다.”
-                      </p>
+                        “제74회 칸 국제영화제의 필름 마켓이 서울에서도 열릴 예정이다. 
+                        7월 6일부터 17일까지 열리는 이번 영화제 기간 동안 주요 국가의 바이어들을 대상으로 
+                        ‘Cannes in the City’라는 제목의 행사가 전세계 5 개 도시에서 열린다. 
+                        이번 행사는 코로나19 상황으로 인해 프랑스에 입국할 수 없는 각국의 마켓 관계자를 대상으로 열리며 
+                        상영작은 각국의 마켓 영업 대상작이다.
 
-                      <p>
-                        “2단계 상황에선 직계가족 모임에 사적인원 모임 제한을
-                        적용하지 않아 인원제한 없이 모일 수 있다. 2단계에선
-                        돌잔치도 16인까지 모임을 허용한다. 하지만 3단계부터는
-                        이런 예외를 두지 않는다. 단, 3~4단계에서도 접종 완료자는
-                        사적모임 제한의 예외로 적용받는다.”
-                      </p>
+						이번 필름 마켓 행사의 개최 도시는 호주의 멜버른(시네마 팰리스 코모), 멕시코의 멕시코 시티(시네폴리스 다이애나),
+						중국의 베이징(프랑스 연구소) 일본의 도쿄(도쿄 영화 학교, 유로 라이브), 그리고 한국의 서울(아트나인)이다.
 
-                      <h3 class="title mb-3">
-                        ―하반기에 우리 회사에서 포럼을 주최하려 하는데, 인원이
-                        제한되나?
-                      </h3>
-
-                      <p>
-                        “인원제한 없는 모임은 법령 등에 근거해 일정 인원 이상이
-                        대면으로 모여야 하거나 시한이 정해져 취소나 연기가
-                        불가한 경우 등이다. 예를 들어, 기업 정기 주주총회나
-                        예산·법안 처리 등을 위한 국회 회의, 방송 제작·송출 등
-                        기업의 필수 경영활동 및 공무에 필요한 경우를 말한다.
-                        이밖에 법인·단체·공공기관·국가 등에서 개최하는 축제,
-                        설명회, 공청회, 기념일 행사, 기념식, 수련회, 사인회,
-                        강연, 대회, 훈련 등은 1단계에선 500명 이상 지방자치단체
-                        사전신고, 2단계는 100명 이상 금지, 3단계에서는 50명 이상
-                        금지 등 단계별 기준을 적용한다. 집회도 1~3단계엔 유사한
-                        기준을 적용하고 4단계에선 1인 시위 외엔 모두 금지하지만,
-                        지자체별로 강화된 조처를 적용할 수 있다. 다만,
-                        전시회·박람회, 국제회의·학술행사, 대규모 콘서트 등은
-                        별도 방역 수칙을 적용해 운영한다. 전시회·박람회는
-                        1단계에서 시설면적 4㎡당 1명, 2~4단계에서 6㎡당 1명이다.
-                        국제회의·학술행사는 1단계에서 좌석 한 칸 띄우기 또는
-                        좌석 간 1ｍ 거리두기, 2~4단계에선 좌석 두 칸 띄우기 또는
-                        좌석 간 2ｍ 거리두기를 지켜야 한다. 페스티벌과 대규모
-                        콘서트는 지정 좌석제로 운영하고, 2단계부터 5천명까지
-                        허용한다.”
-                      </p>
-
-                      <p>
-                        “마스크 착용은 개인 방역 5대 수칙과 시설 공통
-                        방역수칙으로 모든 단계, 대부분 시설에서 계속 지켜야
-                        한다. 사무 공간과 공용공간, 실내운동시설,
-                        콜라텍·무도장에서 춤추는 동안, 유흥시설과 노래연습장에서
-                        노래를 부를 때 모두 마스크를 써야 한다. 식당과 카페,
-                        결혼식장, 장례식장, 피시방 등에서 음식을 섭취할 때 외엔
-                        마스크를 써야 한다. 목욕장업소에서 탕 안, 발한실
-                        이외에는 마스크를 벗는 행동이 금지한다. 이·미용업에서
-                        면도나 메이크업, 얼굴관리 등 부득이 마스크를 쓸 수 없을
-                        경우를 제외하고는 마스크를 착용해야 한다. 다만, 백신
-                        접종 인센티브로 1차 접종 뒤 14일이 지난 1차 접종자와 2차
-                        접종(얀센은 1차 접종) 뒤 14일이 지나간 접종 완료자는
-                        다음달부터 공원과 등산로 등 실외에서는 마스크를 착용하지
-                        않아도 된다. 다만 이들도 다수가 모이는 실외 집회나
-                        행사에서는 마스크를 계속 착용해야 한다.”
+						이번 행사는 바이어, 배급사, 스트리밍 플랫폼, 영화제 프로그래머 등 필름 마켓 관계자에 한정해서 열릴 예정이며, 
+						이들은 7월 8일과 9일, 12일에서 16일 사이에 참여할 수 있다. 
+						현재까지 30여 개 프로덕션에서 상영을 합의했고 자세한 행사 상영작은 필름 마켓 공식 데일리에서 확인할 수 있다.”
+						<br>
+						<br>
+						출처: http://www.cine21.com/news//view/?mag_id=98044
                       </p>
 
                       <div class="video-banner-area video-popup mb-4">
                         <a
-                          href="https://www.youtube.com/watch?v=9No-FiEInLA"
+                          href="https://youtu.be/icsIVUTdqQM"
                           class="video-link mt-30"
                         >
                           <div class="single-popup-wrap">
@@ -368,76 +313,43 @@
                         </a>
                       </div>
 
-                      <p>
-                        “마스크 착용은 개인 방역 5대 수칙과 시설 공통
-                        방역수칙으로 모든 단계, 대부분 시설에서 계속 지켜야
-                        한다. 사무 공간과 공용공간, 실내운동시설,
-                        콜라텍·무도장에서 춤추는 동안, 유흥시설과 노래연습장에서
-                        노래를 부를 때 모두 마스크를 써야 한다. 식당과 카페,
-                        결혼식장, 장례식장, 피시방 등에서 음식을 섭취할 때 외엔
-                        마스크를 써야 한다. 목욕장업소에서 탕 안, 발한실
-                        이외에는 마스크를 벗는 행동이 금지한다. 이·미용업에서
-                        면도나 메이크업, 얼굴관리 등 부득이 마스크를 쓸 수 없을
-                        경우를 제외하고는 마스크를 착용해야 한다. 다만, 백신
-                        접종 인센티브로 1차 접종 뒤 14일이 지난 1차 접종자와 2차
-                        접종(얀센은 1차 접종) 뒤 14일이 지나간 접종 완료자는
-                        다음달부터 공원과 등산로 등 실외에서는 마스크를 착용하지
-                        않아도 된다. 다만 이들도 다수가 모이는 실외 집회나
-                        행사에서는 마스크를 계속 착용해야 한다.”
-                      </p>
+                     
 
                       <h3 class="title mb-3">
                         All of these amazing features come at an affordable
                         price!
                       </h3>
 
-                      <p>
-                        “마스크 착용은 개인 방역 5대 수칙과 시설 공통
-                        방역수칙으로 모든 단계, 대부분 시설에서 계속 지켜야
-                        한다. 사무 공간과 공용공간, 실내운동시설,
-                        콜라텍·무도장에서 춤추는 동안, 유흥시설과 노래연습장에서
-                        노래를 부를 때 모두 마스크를 써야 한다. 식당과 카페,
-                        결혼식장, 장례식장, 피시방 등에서 음식을 섭취할 때 외엔
-                        마스크를 써야 한다. 목욕장업소에서 탕 안, 발한실
-                        이외에는 마스크를 벗는 행동이 금지한다. 이·미용업에서
-                        면도나 메이크업, 얼굴관리 등 부득이 마스크를 쓸 수 없을
-                        경우를 제외하고는 마스크를 착용해야 한다. 다만, 백신
-                        접종 인센티브로 1차 접종 뒤 14일이 지난 1차 접종자와 2차
-                        접종(얀센은 1차 접종) 뒤 14일이 지나간 접종 완료자는
-                        다음달부터 공원과 등산로 등 실외에서는 마스크를 착용하지
-                        않아도 된다. 다만 이들도 다수가 모이는 실외 집회나
-                        행사에서는 마스크를 계속 착용해야 한다.”
-                      </p>
-
                       <blockquote class="blockquote-box">
                         <p class="blockquote-text">
-                          방역수칙 안 지키면 어떻게 되나?
+                          지난 주말 넷플릭스에서 가장 많이 본 영화 <아미 오브 더 데드>
                         </p>
                       </blockquote>
 
                       <p>
-                        “개인이 방역수칙을 위반해 확진되면 입원·격리자에게
-                        지급하는 생활지원금을 받지 못한다. 방역수칙 위반으로
-                        집단 감염이 발생하면 위반자에게 구상권을 적극 행사하기로
-                        했다. 위반 업소는 300만원 이하 과태료 부과와 함께 2주
-                        동안 집합이 금지되고, 손실보상금·재난지원금 등 보상에서
-                        제외된다.”
+                       5월 21일 공개된 넷플릭스 오리지널 영화 <아미 오브 더 데드>가 지난 주말 한국 넷플릭스 콘텐츠 순위 톱10 1위에 올랐다.
+					   <아미 오브 더 데드>는 영화 <새벽의 저주>로 좀비 신드롬을 일으키고 <300>, 
+					   <잭 스나이더의 저스티스 리그> 등으로 액션 거장 반열에 오른 잭 스나이더 감독이 <새벽의 저주>를 만든 직후 구상한 좀비물이다. 
+					   주인공 스콧(데이브 바티스타)을 중심으로 모인 용병들이 카지노 금고 속 거액을 차지하기 위해 좀비들이 점령한 라스베이거스로 향하는 내용이다.
                       </p>
 
                       <p>
-                        “개인이 방역수칙을 위반해 확진되면 입원·격리자에게
-                        지급하는 생활지원금을 받지 못한다. 방역수칙 위반으로
-                        집단 감염이 발생하면 위반자에게 구상권을 적극 행사하기로
-                        했다. 위반 업소는 300만원 이하 과태료 부과와 함께 2주
-                        동안 집합이 금지되고, 손실보상금·재난지원금 등 보상에서
-                        제외된다.”
+                       잭 스나이더 감독은 <씨네21>과의 화상 인터뷰에서 “다양한 인간 군상을 담고 사회적 논평을 하기에 좋은 곳”으로 
+                       세계 최대의 카지노와 도박꾼들이 모인 라스베이거스를 영화의 주 무대로 선택했다고 밝힌 바 있다. 
+                       또한 <아미 오브 더 데드>를 “극장이든 스트리밍이든 모두를 위한 블록버스터급 영화”로 만들고 싶었다는 
+                       그는 “좀비들을 기존에 알던 정체된 존재가 아닌 다른 어떤 존재가 되어가는 진화의 느낌으로 그려보려고 했다”고 전했다. 
+                       ‘알파 좀비’, ‘엘비스 프레슬리 좀비’, ‘좀비 말’과 ‘좀비 호랑이’등 각양각색의 좀비 캐릭터들이 그 예다. 
+                       잭 스나이더 감독은 이번 작품에 각본과 연출은 물론 촬영감독으로도 참여했다.
+                      											 - 남선우 nsw@cine21.com
+                       <br>
+                       <br>
+                       출처 : http://www.cine21.com/news/issue/view/?mag_id=1295
                       </p>
 
                       <div class="blog-details-tag-and-share-area">
                         <div class="post-tag">
-                          <a href="#" class="btn-medium fashion">패션</a>
-                          <a href="#" class="btn-medium health">헬스케어</a>
-                          <a href="#" class="btn-medium travel">여행</a>
+                          <a href="#" class="btn-medium fashion">${post.post_tag1}</a>
+                          <a href="#" class="btn-medium health">${post.post_tag2}</a>
                         </div>
                         <ul class="social-share-area">
                           <li>
@@ -453,12 +365,12 @@
                       </div>
                     </div>
 		
-                    <!-- 관련글영역 Start -->
+					<!-- 관련글영역 Start -->
                     <div class="related-post-area section-space--pt_60">
                       <div class="row">
                         <div class="col-lg-8 col-7">
                           <div class="section-title mb-30">
-                            <h3 class="title">관련 글</h3>
+                            <h3 class="title">같은 카테고리 글</h3>
                           </div>
                         </div>
                         <div class="col-lg-4 col-5">
@@ -479,6 +391,7 @@
                       <!-- Swiper -->
                       <div class="swiper-container related-post-slider-active">
                         <div class="swiper-wrapper">
+                        <c:forEach var="cPost" items="${categotyPostList}">
                           <div class="swiper-slide">
                             <!-- 싱글 관련글 Start -->
                             <div class="single-related-post">
@@ -488,25 +401,18 @@
                               <div class="following-post-content">
                                 <div class="following-blog-post-top">
                                   <div class="trending-blog-post-category">
-                                    <a href="#">비즈니스</a>
-                                  </div>
-                                  <div class="following-blog-post-author">
-                                    By <a href="#">홍길동</a>
+                                    <a href="#"> ${category_name} </a>
                                   </div>
                                 </div>
                                 <h5 class="following-blog-post-title">
-                                  <a href="#"
-                                    >올 추석에 인원제한 없이 가족 모임 할 수
-                                    있나요?
-                                  </a>
+                                  <a href="#"> ${cPost.post_title} </a>
                                 </h5>
                                 <div class="following-blog-post-meta">
                                   <div class="post-meta-left-side">
                                     <span class="post-date">
                                       <i class="icofont-ui-calendar"></i>
-                                      <a href="#">2021.06.15</a>
+                                      <a href="#">${cPost.post_regdate}</a>
                                     </span>
-                                    <span>10분 읽기</span>
                                   </div>
                                   <div class="post-meta-right-side">
                                     <a href="#"
@@ -525,52 +431,7 @@
                             </div>
                             <!-- Single Following Post End -->
                           </div>
-                          <div class="swiper-slide">
-                            <!-- Single Following Post Start -->
-                            <div class="single-related-post">
-                              <div class="related-post-thum">
-                                <img src="assets/images/blog/02.jpg" alt="" />
-                              </div>
-                              <div class="following-post-content">
-                                <div class="following-blog-post-top">
-                                  <div class="trending-blog-post-category">
-                                    <a href="#">비즈니스</a>
-                                  </div>
-                                  <div class="following-blog-post-author">
-                                    By <a href="#">홍길동</a>
-                                  </div>
-                                </div>
-                                <h5 class="following-blog-post-title">
-                                  <a href="#"
-                                    >올 추석에 인원제한 없이 가족 모임 할 수
-                                    있나요?
-                                  </a>
-                                </h5>
-                                <div class="following-blog-post-meta">
-                                  <div class="post-meta-left-side">
-                                    <span class="post-date">
-                                      <i class="icofont-ui-calendar"></i>
-                                      <a href="#">2021.06.15</a>
-                                    </span>
-                                    <span>10분 읽기</span>
-                                  </div>
-                                  <div class="post-meta-right-side">
-                                    <a href="#"
-                                      ><img
-                                        src="assets/images/icons/small-bookmark.png"
-                                        alt=""
-                                    /></a>
-                                    <a href="#"
-                                      ><img
-                                        src="assets/images/icons/heart.png"
-                                        alt=""
-                                    /></a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <!-- Single Following Post End -->
-                          </div>
+						</c:forEach>
                         </div>
                       </div>
                     </div>
@@ -711,6 +572,7 @@
                       <div class="swiper-slide">
                         <div class="latest-post-box">
                           <!-- Single Latest Post Start -->
+                          <c:forEach var="lPost" items="${latestPostList}" begin="1" end="5">
                           <div class="single-latest-post">
                             <div class="latest-post-thum">
                               <a href="#">
@@ -723,128 +585,19 @@
                             <div class="latest-post-content">
                               <h6 class="title">
                                 <a href="#!"
-                                  >올 추석에 인원제한 없이 가족 모임 할 수
-                                  있나요?</a
+                                  >${lPost.post_title}</a
                                 >
                               </h6>
                               <div class="latest-post-meta">
                                 <span class="post-date">
                                   <i class="icofont-ui-calendar"></i>
-                                  <a href="#">2021.06.15</a>
+                                  <a href="#">${lPost.post_regdate}</a>
                                 </span>
-                                <span>10분 읽기</span>
                               </div>
                             </div>
                           </div>
                           <!-- Single Latest Post End -->
-                          <!-- Single Latest Post Start -->
-                          <div class="single-latest-post">
-                            <div class="latest-post-thum">
-                              <a href="#">
-                                <img
-                                  src="assets/images/latest-post/02.jpg"
-                                  alt=""
-                                />
-                              </a>
-                            </div>
-                            <div class="latest-post-content">
-                              <h6 class="title">
-                                <a href="#!"
-                                  >올 추석에 인원제한 없이 가족 모임 할 수
-                                  있나요?</a
-                                >
-                              </h6>
-                              <div class="latest-post-meta">
-                                <span class="post-date">
-                                  <i class="icofont-ui-calendar"></i>
-                                  <a href="#">2021.06.15</a>
-                                </span>
-                                <span>10분 읽기</span>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- Single Latest Post End -->
-                          <!-- Single Latest Post Start -->
-                          <div class="single-latest-post">
-                            <div class="latest-post-thum">
-                              <a href="#">
-                                <img
-                                  src="assets/images/latest-post/03.jpg"
-                                  alt=""
-                                />
-                              </a>
-                            </div>
-                            <div class="latest-post-content">
-                              <h6 class="title">
-                                <a href="#!"
-                                  >올 추석에 인원제한 없이 가족 모임 할 수
-                                  있나요?</a
-                                >
-                              </h6>
-                              <div class="latest-post-meta">
-                                <span class="post-date">
-                                  <i class="icofont-ui-calendar"></i>
-                                  <a href="#">2021.06.15</a>
-                                </span>
-                                <span>10분 읽기</span>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- Single Latest Post End -->
-                          <!-- Single Latest Post Start -->
-                          <div class="single-latest-post">
-                            <div class="latest-post-thum">
-                              <a href="#">
-                                <img
-                                  src="assets/images/latest-post/04.jpg"
-                                  alt=""
-                                />
-                              </a>
-                            </div>
-                            <div class="latest-post-content">
-                              <h6 class="title">
-                                <a href="#!"
-                                  >올 추석에 인원제한 없이 가족 모임 할 수
-                                  있나요?</a
-                                >
-                              </h6>
-                              <div class="latest-post-meta">
-                                <span class="post-date">
-                                  <i class="icofont-ui-calendar"></i>
-                                  <a href="#">2021.06.15</a>
-                                </span>
-                                <span>10분 읽기</span>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- Single Latest Post End -->
-                          <!-- Single Latest Post Start -->
-                          <div class="single-latest-post">
-                            <div class="latest-post-thum">
-                              <a href="#">
-                                <img
-                                  src="assets/images/latest-post/05.jpg"
-                                  alt=""
-                                />
-                              </a>
-                            </div>
-                            <div class="latest-post-content">
-                              <h6 class="title">
-                                <a href="#!"
-                                  >올 추석에 인원제한 없이 가족 모임 할 수
-                                  있나요?</a
-                                >
-                              </h6>
-                              <div class="latest-post-meta">
-                                <span class="post-date">
-                                  <i class="icofont-ui-calendar"></i>
-                                  <a href="#">2021.06.15</a>
-                                </span>
-                                <span>10분 읽기</span>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- Single Latest Post End -->
+                          </c:forEach>
                         </div>
                       </div>
                     </div>
