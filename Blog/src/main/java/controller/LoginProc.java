@@ -11,21 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.MemberDAO;
+import dao.PostDAO;
 import dto.MemberBean;
-
+import dto.PostBean;
 
 //로그인 처리 서블릿 : 아이디, 비밀번호 검증 
 @WebServlet("/loginProc")
 public class LoginProc extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		reqPro(request,response);
+		doPost(request,response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		reqPro(request,response);
-	}
-	private void reqPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		request.setCharacterEncoding("UTF-8");
 	    
 		//전송정보 얻기
@@ -35,17 +33,22 @@ public class LoginProc extends HttpServlet {
 		MemberDAO mdao = new MemberDAO();
 		MemberBean member = mdao.getLoginValid(member_id, member_pass);
 		
+		PostDAO pdao = new PostDAO();
+		PostBean myPost = pdao.getMyPost(member.getMember_idx());
+		
 		HttpSession session = request.getSession();	
 		
-		if(member.getMember_email()==null){
+		if(member.getMember_email() == null){
 		   request.setAttribute("msg", "아이디 또는 비밀번호가 맞지않습니다.");
 		   RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
 	       dis.forward(request, response);
 		}else{ //일치하는 회원이 있다면 세션에 setting
-	  //   mdao.insertLoginMember(id,pass);
 		   session.setAttribute("member", member);
 	       request.setAttribute("member_id", member_id);
-		   response.sendRedirect("index.jsp");
+	       session.setAttribute("myPost", myPost);
+	       RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
+	       dis.forward(request, response);
 	    }
 	}
+	
 }

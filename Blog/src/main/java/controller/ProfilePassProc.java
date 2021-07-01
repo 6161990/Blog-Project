@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.MemberDAO;
+import dto.MemberBean;
 
 //회원 비밀번호 변경 처리 : DB에 있는 비밀번호와 검증 , 현 비번과 새 비번은 비교하지않음.
 @WebServlet("/passProc")
@@ -17,14 +19,17 @@ public class ProfilePassProc extends HttpServlet {
 	
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		reqPro(request,response);
+		HttpSession session = request.getSession();	
+		MemberBean member = (MemberBean) session.getAttribute("member");
+		if(member == null) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+			dispatcher.forward(request, response);
+		}else {
+			doPost(request,response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		reqPro(request,response);
-	}
-	
-	private void reqPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		request.setCharacterEncoding("UTF-8");
 	    
 		String member_id = request.getParameter("member_id");
@@ -47,5 +52,5 @@ public class ProfilePassProc extends HttpServlet {
 			dis.forward(request, response);
 		}
 	}
-
+	
 }

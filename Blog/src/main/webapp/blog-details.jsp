@@ -54,7 +54,17 @@
   </head>
 
   <body>
-    <!--========  헤더영역  =========-->
+      <!--========  세션없으면 로그인 유도 =========-->
+    <% if(session.getAttribute("member")==null){ %>
+    <jsp:forward page="login.jsp" /> 
+    <% } %>
+    
+     <!--========  한번도 글을 쓰지 않은 회원이면 noPost.jsp로  =========-->
+  	<% if(session.getAttribute("myPost")==null) { %>
+    <jsp:forward page="noPost.jsp" /> 
+    <% } %>
+    
+	<!--========  헤더영역  =========-->
     <header class="header">
       <div class="header-mid-area">
         <div class="container">
@@ -127,34 +137,15 @@
                       <a href="about-us.jsp"><span>소개</span></a>
                     </li>
                     <li class="has-children">
-                      <a href="category.jsp"><span>카테고리</span></a>
-                      <ul class="submenu">
-                        <li>
-                          <a href="category.jsp"><span>영화 리뷰</span></a>
-                        </li>
-                        <li>
-                          <a href="category.jsp"><span>기사</span></a>
-                        </li>
-                        <li>
-                          <a href="category.jsp"><span>랭킹</span></a>
-                        </li>
-                        <li>
-                          <a href="category.jsp"
-                            ><span>전문가리뷰 & 평점</span></a
-                          >
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="has-children">
                       <a href="#"><span>기타페이지</span></a>
                       <ul class="submenu">
                         <li>
-                          <a href="blog-details.jsp"
-                            ><span>블로그 상세페이지</span></a
+                           <a href="./PostDetailProc"
+                            ><span>내가 최근에 쓴 글</span></a
                           >
                         </li>
                         <li>
-                          <a href="author-post.jsp"><span>작성자 글</span></a>
+                         <a href="./PostListProc"><span>나의 글 목록</span></a>
                         </li>
                         <li>
                           <a href="register.jsp"><span>회원가입</span></a>
@@ -165,8 +156,13 @@
                       </ul>
                     </li>
                     <li>
-                      <a href="contact-us.jsp"><span>연락</span></a>
+                      <a href="contact-us.jsp"><span> 문의하기 </span></a>
                     </li>
+                    <% if(session.getAttribute("member")!=null){ %>
+   						<li>
+                      		<button class="btn-primary logout" onclick="location.href='./LogoutProc'">로그아웃</button>
+                    	</li> 
+    				<% } %>
                   </ul>
                 </nav>
               </div>
@@ -236,8 +232,9 @@
                         <span class="post-meta-left-side">
                           <span class="post-date">
                             <i class="icofont-ui-calendar"></i>
-                            <a href="#"> ${post.post_regdate} </a>
+                            <a href="#"> ${post.post_regdate} &nbsp;&nbsp;&nbsp; </a>
                           </span>
+                           <span style="color:black">&nbsp; 조회수 ${post.post_cnt} </span>
                         </span>
                       </div>
 
@@ -347,9 +344,14 @@
                       </p>
 
                       <div class="blog-details-tag-and-share-area">
+                      
                         <div class="post-tag">
+                         <c:if test="${not empty post.post_tag1}">
                           <a href="#" class="btn-medium fashion">${post.post_tag1}</a>
-                          <a href="#" class="btn-medium health">${post.post_tag2}</a>
+                          </c:if>
+                          <c:if test="${not empty post.post_tag2}">
+                        	<a href="#" class="btn-medium health">${post.post_tag2}</a>
+                       	  </c:if>
                         </div>
                         <ul class="social-share-area">
                           <li>
@@ -401,11 +403,19 @@
                               <div class="following-post-content">
                                 <div class="following-blog-post-top">
                                   <div class="trending-blog-post-category">
-                                    <a href="#"> ${category_name} </a>
+                                   <!-- title을 누르면 해당 글 blog-details로! -->
+					                 <a href="<c:url value="./PostDetailProc" >             
+					  					<c:param name="aList_post_idx" value="${cPost.post_idx}"></c:param>
+					  					</c:url>">${category_name}
+					  				 </a>
                                   </div>
                                 </div>
                                 <h5 class="following-blog-post-title">
-                                  <a href="#"> ${cPost.post_title} </a>
+                                  <!-- title을 누르면 해당 글 blog-details로! -->
+					                 <a href="<c:url value="./PostDetailProc" >             
+					  					<c:param name="aList_post_idx" value="${cPost.post_idx}"></c:param>
+					  					</c:url>">${cPost.post_title}
+					  				 </a>
                                 </h5>
                                 <div class="following-blog-post-meta">
                                   <div class="post-meta-left-side">
@@ -436,46 +446,33 @@
                       </div>
                     </div>
                     <!-- Related Post Area End -->
-
-                    <!-- Comment Area Start -->
+                    
+                    
+					<!-- Update & Delete Area Start -->
+					<!-- 해당 글이 내가 쓴 글 이라면 수정/삭제 버튼 보이게하기-->
+					<c:if test="${member.member_idx eq post.post_member_idx}">
                     <div class="comment-area section-space--pt_60">
-                      <div class="section-title">
-                        <h3 class="title">댓글</h3>
-                      </div>
-                      <form action="#" class="comment-form-area">
+                      <form action="updateWrite-post.jsp" class="comment-form-area">
                         <div class="row">
-                          <div class="col-lg-6">
-                            <div class="single-input">
-                              <input type="text" placeholder="이름" />
-                            </div>
-                          </div>
-                          <div class="col-lg-6">
-                            <div class="single-input">
-                              <input type="email" placeholder="이메일" />
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="single-input">
-                              <textarea
-                                name="textarea"
-                                placeholder="메시지"
-                              ></textarea>
-                            </div>
-                          </div>
-                          <div class="col-lg-12">
-                            <div class="submit-button text-center">
-                              <button
-                                class="btn-large btn-primary"
-                                type="submit"
-                              >
-                                등록 <i class="icofont-long-arrow-right"></i>
-                              </button>
-                            </div>
-                          </div>
+                          <div class="submit-button text-center">
+                          <input type="hidden" name="post_idx" value ="${post.post_idx}" />
+                              <button class="btn-large btn-primary" type="submit">
+                                글 수정하기</button>
+                           </div>
+                        </div>
+                      </form>
+                      <form action="./PostDeleteProc" class="comment-form-area">
+                        <div class="row">
+                          <div class="submit-button text-center">
+                          <input type="hidden" name="post_idx" value ="${post.post_idx}" />
+                              <button class="btn-large btn-primary" type="submit">
+                                글 삭제하기</button>
+                           </div>
                         </div>
                       </form>
                     </div>
-                    <!-- Comment Area End -->
+                    <!-- Update & Delete Area End -->
+                   </c:if>
                   </div>
                 </div>
                     
@@ -484,17 +481,15 @@
               <div class="blog-details-col-4">
                 <div class="following-author-area">
                   <div class="author-image">
-                    <img src="assets/images/author/author-01.png" alt="" />
+                    <img src="assets/images/author/author-001.jpg" alt="" />
                   </div>
                   <div class="author-title">
-                    <h4><a href="#">홍길동</a></h4>
+                    <h4><a href="#"> ${member.member_name} </a></h4>
                     <p>작가, 개발자</p>
                   </div>
                   <div class="author-details">
                     <p>
-                      동해 물과 백두산이 마르고 닳도록 하느님이 보우하사
-                      우리나라 만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로
-                      길이 보전하세.
+                      여을심은 열심중
                     </p>
 
                     <div class="author-post-share">
@@ -512,7 +507,7 @@
                     </div>
 
                     <div class="button-box">
-                      <a href="#" class="btn"
+                      <a href="./forMemberInfo" class="btn"
                         >프로필 보기 <i class="icofont-long-arrow-right"></i
                       ></a>
                     </div>
@@ -524,28 +519,28 @@
                   <a class="single-hero-category-item">
                     <img src="assets/images/catagory/technology.jpg" alt="" />
                     <div class="hero-category-inner-box">
-                      <h3 class="title">비즈니스</h3>
+                      <h3 class="title">영화리뷰</h3>
                       <i class="icon icofont-long-arrow-right"></i>
                     </div>
                   </a>
                   <a class="single-hero-category-item">
                     <img src="assets/images/catagory/travel.jpg" alt="" />
                     <div class="hero-category-inner-box">
-                      <h3 class="title">여행</h3>
+                      <h3 class="title">기사</h3>
                       <i class="icon icofont-long-arrow-right"></i>
                     </div>
                   </a>
                   <a class="single-hero-category-item">
                     <img src="assets/images/catagory/medical.jpg" alt="" />
                     <div class="hero-category-inner-box">
-                      <h3 class="title">음식</h3>
+                      <h3 class="title">랭킹</h3>
                       <i class="icon icofont-long-arrow-right"></i>
                     </div>
                   </a>
                   <a class="single-hero-category-item">
                     <img src="assets/images/catagory/web.jpg" alt="" />
                     <div class="hero-category-inner-box">
-                      <h3 class="title">기술</h3>
+                      <h3 class="title">전문가리뷰 & 평점</h3>
                       <i class="icon icofont-long-arrow-right"></i>
                     </div>
                   </a>
@@ -572,21 +567,22 @@
                       <div class="swiper-slide">
                         <div class="latest-post-box">
                           <!-- Single Latest Post Start -->
-                          <c:forEach var="lPost" items="${latestPostList}" begin="1" end="5">
+                    	   <c:forEach var="lPost" items="${latestPostList}" begin="1" end="5">
                           <div class="single-latest-post">
                             <div class="latest-post-thum">
-                              <a href="#">
-                                <img
-                                  src="assets/images/latest-post/01.jpg"
-                                  alt=""
-                                />
-                              </a>
+                             <!-- 사진과 title을 누르면 해당 글 blog-details로! -->
+					         <a href="<c:url value="./PostDetailProc" >             
+					  			<c:param name="aList_post_idx" value="${lPost.post_idx}"></c:param></c:url>">
+                                <img  src="assets/images/latest-post/01.jpg"alt=""/>
+					  		 </a>
                             </div>
                             <div class="latest-post-content">
                               <h6 class="title">
-                                <a href="#!"
-                                  >${lPost.post_title}</a
-                                >
+                              <!-- 사진과 title을 누르면 해당 글 blog-details로! -->
+					         <a href="<c:url value="./PostDetailProc" >             
+					  			<c:param name="aList_post_idx" value="${lPost.post_idx}"></c:param></c:url>">
+                                ${lPost.post_title}
+					  		 </a>
                               </h6>
                               <div class="latest-post-meta">
                                 <span class="post-date">
@@ -597,7 +593,7 @@
                             </div>
                           </div>
                           <!-- Single Latest Post End -->
-                          </c:forEach>
+                         </c:forEach>
                         </div>
                       </div>
                     </div>

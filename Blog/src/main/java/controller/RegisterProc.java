@@ -19,18 +19,12 @@ import dto.MemberBean;
 public class RegisterProc extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		reqPro(request,response);
+		doPost(request,response);
 		
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		reqPro(request,response);
-		
-	}
-	
-	protected void reqPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		request.setCharacterEncoding("UTF-8");
 		System.out.println(request.getParameter("member_id")); //데이터 베이스 삽입 확인용
 		
@@ -63,5 +57,5 @@ public class RegisterProc extends HttpServlet {
 
 		
 	}
-
+	
 }

@@ -54,10 +54,7 @@
   </head>
 
   <body>
-  <script type="text/javascript">
-  	alert("다시 시도해주세요.");
-  	location.href="write-post.jsp";
-  </script>
+
     <!--========  헤더영역  =========-->
     <header class="header">
       <div class="header-top-area">
@@ -165,35 +162,17 @@
                     <li>
                       <a href="about-us.jsp"><span>소개</span></a>
                     </li>
-                    <li class="has-children">
-                      <a href="category.jsp"><span>카테고리</span></a>
-                      <ul class="submenu">
-                        <li>
-                          <a href="category.jsp"><span>영화 리뷰</span></a>
-                        </li>
-                        <li>
-                          <a href="category.jsp"><span>기사</span></a>
-                        </li>
-                        <li>
-                          <a href="category.jsp"><span>랭킹</span></a>
-                        </li>
-                        <li>
-                          <a href="category.jsp"
-                            ><span>전문가리뷰 & 평점</span></a
-                          >
-                        </li>
-                      </ul>
-                    </li>
+
                     <li class="has-children">
                       <a href="#"><span>기타페이지</span></a>
                       <ul class="submenu">
                         <li>
-                          <a href="blog-details.jsp"
-                            ><span>블로그 상세페이지</span></a
+                           <a href="./PostDetailProc"
+                            ><span>내가 최근에 쓴 글</span></a
                           >
                         </li>
                         <li>
-                          <a href="author-post.jsp"><span>작성자 글</span></a>
+                          <a href="./PostListProc"><span>나의 글 목록</span></a>
                         </li>
                         <li>
                           <a href="register.jsp"><span>회원가입</span></a>
@@ -204,8 +183,13 @@
                       </ul>
                     </li>
                     <li>
-                      <a href="contact-us.jsp"><span>연락 </span></a>
+                      <a href="contact-us.jsp"><span> 문의하기 </span></a>
                     </li>
+                    <% if(session.getAttribute("member")!=null){ %>
+   						<li>
+                      		<button class="btn-primary logout" onclick="location.href='./LogoutProc'">로그아웃</button>
+                    	</li> 
+    				<% } %>
                   </ul>
                 </nav>
               </div>
@@ -253,7 +237,7 @@
               <div class="col-lg-12">
                 <div class="error-404-content text-center">
                   <div class="banner" data-aos="fade-up">
-                    <img src="assets/images/banners/error-404.png" alt="" />
+                    <img src="assets/images/banners/error-4042.jpg" alt="" />
                   </div>
                   <div class="error-text" data-aos="fade-up">
                     <h5>페이지를 찾을 수 없습니다.</h5>
@@ -271,9 +255,7 @@
               </div>
             </div>
           </div>
-          <div class="error-area-shap">
-            <img src="assets/images/shap/error-shap.png" alt="" />
-          </div>
+         
         </div>
       </div>
     </div>

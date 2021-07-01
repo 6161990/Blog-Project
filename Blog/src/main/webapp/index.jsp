@@ -54,9 +54,8 @@
   </head>
 
   <body>
+  
     <!--========  헤더영역  =========-->
-
-
     <header class="header">
       <div class="header-mid-area">
         <div class="container">
@@ -128,35 +127,17 @@
                     <li>
                       <a href="about-us.jsp"><span>소개</span></a>
                     </li>
-                    <li class="has-children">
-                      <a href="category.jsp"><span>카테고리</span></a>
-                      <ul class="submenu">
-                        <li>
-                          <a href="category.jsp"><span>영화 리뷰</span></a>
-                        </li>
-                        <li>
-                          <a href="category.jsp"><span>기사</span></a>
-                        </li>
-                        <li>
-                          <a href="category.jsp"><span>랭킹</span></a>
-                        </li>
-                        <li>
-                          <a href="category.jsp"
-                            ><span>전문가리뷰 & 평점</span></a
-                          >
-                        </li>
-                      </ul>
-                    </li>
+
                     <li class="has-children">
                       <a href="#"><span>기타페이지</span></a>
                       <ul class="submenu">
                         <li>
-                          <a href="blog-details.jsp"
-                            ><span>블로그 상세페이지</span></a
+                          <a href="./PostDetailProc"
+                            ><span>내가 최근에 쓴 글</span></a
                           >
                         </li>
                         <li>
-                          <a href="author-post.jsp"><span>작성자 글</span></a>
+                          <a href="./PostListProc"><span>나의 글 목록</span></a>
                         </li>
                         <li>
                           <a href="register.jsp"><span>회원가입</span></a>
@@ -167,8 +148,13 @@
                       </ul>
                     </li>
                     <li>
-                      <a href="contact-us.jsp"><span>연락 </span></a>
+                      <a href="contact-us.jsp"><span> 문의하기 </span></a>
                     </li>
+                    <% if(session.getAttribute("member")!=null){ %>
+   						<li>
+                      		<button class="btn-primary logout" onclick="location.href='./LogoutProc'">로그아웃</button>
+                    	</li> 
+    				<% } %>
                   </ul>
                 </nav>
               </div>
@@ -249,7 +235,7 @@
                   <!-- 히어로 배너 영역 시작 -->
                   <div class="hero-banner-area" data-aos="fade-up">
                     <a href="blog-details.jsp">
-                      <img src="assets/images/hero/hero-01.jpg" alt="" />
+                      <img src="assets/images/hero/main01.jpg" alt="" />
                     </a>
                   </div>
                   <!-- 히어로 배너 영역 종료 -->

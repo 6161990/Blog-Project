@@ -19,15 +19,10 @@ import dto.MemberBean;
 public class forMemberIno extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-		dispatcher.forward(request, response);
+		doPost(request,response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		reqPro(request,response);
-	}
-	
-	private void reqPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		
@@ -40,9 +35,9 @@ public class forMemberIno extends HttpServlet {
 		}
 		else {
 			session.setAttribute("member", member);
-			//request.setAttribute("id", id);
 			RequestDispatcher dis =request.getRequestDispatcher("memberInfo.jsp");
 			dis.forward(request, response);
 		}
 	}
+	
 }

@@ -1,7 +1,8 @@
+<%@page import="dao.CategoryDAO"%>
+<%@page import="dao.PostDAO"%>
+<%@page import="dto.PostBean"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <!DOCTYPE html>
 <html class="no-js" lang="ko">
   <head>
@@ -51,23 +52,29 @@
     <!-- <link rel="stylesheet" href="assets/css/vendor/vendor.min.css">
         <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"> -->
 
-    <!-- 메인스타일 CSS -->
+    <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
 
   <body>
-    <!--========  세션없으면 로그인 유도 =========-->
-    <% if(session.getAttribute("member")==null){ %>
+  <% if(session.getAttribute("member")==null){ %>
     <jsp:forward page="login.jsp" /> 
-    <% } %>
-    
-     <!--========  한번도 글을 쓰지 않은 회원이면 noPost.jsp로  =========-->
-  	<% if(session.getAttribute("myPost")==null){ %>
-    <jsp:forward page="noPost.jsp" /> 
-    <% } %>
-    
-	<!--========  헤더영역  =========-->
+  <% } %>
+  
+  <%
+	//해당 게시글 번호를 통하여 게시글을 수정
+	int post_idx =Integer.parseInt(request.getParameter("post_idx").trim());
+
+	//하나의 게시글에 대한 정보를 리턴
+	PostDAO pdao = new PostDAO();
+	PostBean post = pdao.getOnePostForUpdate(post_idx);
+	
+	CategoryDAO cdao = new CategoryDAO();
+	String categoryName = cdao.getCategoryName(post.getPost_category_idx());
+%>
+    <!--========  헤더영역  =========-->
     <header class="header">
+     
       <div class="header-mid-area">
         <div class="container">
           <div class="row align-items-center">
@@ -81,9 +88,9 @@
             <div class="col-lg-6 col-md-6 d-md-block d-none">
               <div class="header-add-banner text-center">
                 <a href="#">
-                  <img src="assets/images/banners/net01.jpg" alt="" />
-                  <h6 class="header-add-text">딱! 한달 프리미엄 이용권</h6>
-                </a>
+                    <img src="assets/images/banners/net01.jpg" alt="" />
+                    <h6 class="header-add-text">딱! 한달 프리미엄 이용권</h6>
+                  </a>
               </div>
             </div>
             <div class="col-lg-3 col-md-4 col-7">
@@ -142,12 +149,12 @@
                       <a href="#"><span>기타페이지</span></a>
                       <ul class="submenu">
                         <li>
-                         <a href="./PostDetailProc"
+                           <a href="./PostDetailProc"
                             ><span>내가 최근에 쓴 글</span></a
                           >
                         </li>
                         <li>
-                         <a href="./PostListProc"><span>나의 글 목록</span></a>
+                          <a href="./PostListProc"><span>나의 글 목록</span></a>
                         </li>
                         <li>
                           <a href="register.jsp"><span>회원가입</span></a>
@@ -194,7 +201,7 @@
               <!-- breadcrumb-list start -->
               <ul class="breadcrumb-list">
                 <li class="breadcrumb-item"><a href="index.jsp">홈</a></li>
-                <li class="breadcrumb-item active">나의 글 목록</li>
+                <li class="breadcrumb-item active">글작성</li>
               </ul>
               <!-- breadcrumb-list end -->
             </div>
@@ -206,85 +213,81 @@
 
     <div id="main-wrapper">
       <div class="site-wrapper-reveal">
-      
-      
         <!-- Blog Details Wrapper Start -->
         <div class="blog-details-wrapper section-space--ptb_80">
           <div class="container">
             <div class="row row--17">
-           <c:forEach var="cPost" items="${postList}">
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <!-- Single Following Post Start -->
-                <div class="single-following-post" data-aos="fade-up">
-                
-                <!-- 사진과 title을 누르면 해당 글 blog-details로! -->
-                 <a href="<c:url value="./PostDetailProc" >             
-  					<c:param name="aList_post_idx" value="${cPost.post_idx}"></c:param>
-  					</c:url>"  class="following-post-thum">
-  					<img src="assets/images/blog/01.jpg" alt="" />
-  				 </a>
-                 
-                  <div class="following-post-content">
-                    <div class="following-blog-post-top">
-                      <div class="trending-blog-post-category">
-                        <a href="#" class="business">
-                        <!-- category_idx로 카테고리명 지정 -->
-						 <c:choose>
-						    <c:when test="${cPost.post_category_idx == 1}">
-						            영화리뷰
-						    </c:when>
-						    <c:when test="${cPost.post_category_idx == 2}">
-						            기사
-						    </c:when> 
-						    <c:when test="${cPost.post_category_idx == 3}">
-						          	랭킹
-						    </c:when>          
-						    <c:otherwise>
-						       전문가리뷰&평점
-						    </c:otherwise>
-						 </c:choose> 
-                        </a>
-                      </div>
+                  <!-- writing Area Start -->
+                  <div class="comment-area section-space--pt_60">
+                    <div class="section-title">
+                      <h3 class="title writing">글 수정하기</h3>
                     </div>
-                    <h5 class="following-blog-post-title">
-                      <!-- 사진과 title을 누르면 해당 글 blog-details로! -->
-                 	<a href="<c:url value="./PostDetailProc" >             
-  					  <c:param name="aList_post_idx" value="${cPost.post_idx}"></c:param>
-  					  </c:url>"  class="following-post-thum">
-  					  ${cPost.post_title}
-  					</a>
-                    </h5>
-                    <div class="following-blog-post-meta">
-                      <div class="post-meta-left-side">
-                        <span class="post-date">
-                          <i class="icofont-ui-calendar"></i>
-                          <a href="#">${cPost.post_regdate}</a>
-                        </span>
-                      </div>
-                      <div class="post-meta-right-side">
-                        <a href="#"
-                          ><img
-                            src="assets/images/icons/small-bookmark.png"
-                            alt=""
-                        /></a>
-                        <a href="#"
-                          ><img src="assets/images/icons/heart.png" alt=""
-                        /></a>
-                      </div>
-                    </div>
+                    <form action="./PostUpdateProc" method="post" class="comment-form-area">
+                      <div class="row">
+                        <div class="col-lg-6">
+                            <div class="single-input category">
+                              <select name="post_category_idx">
+                                <option value="<%=post.getPost_category_idx() %>"><%=categoryName %></option>
+                                <option value="1"> 영화리뷰</option>
+                                <option value="2"> 기사 </option>
+                                <option value="3"> 랭킹 </option>
+                                <option value="4"> 전문가평점 & 리뷰 </option>
+                            </select> <!-- input 넓이 정리  -->
+                            </div>
+                     	</div>
+                        <div class="col-lg-6">
+                          <div class="single-input email">
+                            <input type="email" placeholder="이메일" value ="${member.member_email}" readonly />
+                          </div>
+                        </div>
+                       
+                          <div class="single-input title">
+                            <input type="text" placeholder="제목" name="post_title" value="<%=post.getPost_title() %>"/>
+                          </div>
+                        
+                        <div class="col-lg-12">
+                          <div class="single-input">
+                            <textarea name="post_content" placeholder="내용"><%=post.getPost_content() %></textarea>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                             <div class="single-input">
+                              <input type="text" placeholder="#해시태그" name="post_tag1" value="<%=post.getPost_tag1() %>"/>  
+                            </div>
+                             <div class="single-input">
+                              <input type="text" placeholder="#해시태그" name="post_tag2" value="<%=post.getPost_tag2() %>"/>  
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="single-input email">
+                              <input type="file" placeholder="이미지" name="!!!!!!미정" value ="[이미지파일]" readonly />
+                            </div>
+                        </div>
+                        <!-- hidden 값 -->
+                        <input type="hidden" name="post_idx" value ="<%=post.getPost_idx() %>" />
+                       
+                        <div class="col-lg-12">
+                          <div class="submit-button text-center">
+                            <a><button class="btn-large btn-primary" type="submit">
+                              등록 <i class="icofont-long-arrow-right"></i>
+                            </button></a>
+                          </div>
+                        </div>  
+                                  
+                    </form>
                   </div>
-                  
+                  <!-- writing Area End -->
                 </div>
-                <!-- Single Following Post End -->
-              </div>
-             </c:forEach>
+
+                <!-- blog details Post End -->
+              
+            
             </div>
           </div>
         </div>
-        <!-- Blog Details Wrapper End -->
+        <!-- Blog Details Wrapper End --> -
       </div>
     </div>
-
     <!--======  바닥글 영역  =======-->
     <footer class="footer-area footer-one">
       <div class="footer-bottom-area">

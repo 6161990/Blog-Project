@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <!DOCTYPE html>
-<html class="no-js" lang="ko">
+<html class="no-js" lang="zxx">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -51,22 +50,15 @@
     <!-- <link rel="stylesheet" href="assets/css/vendor/vendor.min.css">
         <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"> -->
 
-    <!-- 메인스타일 CSS -->
+    <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
 
   <body>
-    <!--========  세션없으면 로그인 유도 =========-->
-    <% if(session.getAttribute("member")==null){ %>
+   <% if(session.getAttribute("member")==null){ %>
     <jsp:forward page="login.jsp" /> 
-    <% } %>
-    
-     <!--========  한번도 글을 쓰지 않은 회원이면 noPost.jsp로  =========-->
-  	<% if(session.getAttribute("myPost")==null){ %>
-    <jsp:forward page="noPost.jsp" /> 
-    <% } %>
-    
-	<!--========  헤더영역  =========-->
+   <% } %>
+    <!--========  헤더영역  =========-->
     <header class="header">
       <div class="header-mid-area">
         <div class="container">
@@ -142,12 +134,12 @@
                       <a href="#"><span>기타페이지</span></a>
                       <ul class="submenu">
                         <li>
-                         <a href="./PostDetailProc"
+                           <a href="./PostDetailProc"
                             ><span>내가 최근에 쓴 글</span></a
                           >
                         </li>
                         <li>
-                         <a href="./PostListProc"><span>나의 글 목록</span></a>
+                          <a href="./PostListProc"><span>나의 글 목록</span></a>
                         </li>
                         <li>
                           <a href="register.jsp"><span>회원가입</span></a>
@@ -206,86 +198,36 @@
 
     <div id="main-wrapper">
       <div class="site-wrapper-reveal">
-      
-      
-        <!-- Blog Details Wrapper Start -->
-        <div class="blog-details-wrapper section-space--ptb_80">
+        <div
+          class="
+            contact-us-page-area
+            section-space--pt_70 section-space--pb_100">
           <div class="container">
-            <div class="row row--17">
-           <c:forEach var="cPost" items="${postList}">
-              <div class="col-lg-4 col-md-6 col-sm-6">
-                <!-- Single Following Post Start -->
-                <div class="single-following-post" data-aos="fade-up">
-                
-                <!-- 사진과 title을 누르면 해당 글 blog-details로! -->
-                 <a href="<c:url value="./PostDetailProc" >             
-  					<c:param name="aList_post_idx" value="${cPost.post_idx}"></c:param>
-  					</c:url>"  class="following-post-thum">
-  					<img src="assets/images/blog/01.jpg" alt="" />
-  				 </a>
-                 
-                  <div class="following-post-content">
-                    <div class="following-blog-post-top">
-                      <div class="trending-blog-post-category">
-                        <a href="#" class="business">
-                        <!-- category_idx로 카테고리명 지정 -->
-						 <c:choose>
-						    <c:when test="${cPost.post_category_idx == 1}">
-						            영화리뷰
-						    </c:when>
-						    <c:when test="${cPost.post_category_idx == 2}">
-						            기사
-						    </c:when> 
-						    <c:when test="${cPost.post_category_idx == 3}">
-						          	랭킹
-						    </c:when>          
-						    <c:otherwise>
-						       전문가리뷰&평점
-						    </c:otherwise>
-						 </c:choose> 
-                        </a>
-                      </div>
-                    </div>
-                    <h5 class="following-blog-post-title">
-                      <!-- 사진과 title을 누르면 해당 글 blog-details로! -->
-                 	<a href="<c:url value="./PostDetailProc" >             
-  					  <c:param name="aList_post_idx" value="${cPost.post_idx}"></c:param>
-  					  </c:url>"  class="following-post-thum">
-  					  ${cPost.post_title}
-  					</a>
-                    </h5>
-                    <div class="following-blog-post-meta">
-                      <div class="post-meta-left-side">
-                        <span class="post-date">
-                          <i class="icofont-ui-calendar"></i>
-                          <a href="#">${cPost.post_regdate}</a>
-                        </span>
-                      </div>
-                      <div class="post-meta-right-side">
-                        <a href="#"
-                          ><img
-                            src="assets/images/icons/small-bookmark.png"
-                            alt=""
-                        /></a>
-                        <a href="#"
-                          ><img src="assets/images/icons/heart.png" alt=""
-                        /></a>
-                      </div>
-                    </div>
+            <div class="contact-from section-space--pt_80">
+              <div class="row align-items-center">
+                <div class="following-author-area">
+                  <div class="author-title add">
+                    <h4 class="author-name"><a href="#">${member.member_name}</a> 님!</h4>
+                    <br/>
+
+                    <p>아직 등록하신 글이 없네요?</p>
                   </div>
-                  
+                  <br />
+                  <br />
+                  <div class="button-box">
+                    <a href="write-post.jsp" class="btn"
+                      >첫 글쓰러가기 <i class="icofont-long-arrow-right"></i
+                    ></a>
+                  </div>
                 </div>
-                <!-- Single Following Post End -->
               </div>
-             </c:forEach>
             </div>
           </div>
         </div>
-        <!-- Blog Details Wrapper End -->
       </div>
     </div>
 
-    <!--======  바닥글 영역  =======-->
+    <!--======  footer area =======-->
     <footer class="footer-area footer-one">
       <div class="footer-bottom-area">
         <div class="container">
@@ -293,7 +235,7 @@
             <div class="col-lg-12">
               <div class="footer-bottom-inner">
                 <div class="copy-right-text">
-                  <p>© 2021 Blog by Jason Jaewoo, Kim.</p>
+                  <p>© 2021 BLOG by Jason Jaewoo Kim.</p>
                 </div>
                 <div class="button-right-box"></div>
               </div>
@@ -302,7 +244,7 @@
         </div>
       </div>
     </footer>
-    <!--=====  바닥글 영역 종료 ========-->
+    <!--=====  End of footer area ========-->
 
     <!--====================  search overlay ====================-->
     <div class="search-overlay" id="search-overlay">
@@ -372,37 +314,70 @@
         <div class="mobile-menu-overlay__body">
           <nav class="offcanvas-navigation">
             <ul>
-              <li>
-                <a href="index.jsp"><span>홈</span></a>
-              </li>
-              <li>
-                <a href="about-us.jsp"><span>소개</span></a>
-              </li>
-              <li>
-                <a href="category.jsp"><span>카테고리</span></a>
-              </li>
-
               <li class="has-children">
-                <a href="#">기타페이지</a>
+                <a href="index.jsp">Home</a>
                 <ul class="sub-menu">
                   <li>
-                    <a href="blog-details.jsp"
-                      ><span>블로그 상세페이지</span></a
-                    >
+                    <a href="index-2.jsp"><span>Home Two</span></a>
                   </li>
                   <li>
-                    <a href="author-post.jsp"><span>작성자 글</span></a>
+                    <a href="index-3.jsp"><span>Home Three</span></a>
                   </li>
                   <li>
-                    <a href="register.jsp"><span>회원가입</span></a>
+                    <a href="index-4.jsp"><span>Home Four</span></a>
                   </li>
                   <li>
-                    <a href="write-post.jsp"><span>글쓰기</span></a>
+                    <a href="index-5.jsp"><span>Home Five</span></a>
+                  </li>
+                  <li>
+                    <a href="index-6.jsp"><span>Home Six</span></a>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="contact-us.jsp"><span>연락 </span></a>
+                <a href="about-us.jsp"><span>About</span></a>
+              </li>
+              <li class="has-children">
+                <a href="#">Category</a>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="category.jsp"><span>Category List</span></a>
+                  </li>
+                  <li>
+                    <a href="category-grid.jsp"><span>Category Grid</span></a>
+                  </li>
+                </ul>
+              </li>
+              <li class="has-children">
+                <a href="#">Pages</a>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="blog-details.jsp"><span>Blog Details</span></a>
+                  </li>
+                  <li>
+                    <a href="blog-details-two.jsp"
+                      ><span>Blog Details Two</span></a
+                    >
+                  </li>
+                  <li>
+                    <a href="error-404.jsp"><span>Error 404</span></a>
+                  </li>
+                  <li>
+                    <a href="faq.jsp"><span>FAQ's</span></a>
+                  </li>
+                  <li>
+                    <a href="author-post.jsp"><span>Author post</span></a>
+                  </li>
+                  <li>
+                    <a href="register.jsp"><span>Register</span></a>
+                  </li>
+                  <li>
+                    <a href="write-post.jsp"><span>Write Post</span></a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="contact-us.jsp"><span>Contact </span></a>
               </li>
             </ul>
           </nav>
