@@ -66,7 +66,7 @@
           <div class="row align-items-center">
             <div class="col-lg-3 col-md-2 col-5">
               <div class="logo">
-                <a href="index.jsp">
+                <a href="./IndexPostList">
                   <img src="assets/images/logo/logo.png" alt="" />
                 </a>
               </div>
@@ -126,7 +126,7 @@
                 <nav class="navigation-menu">
                   <ul>
                     <li>
-                      <a href="index.jsp"><span>홈</span></a>
+                      <a href="./IndexPostList"><span>홈</span></a>
                     </li>
                     <li>
                       <a href="about-us.jsp"><span>소개</span></a>
@@ -189,7 +189,7 @@
               <!-- <h2 class="breadcrumb-title">@@title</h2> -->
               <!-- breadcrumb-list start -->
               <ul class="breadcrumb-list">
-                <li class="breadcrumb-item"><a href="index.jsp">홈</a></li>
+                <li class="breadcrumb-item"><a href="./IndexPostList">홈</a></li>
                 <li class="breadcrumb-item active">비밀번호찾기</li>
               </ul>
               <!-- breadcrumb-list end -->
@@ -297,7 +297,7 @@
               <div class="col-md-6 col-8">
                 <!-- logo -->
                 <div class="logo">
-                  <a href="index.jsp">
+                  <a href="./IndexPostList">
                     <img
                       src="assets/images/logo/logo.png"
                       class="img-fluid"
@@ -322,7 +322,7 @@
           <nav class="offcanvas-navigation">
             <ul>
               <li>
-                <a href="index.jsp"><span>홈</span></a>
+                <a href="./IndexPostList"><span>홈</span></a>
               </li>
               <li>
                 <a href="about-us.jsp"><span>소개</span></a>

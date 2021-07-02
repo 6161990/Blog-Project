@@ -55,7 +55,7 @@ public class PostUpdateProc extends HttpServlet {
 			//update 성공 알림 on console test 확인용
 			System.out.println(member.getMember_id()+"님의 post update success!!!!!"); 	
 			
-			dis = request.getRequestDispatcher("author-post.jsp");
+			dis = request.getRequestDispatcher("PostListProc");
 			dis.forward(request, response);
 		}else {
 			request.setAttribute("alert", "포스팅을 업데이트를 실패하였습니다.");

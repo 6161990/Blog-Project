@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
 
 import dto.MemberBean;
 import dto.PostBean;
@@ -395,6 +396,170 @@ public class PostDAO {
 				}
 				return result;
 			}
+
 			
+			//인기글(조회수 높은 순) 12개 가져오기 
+			public ArrayList<PostBean> getPopViewList() {
+				ArrayList<PostBean> arrayPost = new ArrayList<>();
+				getCon();
+				try {
+					//가장 큰 post_cnt값(조회수)을 읽어오는 쿼리 준비
+					String sql ="select * from post_master ORDER BY post_cnt DESC limit 7";
+					//쿼리 실행 객체 선언
+					pstmt=conn.prepareStatement(sql);
+
+					//쿼리 실행
+					rs = pstmt.executeQuery();
+					while(rs.next()) {
+						PostBean post = new PostBean();
+						post.setPost_idx(rs.getInt(1));
+						post.setPost_member_idx(rs.getInt(2));
+						post.setPost_category_idx(rs.getInt(3));
+						post.setPost_title(rs.getString(4));
+						post.setPost_content(rs.getString(5));
+						post.setPost_tag1(rs.getString(6));
+						post.setPost_tag2(rs.getString(7));
+						post.setPost_regdate(rs.getString(8));
+						post.setPost_update(rs.getString(9));
+						post.setPost_like(rs.getInt(10));
+						post.setPost_cnt(rs.getInt(11));
+
+						arrayPost.add(post);
+					}
+
+					pstmt.close();
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				return arrayPost;
+			}
+			
+			
+			//랜덤으로 글 가져오기 
+			public ArrayList<PostBean> getRandomList() {
+				ArrayList<PostBean> arrayPost = new ArrayList<>();
+				getCon();
+				try {
+					//랜덤으로 글 뽑아오는 쿼리 준비
+					String sql ="select * from post_master order by rand() limit 1";
+					//쿼리 실행 객체 선언
+					pstmt=conn.prepareStatement(sql);
+
+					//쿼리 실행
+					rs = pstmt.executeQuery();
+					while(rs.next()) {
+						PostBean post = new PostBean();
+						post.setPost_idx(rs.getInt(1));
+						post.setPost_member_idx(rs.getInt(2));
+						post.setPost_category_idx(rs.getInt(3));
+						post.setPost_title(rs.getString(4));
+						post.setPost_content(rs.getString(5));
+						post.setPost_tag1(rs.getString(6));
+						post.setPost_tag2(rs.getString(7));
+						post.setPost_regdate(rs.getString(8));
+						post.setPost_update(rs.getString(9));
+						post.setPost_like(rs.getInt(10));
+						post.setPost_cnt(rs.getInt(11));
+
+						arrayPost.add(post);
+					}
+
+					pstmt.close();
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				return arrayPost;
+			}
+
+			
+			//회원이 최근 쓴 글의 카테고리 글 가져오기
+			public ArrayList<PostBean> getCategoryList(int member_idx) {
+				ArrayList<PostBean> arrayPost = new ArrayList<>();
+				int member_cate_idx =0;
+				getCon();
+				try {
+					//회원이 최근 쓴 글의 카테고리 idx 가져오기
+					String sql ="select post_category_idx from post_master where post_member_idx=? ORDER BY post_regdate DESC limit 1";
+					//쿼리 실행 객체 선언
+					pstmt=conn.prepareStatement(sql);
+					pstmt.setInt(1, member_idx);
+					
+					//쿼리 실행
+					rs = pstmt.executeQuery();
+					if(rs.next()) {
+						member_cate_idx=rs.getInt(1);
+					}
+					
+					//가져온 catogory_idx로 해당 카테고리 글 15개 추출
+					String category_sql ="select * from post_master where post_category_idx=? ORDER BY post_regdate DESC limit 10";
+					pstmt=conn.prepareStatement(category_sql);
+					pstmt.setInt(1, member_cate_idx);
+					
+					//쿼리 실행
+					rs = pstmt.executeQuery();
+					while(rs.next()) {
+						PostBean post = new PostBean();
+						post.setPost_idx(rs.getInt(1));
+						post.setPost_member_idx(rs.getInt(2));
+						post.setPost_category_idx(rs.getInt(3));
+						post.setPost_title(rs.getString(4));
+						post.setPost_content(rs.getString(5));
+						post.setPost_tag1(rs.getString(6));
+						post.setPost_tag2(rs.getString(7));
+						post.setPost_regdate(rs.getString(8));
+						post.setPost_update(rs.getString(9));
+						post.setPost_like(rs.getInt(10));
+						post.setPost_cnt(rs.getInt(11));
+
+						arrayPost.add(post);
+					}
+
+					pstmt.close();
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				return arrayPost;
+			}
 		
+			//전체 글 가져오기
+			public ArrayList<PostBean> getAllPost(){
+				ArrayList<PostBean> arrayPost = new ArrayList<>();
+				getCon();
+				try {
+					//쿼리 준비
+					String sql ="select * from post_master ORDER BY post_regdate DESC";
+					//쿼리 실행 객체 선언
+					pstmt=conn.prepareStatement(sql);
+
+					//쿼리 실행
+					rs = pstmt.executeQuery();
+					while(rs.next()) {
+						PostBean post = new PostBean();
+						post.setPost_idx(rs.getInt(1));
+						post.setPost_member_idx(rs.getInt(2));
+						post.setPost_category_idx(rs.getInt(3));
+						post.setPost_title(rs.getString(4));
+						post.setPost_content(rs.getString(5));
+						post.setPost_tag1(rs.getString(6));
+						post.setPost_tag2(rs.getString(7));
+						post.setPost_regdate(rs.getString(8));
+						post.setPost_update(rs.getString(9));
+						post.setPost_like(rs.getInt(10));
+						post.setPost_cnt(rs.getInt(11));
+
+						arrayPost.add(post);
+					}
+
+					pstmt.close();
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				return arrayPost;
+			}
+			
+			
 }

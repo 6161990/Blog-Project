@@ -50,7 +50,7 @@ public class PostDetailProc extends HttpServlet {
 		if(request.getAttribute("RegisterPost_idx") != null) { //1. 글 등록하고 바로 넘어오는 post_idx
 			post_idx = (int) request.getAttribute("RegisterPost_idx"); 
 		} else {  
-			if(list_post_idx != 0) {    //2. 나의 글 목록(author-post.jsp)로부터 넘어올 때
+			if(list_post_idx != 0) {    //2. 나의 글 목록(author-post.jsp)로부터 클릭한 글 넘어올 때
 				post_idx = list_post_idx; 
 			} else if(myPost != null) { //3. 세션에서 넘어오는 나의 가장 최신글 한 개의 post_idx
 				post_idx = myPost.getPost_idx();
@@ -85,7 +85,6 @@ public class PostDetailProc extends HttpServlet {
 		CategoryDAO cdao = new CategoryDAO();
 		String category_name = cdao.getCategoryName(post.getPost_category_idx());
 				
-		//HttpSession session = request.getSession();	
 		request.setAttribute("post",post);
 		request.setAttribute("latestPostList", latestPostList);
 		request.setAttribute("categotyPostList", categotyPostList);

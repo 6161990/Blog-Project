@@ -33,7 +33,7 @@ public class PostListProc extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		RequestDispatcher dis =null;
+		RequestDispatcher dis = null;
 		
 		HttpSession session = request.getSession();	
 		MemberBean member = (MemberBean) session.getAttribute("member");

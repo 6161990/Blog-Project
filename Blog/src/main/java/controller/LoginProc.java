@@ -46,7 +46,7 @@ public class LoginProc extends HttpServlet {
 		   session.setAttribute("member", member);
 	       request.setAttribute("member_id", member_id);
 	       session.setAttribute("myPost", myPost);
-	       RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
+	       RequestDispatcher dis = request.getRequestDispatcher("IndexPostList");
 	       dis.forward(request, response);
 	    }
 	}

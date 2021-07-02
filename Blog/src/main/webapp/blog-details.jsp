@@ -71,7 +71,7 @@
           <div class="row align-items-center">
             <div class="col-lg-3 col-md-2 col-5">
               <div class="logo">
-                <a href="index.jsp">
+                <a href="./IndexPostList">
                   <img src="assets/images/logo/logo.png" alt="" />
                 </a>
               </div>
@@ -131,7 +131,7 @@
                 <nav class="navigation-menu">
                   <ul>
                     <li>
-                      <a href="index.jsp"><span>홈</span></a>
+                      <a href="./IndexPostList"><span>홈</span></a>
                     </li>
                     <li>
                       <a href="about-us.jsp"><span>소개</span></a>
@@ -191,7 +191,7 @@
               <!-- <h2 class="breadcrumb-title">@@title</h2> -->
               <!-- breadcrumb-list start -->
               <ul class="breadcrumb-list">
-                <li class="breadcrumb-item"><a href="index.jsp">홈</a></li>
+                <li class="breadcrumb-item"><a href="./IndexPostList">홈</a></li>
                 <li class="breadcrumb-item active">상세보기</li>
               </ul>
               <!-- breadcrumb-list end -->
@@ -565,24 +565,24 @@
                   <div class="swiper-container latest-post-slider-active">
                     <div class="swiper-wrapper">
                       <div class="swiper-slide">
-                        <div class="latest-post-box">
+                      <div class="latest-post-box">
                           <!-- Single Latest Post Start -->
-                    	   <c:forEach var="lPost" items="${latestPostList}" begin="1" end="5">
+                    	  <c:forEach var="lPost" items="${latestPostList}" begin="1" end="5">
                           <div class="single-latest-post">
                             <div class="latest-post-thum">
                              <!-- 사진과 title을 누르면 해당 글 blog-details로! -->
-					         <a href="<c:url value="./PostDetailProc" >             
-					  			<c:param name="aList_post_idx" value="${lPost.post_idx}"></c:param></c:url>">
-                                <img  src="assets/images/latest-post/01.jpg"alt=""/>
-					  		 </a>
+                                <a href="<c:url value="./PostDetailProc" >             
+                                <c:param name="aList_post_idx" value="${lPost.post_idx}"></c:param></c:url>">
+                                              <img  src="assets/images/latest-post/01.jpg"alt=""/>
+                              </a>
                             </div>
                             <div class="latest-post-content">
                               <h6 class="title">
                               <!-- 사진과 title을 누르면 해당 글 blog-details로! -->
-					         <a href="<c:url value="./PostDetailProc" >             
-					  			<c:param name="aList_post_idx" value="${lPost.post_idx}"></c:param></c:url>">
-                                ${lPost.post_title}
-					  		 </a>
+                              <a href="<c:url value="./PostDetailProc" >             
+                              <c:param name="aList_post_idx" value="${lPost.post_idx}"></c:param></c:url>">
+                                            ${lPost.post_title}
+                            </a>
                               </h6>
                               <div class="latest-post-meta">
                                 <span class="post-date">
@@ -601,7 +601,7 @@
                 </div>
                 <!-- Latest Post Area End -->
 
-                <div class="following-add-banner mt-5">
+                  <div class="following-add-banner mt-5">
                   <a href="#">
                     <img
                       src="assets/images/banners/home-following-banner.png"
@@ -679,7 +679,7 @@
               <div class="col-md-6 col-8">
                 <!-- logo -->
                 <div class="logo">
-                  <a href="index.jsp">
+                  <a href="./IndexPostList">
                     <img
                       src="assets/images/logo/logo.png"
                       class="img-fluid"
@@ -704,7 +704,7 @@
           <nav class="offcanvas-navigation">
             <ul>
               <li>
-                <a href="index.jsp"><span>홈</span></a>
+                <a href="./IndexPostList"><span>홈</span></a>
               </li>
               <li>
                 <a href="about-us.jsp"><span>소개</span></a>
