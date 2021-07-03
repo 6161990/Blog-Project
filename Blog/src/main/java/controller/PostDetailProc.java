@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -26,7 +27,7 @@ public class PostDetailProc extends HttpServlet {
 		HttpSession session = request.getSession();	
 		MemberBean member = (MemberBean) session.getAttribute("member");
 		if(member == null) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("lndex.jsp");
 			dispatcher.forward(request, response);
 		}else {
 			doPost(request,response);
@@ -56,6 +57,8 @@ public class PostDetailProc extends HttpServlet {
 				post_idx = myPost.getPost_idx();
 			}
 		} 
+		
+		
 		
 		//해당 post_idx로 post객체얻기 
 		PostDAO pdao = new PostDAO();

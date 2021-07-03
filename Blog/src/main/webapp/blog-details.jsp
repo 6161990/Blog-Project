@@ -456,8 +456,7 @@
                         <div class="row">
                           <div class="submit-button text-center">
                           <input type="hidden" name="post_idx" value ="${post.post_idx}" />
-                              <button class="btn-large btn-primary" type="submit">
-                                글 수정하기</button>
+                              <button class="btn-large btn-primary" type="submit">글 수정하기</button>
                            </div>
                         </div>
                       </form>
@@ -573,7 +572,7 @@
                              <!-- 사진과 title을 누르면 해당 글 blog-details로! -->
                                 <a href="<c:url value="./PostDetailProc" >             
                                 <c:param name="aList_post_idx" value="${lPost.post_idx}"></c:param></c:url>">
-                                              <img  src="assets/images/latest-post/01.jpg"alt=""/>
+                                <img  src="assets/images/latest-post/01.jpg"alt=""/>
                               </a>
                             </div>
                             <div class="latest-post-content">

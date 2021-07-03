@@ -333,368 +333,368 @@
                     <div class="row">
                         <div class="col-lg-12">
 
-                  <!-- Swiper -->
-                   <div class="swiper-container trending-slider-active">
-                      <div class="swiper-wrapper">
-                         <div class="swiper-slide">
-                             <div class="trending-article-row">
-                               <!-- Trending Article Left Side Start -->
-                         	       <div class="trending-article-left-side">
-                                       <!-- Trending Single Item Start -->
-                                          <c:forEach var="pPost" items="${popPostList}" begin="1" end="3">
-                             		          <article class="trending-single-item" data-aos="fade-up">
-                                                <div class="trending-post-thum">
-						                          <a href="<c:url value="./PostDetailProc" >             
-									   			  <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
-											      </c:url>">
-						                          <img src="assets/images/trending/1-trending-img.jpg" alt=""/></a>
-						                         </div>
-                                                    <div class="trending-post-content">
-                                                        <div class="trending-blog-post-top">
-                                                            <div class="trending-blog-post-category">
-                                                                <a href="#" class="fashion">
-                                                                <c:choose>
-																    <c:when test="${pPost.post_category_idx == 1}">
-																             영화리뷰
-																    </c:when>
-																    <c:when test="${rPost.post_category_idx == 2}">
-																            기사
-																    </c:when> 
-																    <c:when test="${pPost.post_category_idx == 3}">
-																          	랭킹
-																    </c:when>          
-																    <c:otherwise>
-																       전문가리뷰&평점
-																    </c:otherwise>
-																 </c:choose> 
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <h5 class="trending-blog-post-title">
-                                                            <a href="<c:url value="./PostDetailProc" >             
-												  			<c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
-												  		 	</c:url>">${pPost.post_title} 
-							                               	 </a>
-                                                        </h5>
-                                                        <div class="trending-blog-post-meta">
-                                                            <div class="post-meta-left-side">
-                                                                <span class="post-date">
-                                                                <i class="icofont-ui-calendar"></i> 
-																  <a href="#">${pPost.post_regdate}</a>
-								                                  </span>
-								                                  <span>조회수 ${pPost.post_cnt}</span>
-                                                            </div>
-                                                            <div class="post-meta-right-side">
-                                                                <a href="#"><img src="assets/images/icons/small-bookmark.png" alt="" /></a>
-                                                                <a href="#"><img src="assets/images/icons/heart.png" alt="" /></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </article>
-                                                </c:forEach>
-                                                <!-- Trending Single Item End -->
-                                            </div><!-- Trending Article Left Side End -->
-
-                                            <!-- Trending Article Right Side Start -->
-                                            <div class="trending-article-right-side">
-                                                <div class="large-banner-trending-article" data-aos="fade-up">
-                                                    <div class="trending-large-post-thum">
-                                                        <a href="blog-details.html">
-                                                            <img src="assets/images/trending/4-trending-img.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="trending-large-post-content">
-                                                    
-                                                        <!-- Trending Single Item Start -->
-                                                         
-                                                        <c:forEach var="pPost" items="${popPostList}" begin="4" end="5">
-                                                        <article class="trending-single-item">
-                                                            <div class="trending-post-content">
-                                                                <div class="trending-blog-post-top">
-                                                                    <div class="trending-blog-post-category">
-                                                                        <a href="#" class="health"><c:choose>
-																	    <c:when test="${pPost.post_category_idx == 1}">
-																	             영화리뷰
-																	    </c:when>
-																	    <c:when test="${pPost.post_category_idx == 2}">
-																	            기사
-																	    </c:when> 
-																	    <c:when test="${pPost.post_category_idx == 3}">
-																	          	랭킹
-																	    </c:when>          
-																	    <c:otherwise>
-																	       전문가리뷰&평점
-																	    </c:otherwise>
-																	 </c:choose> </a>
-                                                                    </div>
-                                                                </div>
-                                                                 <h5 class="trending-blog-post-title">
-								                                    <a href="<c:url value="./PostDetailProc" >             
-													  			  <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
-													  			  </c:url>">${pPost.post_title} 
-								                               	  </a>
-								                                 </h5>
-                                                                <div class="trending-blog-post-meta">
-                                                                    <div class="post-meta-left-side">
-                                                                        <span class="post-date">
-                                                                        <i class="icofont-ui-calendar"></i> 
-                                                                        <a href="#">${pPost.post_regdate}</a>
-									                                 	</span>
-									                                  	<span>조회수 ${pPost.post_cnt}</span>
-                                                                    </div>
-                                                                    <div class="post-meta-right-side">
-                                                                        <a href="#"><img src="assets/images/icons/small-bookmark.png" alt="" /></a>
-                                                                        <a href="#"><img src="assets/images/icons/heart.png" alt="" /></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </article><!-- Trending Single Item End -->
-													</c:forEach>
-                                                    </div>
-                                                    	
-                                                </div>
-
-                                                <!-- 인기글 시작 -->
-                                                 <c:forEach var="pPost" items="${popPostList}" begin="6" end="6">
-                                                <article class="trending-single-item" data-aos="fade-up">
-                                                    <div class="trending-large-post-thum">
-                                                      <a href="<c:url value="./PostDetailProc" >             
+               <!-- Swiper -->
+                <div class="swiper-container trending-slider-active">
+                   <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                          <div class="trending-article-row">
+                            <!-- Trending Article Left Side Start -->
+                      	       <div class="trending-article-left-side">
+                                    <!-- Trending Single Item Start -->
+                                       <c:forEach var="pPost" items="${popPostList}" begin="1" end="3">
+                          		          <article class="trending-single-item" data-aos="fade-up">
+                                             <div class="trending-post-thum">
+					                          <a href="<c:url value="./PostDetailProc" >             
+								   			  <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
+										      </c:url>">
+					                          <img src="assets/images/trending/1-trending-img.jpg" alt=""/></a>
+					                         </div>
+                                                 <div class="trending-post-content">
+                                                     <div class="trending-blog-post-top">
+                                                         <div class="trending-blog-post-category">
+                                                             <a href="#" class="fashion">
+                                                             <c:choose>
+													    <c:when test="${pPost.post_category_idx == 1}">
+													             영화리뷰
+													    </c:when>
+													    <c:when test="${rPost.post_category_idx == 2}">
+													            기사
+												    </c:when> 
+													    <c:when test="${pPost.post_category_idx == 3}">
+													          	랭킹
+														    </c:when>          
+													    <c:otherwise>
+													       전문가리뷰&평점
+													    </c:otherwise>
+													 </c:choose> 
+                                                             </a>
+                                                         </div>
+                                                     </div>
+                                                     <h5 class="trending-blog-post-title">
+                                                         <a href="<c:url value="./PostDetailProc" >             
 											  			<c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
-											  			</c:url>">
-						                                  <img
-						                                  src="assets/images/trending/5-trending-img.jpg"
-						                                  alt=""
-						                                /></a>
-                                                    </div>
-                                                    <div class="trending-post-content">
-                                                        <div class="trending-blog-post-top">
-                                                            <div class="trending-blog-post-category">
-                                                                <a href="#" class="business"><c:choose>
-															    <c:when test="${pPost.post_category_idx == 1}">
-															             영화리뷰
-															    </c:when>
-															    <c:when test="${pPost.post_category_idx == 2}">
-															            기사
-															    </c:when> 
-															    <c:when test="${pPost.post_category_idx == 3}">
-															          	랭킹
-															    </c:when>          
-															    <c:otherwise>
-															       전문가리뷰&평점
-															    </c:otherwise>
-															 </c:choose> </a>
-                                                            </div>
-                                                        </div>
-						                                  <h5 class="trending-blog-post-title">
-						                                    <a href="<c:url value="./PostDetailProc" >             
-											  			  <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
-											  			  </c:url>">${pPost.post_title} 
-						                               	  </a>
-						                                  </h5>
-                                                        <div class="trending-blog-post-meta">
-                                                            <div class="post-meta-left-side">
-                                                                <span class="post-date">
-                                                                <i class="icofont-ui-calendar"></i> 
-                                                               <a href="#">${pPost.post_regdate}</a>
-							                                  </span>
-							                                   <span>조회수 ${pPost.post_cnt}</span>
-                                                            </div>
-                                                            <div class="post-meta-right-side">
-                                                                <a href="#"><img src="assets/images/icons/small-bookmark.png" alt="" /></a>
-                                                                <a href="#"><img src="assets/images/icons/heart.png" alt="" /></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </article><!-- 인기글 종료 -->
-                                               </c:forEach>
-                                            </div><!-- 인기글 오른쪽사이드바 종료  -->
-                                        </div>
-                                    </div>
-                                                                        <div class="swiper-slide">
-                                        <div class="trending-article-row">
-                                            <!-- 인기글 왼쪽 사이드 시작 -->
-                                            <div class="trending-article-left-side">
-                                                <!-- 인기글 시작  -->
-                                                <c:forEach var="pPost" items="${popPostList}" begin="7" end="9">
-                             		          <article class="trending-single-item" data-aos="fade-up">
-                                                <div class="trending-post-thum">
-						                          <a href="<c:url value="./PostDetailProc" >             
-									   			  <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
-											      </c:url>">
-						                          <img src="assets/images/trending/1-trending-img.jpg" alt=""/></a>
-						                         </div>
-                                                    <div class="trending-post-content">
-                                                        <div class="trending-blog-post-top">
-                                                            <div class="trending-blog-post-category">
-                                                                <a href="#" class="fashion">
-                                                                <c:choose>
-																    <c:when test="${pPost.post_category_idx == 1}">
-																             영화리뷰
-																    </c:when>
-																    <c:when test="${rPost.post_category_idx == 2}">
-																            기사
-																    </c:when> 
-																    <c:when test="${pPost.post_category_idx == 3}">
-																          	랭킹
-																    </c:when>          
-																    <c:otherwise>
-																       전문가리뷰&평점
-																    </c:otherwise>
-																 </c:choose> 
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <h5 class="trending-blog-post-title">
-                                                            <a href="<c:url value="./PostDetailProc" >             
-												  			<c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
-												  		 	</c:url>">${pPost.post_title} 
-							                               	 </a>
-                                                        </h5>
-                                                        <div class="trending-blog-post-meta">
-                                                            <div class="post-meta-left-side">
-                                                                <span class="post-date">
-                                                                <i class="icofont-ui-calendar"></i> 
-																  <a href="#">${pPost.post_regdate}</a>
-								                                  </span>
-								                                  <span>조회수 ${pPost.post_cnt}</span>
-                                                            </div>
-                                                            <div class="post-meta-right-side">
-                                                                <a href="#"><img src="assets/images/icons/small-bookmark.png" alt="" /></a>
-                                                                <a href="#"><img src="assets/images/icons/heart.png" alt="" /></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </article>
-                                                </c:forEach><!-- Trending Single Item End -->
-                                            </div><!-- 인기글 왼쪽 사이드 종료 -->
+											  		 	</c:url>">${pPost.post_title} 
+						                               	 </a>
+                                                     </h5>
+                                                     <div class="trending-blog-post-meta">
+                                                         <div class="post-meta-left-side">
+                                                             <span class="post-date">
+                                                             <i class="icofont-ui-calendar"></i> 
+													  <a href="#">${pPost.post_regdate}</a>
+					                                  </span>
+					                                  <span>조회수 ${pPost.post_cnt}</span>
+                                                         </div>
+                                                         <div class="post-meta-right-side">
+                                                             <a href="#"><img src="assets/images/icons/small-bookmark.png" alt="" /></a>
+                                                             <a href="#"><img src="assets/images/icons/heart.png" alt="" /></a>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </article>
+                                             </c:forEach>
+                                             <!-- Trending Single Item End -->
+                                         </div><!-- Trending Article Left Side End -->
 
-                                            <!-- 인기글 오른쪽 사이드 시작  -->
-                                            <div class="trending-article-right-side">
-                                                <div class="large-banner-trending-article" data-aos="fade-up">
-                                                    <div class="trending-large-post-thum">
-                                                        <a href="blog-details.html">
-                                                            <img src="assets/images/trending/4-trending-img.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="trending-large-post-content">
-                                                        <!-- 인기글 시작 -->
-                                                        <c:forEach var="pPost" items="${popPostList}" begin="10" end="11">
-                                                            <article class="trending-single-item" data-aos="fade-up">
-                                                             <div class="trending-post-thum">
-                                                               <a href="<c:url value="./PostDetailProc" >             
-                                                                  <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
-                                                               </c:url>">
-                                                               </a>
-                                                              </div>
-                                                                 <div class="trending-post-content">
-                                                                     <div class="trending-blog-post-top">
-                                                                         <div class="trending-blog-post-category">
-                                                                             <a href="#" class="fashion">
-                                                                             <c:choose>
-                                                                                 <c:when test="${pPost.post_category_idx == 1}">
-                                                                                          영화리뷰
-                                                                                 </c:when>
-                                                                                 <c:when test="${rPost.post_category_idx == 2}">
-                                                                                         기사
-                                                                                 </c:when> 
-                                                                                 <c:when test="${pPost.post_category_idx == 3}">
-                                                                                           랭킹
-                                                                                 </c:when>          
-                                                                                 <c:otherwise>
-                                                                                    전문가리뷰&평점
-                                                                                 </c:otherwise>
-                                                                              </c:choose> 
-                                                                             </a>
-                                                                         </div>
-                                                                     </div>
-                                                                     <h5 class="trending-blog-post-title">
-                                                                         <a href="<c:url value="./PostDetailProc" >             
-                                                                           <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
-                                                                            </c:url>">${pPost.post_title} 
-                                                                             </a>
-                                                                     </h5>
-                                                                     <div class="trending-blog-post-meta">
-                                                                         <div class="post-meta-left-side">
-                                                                             <span class="post-date">
-                                                                             <i class="icofont-ui-calendar"></i> 
-                                                                               <a href="#">${pPost.post_regdate}</a>
-                                                                               </span>
-                                                                               <span>조회수 ${pPost.post_cnt}</span>
-                                                                         </div>
-                                                                         <div class="post-meta-right-side">
-                                                                             <a href="#"><img src="assets/images/icons/small-bookmark.png" alt="" /></a>
-                                                                             <a href="#"><img src="assets/images/icons/heart.png" alt="" /></a>
-                                                                         </div>
-                                                                     </div>
-                                                                 </div>
-                                                             </article>
-                                                             </c:forEach><!-- 인기글 종료 -->
-                                                    </div>
-                                                </div>
-                                            <!-- 인기글 시작 -->
-                                            <c:forEach var="pPost" items="${popPostList}" begin="12" end="12">
-                                                <article class="trending-single-item" data-aos="fade-up">
-                                                    <div class="trending-large-post-thum">
-                                                    <a href="<c:url value="./PostDetailProc" >             
-                                                        <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
-                                                        </c:url>">
-                                                        <img
-						                                  src="assets/images/trending/5-trending-img.jpg"
-						                                  alt=""
-						                                />
+                                         <!-- Trending Article Right Side Start -->
+                                         <div class="trending-article-right-side">
+                                             <div class="large-banner-trending-article" data-aos="fade-up">
+                                                 <div class="trending-large-post-thum">
+                                                     <a href="blog-details.html">
+                                                         <img src="assets/images/trending/4-trending-img.jpg" alt="">
                                                      </a>
-                                                    </div>
-                                                    <div class="trending-post-content">
-                                                        <div class="trending-blog-post-top">
-                                                            <div class="trending-blog-post-category">
-                                                                <a href="#" class="business"><c:choose>
-                                                                <c:when test="${pPost.post_category_idx == 1}">
-                                                                        영화리뷰
-                                                                </c:when>
-                                                                <c:when test="${pPost.post_category_idx == 2}">
-                                                                        기사
-                                                                </c:when> 
-                                                                <c:when test="${pPost.post_category_idx == 3}">
-                                                                        랭킹
-                                                                </c:when>          
-                                                                <c:otherwise>
-                                                                전문가리뷰&평점
-                                                                </c:otherwise>
-                                                            </c:choose> </a>
-                                                            </div>
-                                                        </div>
-                                                        <h5 class="trending-blog-post-title">
-                                                            <a href="<c:url value="./PostDetailProc" >             
-                                                            <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
-                                                            </c:url>">${pPost.post_title} 
-                                                            </a>
-                                                        </h5>
-                                                        <div class="trending-blog-post-meta">
-                                                            <div class="post-meta-left-side">
-                                                                <span class="post-date">
-                                                                <i class="icofont-ui-calendar"></i> 
+                                                 </div>
+                                                 <div class="trending-large-post-content">
+                                                 
+                                                     <!-- Trending Single Item Start -->
+                                                      
+                                                     <c:forEach var="pPost" items="${popPostList}" begin="4" end="5">
+                                                     <article class="trending-single-item">
+                                                         <div class="trending-post-content">
+                                                             <div class="trending-blog-post-top">
+                                                                 <div class="trending-blog-post-category">
+                                                                     <a href="#" class="health"><c:choose>
+														    <c:when test="${pPost.post_category_idx == 1}">
+														             영화리뷰
+														    </c:when>
+														    <c:when test="${pPost.post_category_idx == 2}">
+														            기사
+														    </c:when> 
+														    <c:when test="${pPost.post_category_idx == 3}">
+														          	랭킹
+														    </c:when>          
+														    <c:otherwise>
+														       전문가리뷰&평점
+														    </c:otherwise>
+														 </c:choose> </a>
+                                                                 </div>
+                                                             </div>
+                                                              <h5 class="trending-blog-post-title">
+					                                    <a href="<c:url value="./PostDetailProc" >             
+										  			  <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
+										  			  </c:url>">${pPost.post_title} 
+					                               	  </a>
+					                                 </h5>
+                                                             <div class="trending-blog-post-meta">
+                                                                 <div class="post-meta-left-side">
+                                                                     <span class="post-date">
+                                                                     <i class="icofont-ui-calendar"></i> 
+                                                                     <a href="#">${pPost.post_regdate}</a>
+						                                 	</span>
+						                                  	<span>조회수 ${pPost.post_cnt}</span>
+                                                                 </div>
+                                                                 <div class="post-meta-right-side">
+                                                                     <a href="#"><img src="assets/images/icons/small-bookmark.png" alt="" /></a>
+                                                                     <a href="#"><img src="assets/images/icons/heart.png" alt="" /></a>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                     </article><!-- Trending Single Item End -->
+												</c:forEach>
+                                                 </div>
+                                                 	
+                                             </div>
+
+                                             <!-- 인기글 시작 -->
+                                              <c:forEach var="pPost" items="${popPostList}" begin="6" end="6">
+                                             <article class="trending-single-item" data-aos="fade-up">
+                                                 <div class="trending-large-post-thum">
+                                                   <a href="<c:url value="./PostDetailProc" >             
+								  			<c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
+								  			</c:url>">
+			                                  <img
+			                                  src="assets/images/trending/5-trending-img.jpg"
+			                                  alt=""
+			                                /></a>
+                                                 </div>
+                                                 <div class="trending-post-content">
+                                                     <div class="trending-blog-post-top">
+                                                         <div class="trending-blog-post-category">
+                                                             <a href="#" class="business"><c:choose>
+												    <c:when test="${pPost.post_category_idx == 1}">
+												             영화리뷰
+												    </c:when>
+												    <c:when test="${pPost.post_category_idx == 2}">
+												            기사
+												    </c:when> 
+												    <c:when test="${pPost.post_category_idx == 3}">
+												          	랭킹
+												    </c:when>          
+												    <c:otherwise>
+												       전문가리뷰&평점
+												    </c:otherwise>
+												 </c:choose> </a>
+                                                         </div>
+                                                     </div>
+			                                  <h5 class="trending-blog-post-title">
+			                                    <a href="<c:url value="./PostDetailProc" >             
+								  			  <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
+								  			  </c:url>">${pPost.post_title} 
+			                               	  </a>
+			                                  </h5>
+                                                     <div class="trending-blog-post-meta">
+                                                         <div class="post-meta-left-side">
+                                                             <span class="post-date">
+                                                             <i class="icofont-ui-calendar"></i> 
                                                             <a href="#">${pPost.post_regdate}</a>
-                                                            </span>
-                                                            <span>조회수 ${pPost.post_cnt}</span>
-                                                            </div>
-                                                            <div class="post-meta-right-side">
-                                                                <a href="#"><img src="assets/images/icons/small-bookmark.png" alt="" /></a>
-                                                                <a href="#"><img src="assets/images/icons/heart.png" alt="" /></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </article><!-- 인기글 종료 -->
+				                                  </span>
+				                                   <span>조회수 ${pPost.post_cnt}</span>
+                                                         </div>
+                                                         <div class="post-meta-right-side">
+                                                             <a href="#"><img src="assets/images/icons/small-bookmark.png" alt="" /></a>
+                                                             <a href="#"><img src="assets/images/icons/heart.png" alt="" /></a>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </article><!-- 인기글 종료 -->
                                             </c:forEach>
-                                            </div><!-- 인기글 오른쪽 사이드 종료 -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- Swiper End -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- 인기글 종료 -->
+                                         </div><!-- 인기글 오른쪽사이드바 종료  -->
+                                     </div>
+                                 </div>
+                                                                     <div class="swiper-slide">
+                                     <div class="trending-article-row">
+                                         <!-- 인기글 왼쪽 사이드 시작 -->
+                                         <div class="trending-article-left-side">
+                                             <!-- 인기글 시작  -->
+                                             <c:forEach var="pPost" items="${popPostList}" begin="7" end="9">
+                          		          <article class="trending-single-item" data-aos="fade-up">
+                                             <div class="trending-post-thum">
+			                          <a href="<c:url value="./PostDetailProc" >             
+						   			  <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
+								      </c:url>">
+			                          <img src="assets/images/trending/1-trending-img.jpg" alt=""/></a>
+			                         </div>
+                                                 <div class="trending-post-content">
+                                                     <div class="trending-blog-post-top">
+                                                         <div class="trending-blog-post-category">
+                                                             <a href="#" class="fashion">
+                                                             <c:choose>
+													    <c:when test="${pPost.post_category_idx == 1}">
+													             영화리뷰
+													    </c:when>
+													    <c:when test="${rPost.post_category_idx == 2}">
+													            기사
+													    </c:when> 
+													    <c:when test="${pPost.post_category_idx == 3}">
+													          	랭킹
+													    </c:when>          
+													    <c:otherwise>
+													       전문가리뷰&평점
+													    </c:otherwise>
+													 </c:choose> 
+                                                             </a>
+                                                         </div>
+                                                     </div>
+                                                     <h5 class="trending-blog-post-title">
+                                                         <a href="<c:url value="./PostDetailProc" >             
+									  			<c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
+									  		 	</c:url>">${pPost.post_title} 
+				                               	 </a>
+                                                     </h5>
+                                                     <div class="trending-blog-post-meta">
+                                                         <div class="post-meta-left-side">
+                                                             <span class="post-date">
+                                                             <i class="icofont-ui-calendar"></i> 
+													  <a href="#">${pPost.post_regdate}</a>
+					                                  </span>
+					                                  <span>조회수 ${pPost.post_cnt}</span>
+                                                         </div>
+                                                         <div class="post-meta-right-side">
+                                                             <a href="#"><img src="assets/images/icons/small-bookmark.png" alt="" /></a>
+                                                             <a href="#"><img src="assets/images/icons/heart.png" alt="" /></a>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </article>
+                                             </c:forEach><!-- Trending Single Item End -->
+                                         </div><!-- 인기글 왼쪽 사이드 종료 -->
+
+                                         <!-- 인기글 오른쪽 사이드 시작  -->
+                                         <div class="trending-article-right-side">
+                                             <div class="large-banner-trending-article" data-aos="fade-up">
+                                                 <div class="trending-large-post-thum">
+                                                     <a href="blog-details.html">
+                                                         <img src="assets/images/trending/4-trending-img.jpg" alt="">
+                                                     </a>
+                                                 </div>
+                                                 <div class="trending-large-post-content">
+                                                     <!-- 인기글 시작 -->
+                                                     <c:forEach var="pPost" items="${popPostList}" begin="10" end="11">
+                                                         <article class="trending-single-item" data-aos="fade-up">
+                                                          <div class="trending-post-thum">
+                                                            <a href="<c:url value="./PostDetailProc" >             
+                                                               <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
+                                                            </c:url>">
+                                                            </a>
+                                                           </div>
+                                                              <div class="trending-post-content">
+                                                                  <div class="trending-blog-post-top">
+                                                                      <div class="trending-blog-post-category">
+                                                                          <a href="#" class="fashion">
+                                                                          <c:choose>
+                                                                              <c:when test="${pPost.post_category_idx == 1}">
+                                                                                       영화리뷰
+                                                                              </c:when>
+                                                                              <c:when test="${rPost.post_category_idx == 2}">
+                                                                                      기사
+                                                                              </c:when> 
+                                                                              <c:when test="${pPost.post_category_idx == 3}">
+                                                                                        랭킹
+                                                                              </c:when>          
+                                                                              <c:otherwise>
+                                                                                 전문가리뷰&평점
+                                                                              </c:otherwise>
+                                                                           </c:choose> 
+                                                                          </a>
+                                                                      </div>
+                                                                  </div>
+                                                                  <h5 class="trending-blog-post-title">
+                                                                      <a href="<c:url value="./PostDetailProc" >             
+                                                                        <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
+                                                                         </c:url>">${pPost.post_title} 
+                                                                          </a>
+                                                                  </h5>
+                                                                  <div class="trending-blog-post-meta">
+                                                                      <div class="post-meta-left-side">
+                                                                          <span class="post-date">
+                                                                          <i class="icofont-ui-calendar"></i> 
+                                                                            <a href="#">${pPost.post_regdate}</a>
+                                                                            </span>
+                                                                            <span>조회수 ${pPost.post_cnt}</span>
+                                                                      </div>
+                                                                      <div class="post-meta-right-side">
+                                                                          <a href="#"><img src="assets/images/icons/small-bookmark.png" alt="" /></a>
+                                                                          <a href="#"><img src="assets/images/icons/heart.png" alt="" /></a>
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                          </article>
+                                                          </c:forEach><!-- 인기글 종료 -->
+                                                 </div>
+                                             </div>
+                                         <!-- 인기글 시작 -->
+                                         <c:forEach var="pPost" items="${popPostList}" begin="12" end="12">
+                                             <article class="trending-single-item" data-aos="fade-up">
+                                                 <div class="trending-large-post-thum">
+                                                 <a href="<c:url value="./PostDetailProc" >             
+                                                     <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
+                                                     </c:url>">
+                                                     <img
+			                                  src="assets/images/trending/5-trending-img.jpg"
+			                                  alt=""
+			                                />
+                                                  </a>
+                                                 </div>
+                                                 <div class="trending-post-content">
+                                                     <div class="trending-blog-post-top">
+                                                         <div class="trending-blog-post-category">
+                                                             <a href="#" class="business"><c:choose>
+                                                             <c:when test="${pPost.post_category_idx == 1}">
+                                                                     영화리뷰
+                                                             </c:when>
+                                                             <c:when test="${pPost.post_category_idx == 2}">
+                                                                     기사
+                                                             </c:when> 
+                                                             <c:when test="${pPost.post_category_idx == 3}">
+                                                                     랭킹
+                                                             </c:when>          
+                                                             <c:otherwise>
+                                                             전문가리뷰&평점
+                                                             </c:otherwise>
+                                                         </c:choose> </a>
+                                                         </div>
+                                                     </div>
+                                                     <h5 class="trending-blog-post-title">
+                                                         <a href="<c:url value="./PostDetailProc" >             
+                                                         <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
+                                                         </c:url>">${pPost.post_title} 
+                                                         </a>
+                                                     </h5>
+                                                     <div class="trending-blog-post-meta">
+                                                         <div class="post-meta-left-side">
+                                                             <span class="post-date">
+                                                             <i class="icofont-ui-calendar"></i> 
+                                                         <a href="#">${pPost.post_regdate}</a>
+                                                         </span>
+                                                         <span>조회수 ${pPost.post_cnt}</span>
+                                                         </div>
+                                                         <div class="post-meta-right-side">
+                                                             <a href="#"><img src="assets/images/icons/small-bookmark.png" alt="" /></a>
+                                                             <a href="#"><img src="assets/images/icons/heart.png" alt="" /></a>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </article><!-- 인기글 종료 -->
+                                         </c:forEach>
+                                         </div><!-- 인기글 오른쪽 사이드 종료 -->
+                                     </div>
+                                 </div>
+                             </div>
+                         </div><!-- Swiper End -->
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <!-- 인기글 종료 -->
 
 
         <div class="bg-gray-1">
@@ -860,7 +860,7 @@
             </div>
           </div>
         </div>
-        <div class="about-video-area section-space--ptb_60">
+        <div class="about-video-area vi section-space--ptb_p60">
           <div class="container">
             <div class="row">
               <div class="col-lg-12 video-popup">

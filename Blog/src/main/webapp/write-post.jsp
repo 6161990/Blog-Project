@@ -207,7 +207,7 @@
                     <div class="section-title">
                       <h3 class="title writing">글 작성</h3>
                     </div>
-                    <form action="./registerPostProc" method="post" class="comment-form-area">
+                    <form action="./registerPostProc?" method="post" enctype="multipart/form-data" class="comment-form-area">
                       <div class="row">
                         <div class="col-lg-6">
                             <div class="single-input category">
@@ -248,7 +248,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="single-input email">
-                              <input type="file" placeholder="이미지" name="!!!!!!미정" value ="[이미지파일]" readonly />
+                              <input type="file" placeholder="이미지" name="post_image" />
                             </div>
                         </div>
                         <!-- hidden 값 -->

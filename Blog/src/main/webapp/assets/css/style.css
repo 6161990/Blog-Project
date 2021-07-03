@@ -10652,8 +10652,21 @@ margin-bottom: 40px;
   height: 500px;
 }
 
-.newmovie{
-  margin-top: -10px;
-  margin-bottom: -50px;
+.section-space--ptb_p60 {
+  padding-top: 10px;
+  padding-bottom: 60px;
 }
 
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .section-space--ptb_p60 {
+    padding-top: 10px;
+    padding-bottom: 60px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .section-space--ptb_p60 {
+    padding-top: 10px;
+    padding-bottom: 60px;
+  }
+}
