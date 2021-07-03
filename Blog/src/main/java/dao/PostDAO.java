@@ -404,7 +404,7 @@ public class PostDAO {
 				getCon();
 				try {
 					//가장 큰 post_cnt값(조회수)을 읽어오는 쿼리 준비
-					String sql ="select * from post_master ORDER BY post_cnt DESC limit 7";
+					String sql ="select * from post_master ORDER BY post_cnt DESC limit 20";
 					//쿼리 실행 객체 선언
 					pstmt=conn.prepareStatement(sql);
 
@@ -492,8 +492,8 @@ public class PostDAO {
 						member_cate_idx=rs.getInt(1);
 					}
 					
-					//가져온 catogory_idx로 해당 카테고리 글 15개 추출
-					String category_sql ="select * from post_master where post_category_idx=? ORDER BY post_regdate DESC limit 10";
+					//가져온 catogory_idx로 해당 카테고리 글 추출
+					String category_sql ="select * from post_master where post_category_idx=? ORDER BY post_regdate DESC";
 					pstmt=conn.prepareStatement(category_sql);
 					pstmt.setInt(1, member_cate_idx);
 					
