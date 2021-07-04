@@ -23,6 +23,7 @@ public class SearchPassProc extends HttpServlet {
 		MemberBean member = (MemberBean) session.getAttribute("member");
 		
 		if(member == null) {
+			request.setAttribute("msg", "로그인 먼저 이용해주세요.");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 			dispatcher.forward(request, response);
 		}else {

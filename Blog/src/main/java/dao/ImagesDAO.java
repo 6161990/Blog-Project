@@ -37,7 +37,8 @@ public class ImagesDAO {
 		}
 		
 		//이미지 삽입
-		public void insertImage(ImagesBean image) {
+		public int insertImage(ImagesBean image) {
+			int cnt =0;
 			getCon();
 			try {
 				//쿼리 준비
@@ -49,12 +50,13 @@ public class ImagesDAO {
 				pstmt.setString(3, image.getImg_file_name());
 
 				//쿼리 실행
-				pstmt.executeUpdate();
+				cnt = pstmt.executeUpdate();
 				
 				pstmt.close();
 				conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			return cnt;
 		}
 }

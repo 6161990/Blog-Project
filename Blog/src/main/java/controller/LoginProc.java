@@ -45,7 +45,11 @@ public class LoginProc extends HttpServlet {
 		}else{ //일치하는 회원이 있다면 세션에 setting
 		   session.setAttribute("member", member);
 	       request.setAttribute("member_id", member_id);
-	       session.setAttribute("myPost", myPost);
+	       if(myPost == null) {
+	    	   session.setAttribute("myPost", null);
+	       }else {
+	    	   session.setAttribute("myPost", myPost); 
+	       }
 	       RequestDispatcher dis = request.getRequestDispatcher("IndexPostList");
 	       dis.forward(request, response);
 	    }

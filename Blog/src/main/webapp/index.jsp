@@ -799,7 +799,7 @@
                 </div>
               </div>
             </div>
-            <% if(session.getAttribute("member")!=null || session.getAttribute("myPost") !=null){ %>
+            <% if(session.getAttribute("myPost") !=null){ %>
    			<div class="swiper-container recent-reading-slider-active">
             
               <div class="swiper-wrapper">
