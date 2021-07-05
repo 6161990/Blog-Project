@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import dto.ImagesBean;
+import dto.PostBean;
 
 public class ImagesDAO {
 	
@@ -58,5 +59,34 @@ public class ImagesDAO {
 				e.printStackTrace();
 			}
 			return cnt;
+		}
+
+		public ImagesBean getImages(int post_idx) {
+			ImagesBean image = new ImagesBean();
+			getCon();
+			try {
+				
+				//쿼리 준비
+				String sql ="select * from post_images where img_post_idx=?";
+				//쿼리 실행 객체 선언
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setInt(1, post_idx);
+
+				//쿼리 실행
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					image.setImg_idx(rs.getInt(1));
+					image.setImg_post_idx(rs.getInt(2));
+					image.setImg_path(rs.getString(3));
+					image.setImg_file_name(rs.getString(4));
+					image.setImg_regdate(rs.getString(5));
+				}
+				
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return image;
 		}
 }

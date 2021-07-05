@@ -215,7 +215,7 @@
                 
                <div class="blog-details-post-wrap">
                   <div class="blog-details-thum">
-                    <img src="assets/images/blog/blog-details-1.jpg" alt="" />
+					 <img src="assets/images/blog/blog-details-1.jpg" alt="" />
                   </div>
                   <div class="blog-details-post-content">
                     <div class="blog-details-meta-box">

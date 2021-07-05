@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.CategoryDAO;
+import dao.ImagesDAO;
 import dao.PostDAO;
+import dto.ImagesBean;
 import dto.MemberBean;
 import dto.PostBean;
 
@@ -64,7 +66,8 @@ public class PostDetailProc extends HttpServlet {
 		//해당 post_idx로 post객체얻기 
 		PostDAO pdao = new PostDAO();
 		PostBean post = pdao.getOnePost(post_idx); 
-				
+		ImagesBean images = null;
+		
 		//얻어온 post가 null이 아니라면 세션에 post 넣어주기, by '' 에 넣을 회원 이름도 넘겨주기
 		if(post !=null) {
 			
@@ -75,6 +78,11 @@ public class PostDetailProc extends HttpServlet {
 		System.out.println("post_idx   "+post.getPost_idx());
 		System.out.println("member_name   "+member_name);
 				
+		//저장한 이미지 얻어오기
+		ImagesDAO idao = new ImagesDAO();
+		images = idao.getImages(post.getPost_idx());
+		
+		
 		//최근 글 목록 얻어오기 (카테고리 상관 없음 / 작성자 상관없음)
 		ArrayList<PostBean> latestPostList = new ArrayList<PostBean>();
 		latestPostList = pdao.getLatestPostList();
@@ -93,6 +101,7 @@ public class PostDetailProc extends HttpServlet {
 		request.setAttribute("latestPostList", latestPostList);
 		request.setAttribute("categotyPostList", categotyPostList);
 		request.setAttribute("category_name", category_name);
+		request.setAttribute("images", images);
 		categotyPostList = pdao.categoryPostList(post.getPost_category_idx());
 		request.setAttribute("member_name", member_name);
 		System.out.println("session 넘기기 성공");	//test 확인용

@@ -2,6 +2,8 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Enumeration;
+
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.oreilly.servlet.multipart.FileRenamePolicy;
 import com.oreilly.servlet.MultipartRequest;
@@ -89,6 +91,7 @@ public class RegisterPostProc extends HttpServlet {
 			long uploadFile_length = uploadFile.length();
 			String orgFileName = mreq.getOriginalFileName("post_image");
 			String fileSysName = mreq.getFilesystemName("post_image");
+			
 			
 			if(orgFileName != null) { //업로드 성공
 			image.setImg_post_idx(post_idx);

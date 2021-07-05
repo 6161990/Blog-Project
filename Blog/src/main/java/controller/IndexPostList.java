@@ -52,7 +52,7 @@ public class IndexPostList extends HttpServlet {
 			request.setAttribute("popPostList", popPostList); //인기글 리스트
 			if(member!=null) { //회원이 로그인 되어있다면 내가 관심갈만 한 리스트로 전달
 				categoryList = pdao.getCategoryList(member.getMember_idx());
-				request.setAttribute("CAList", categoryList);
+				request.setAttribute("categoryList", categoryList);
 			}else { //로그인 되어있지 않다면 전체 리스트(최근 순)로 전달
 				request.setAttribute("CAList", allPost);
 			}

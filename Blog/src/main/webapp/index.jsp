@@ -803,7 +803,7 @@
    			<div class="swiper-container recent-reading-slider-active">
             
               <div class="swiper-wrapper">
-               <c:forEach  var="CAPost" items="${CAList}" begin="1" end="6">
+               <c:forEach  var="CAPost" items="${categoryList}" begin="1" end="6">
                 <div class="swiper-slide">
                   <!-- 최근 읽은글 시작 -->
                   <div class="single-recent-reading-post" data-aos="fade-up">
