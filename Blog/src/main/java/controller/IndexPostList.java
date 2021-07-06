@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.ImagesDAO;
 import dao.PostDAO;
+import dto.ImagesBean;
 import dto.MemberBean;
 import dto.PostBean;
 
@@ -26,6 +28,7 @@ public class IndexPostList extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		RequestDispatcher dis = null;
+		ImagesBean images = null;
 		HttpSession session = request.getSession();	
 		
 		PostDAO pdao = new PostDAO();
@@ -46,6 +49,7 @@ public class IndexPostList extends HttpServlet {
 		//내가 관심갈 만한 글 (가장 최근 게시물의 카테고리와 같은 글)
 		ArrayList<PostBean> categoryList = new ArrayList<PostBean>();
 		
+
 		
 		if(allPost.isEmpty()==false) {  //전체 리스트가 비어있지 않다면
 			session.setAttribute("randomList", randomList); //랜덤 리스트
@@ -58,6 +62,7 @@ public class IndexPostList extends HttpServlet {
 			}
 			System.out.println("session 넘기기 성공");	//test 확인용
 			
+			request.setAttribute("images", images); //이미지 넘기기
 			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 			dispatcher.forward(request, response);
 		}else { //등록한 글이 없으면 noPost로 

@@ -43,7 +43,7 @@ public class RegisterPostProc extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		RequestDispatcher dis =null;
-		ImagesBean image = new ImagesBean();
+		ImagesBean images = new ImagesBean();
 		int post_idx = 0;
 		
 		
@@ -94,12 +94,12 @@ public class RegisterPostProc extends HttpServlet {
 			
 			
 			if(orgFileName != null) { //업로드 성공
-			image.setImg_post_idx(post_idx);
-			image.setImg_path(saveDir);
-			image.setImg_file_name(fileSysName);
+			images.setImg_post_idx(post_idx);
+			images.setImg_path(saveDir);
+			images.setImg_file_name(fileSysName);
 			
 			ImagesDAO idao = new ImagesDAO();
-			int cnt = idao.insertImage(image);
+			int cnt = idao.insertImage(images);
 			
 				if(cnt == 1) {
 					System.out.println("파일 db 업로드 성공");
@@ -123,6 +123,9 @@ public class RegisterPostProc extends HttpServlet {
 			
 			//post_idx를 알아오기 위해
 			request.setAttribute("RegisterPost_idx", post_idx);
+			
+			//해당 post_idx에 맞는 image 뿌려주기위해 
+			request.setAttribute("images", images);
 			dis = request.getRequestDispatcher("PostDetailProc");
 			dis.forward(request, response);
 		}else {

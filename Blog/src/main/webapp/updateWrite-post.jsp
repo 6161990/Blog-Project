@@ -1,6 +1,7 @@
 <%@page import="dao.CategoryDAO"%>
 <%@page import="dao.PostDAO"%>
 <%@page import="dto.PostBean"%>
+<%@ page errorPage="error-404.jsp" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page errorPage="error-404.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html class="no-js" lang="ko">
@@ -347,7 +348,15 @@
 					                          <a href="<c:url value="./PostDetailProc" >             
 								   			  <c:param name="aList_post_idx" value="${pPost.post_idx}"></c:param>
 										      </c:url>">
-					                          <img src="assets/images/trending/1-trending-img.jpg" alt=""/></a>
+										      <c:choose> 
+												<c:when test="${not empty images}">
+													<img src="/Blog/images/${images.img_file_name}" alt="" />
+												</c:when> 
+												<c:otherwise>
+													<img src="assets/images/trending/1-trending-img.jpg" alt=""/>
+												</c:otherwise> 
+											</c:choose> 
+					                          </a>
 					                         </div>
                                                  <div class="trending-post-content">
                                                      <div class="trending-blog-post-top">

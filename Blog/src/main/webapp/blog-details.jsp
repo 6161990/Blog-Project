@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page errorPage="error-404.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html class="no-js" lang="ko">
@@ -215,7 +216,14 @@
                 
                <div class="blog-details-post-wrap">
                   <div class="blog-details-thum">
-					 <img src="assets/images/blog/blog-details-1.jpg" alt="" />
+	               	<c:choose> 
+						<c:when test="${not empty images.img_file_name}">
+							<img src="/Blog/images/${images.img_file_name}" alt="" />
+						</c:when> 
+						<c:otherwise>
+							<img src="assets/images/blog/blog-details-1.jpg" alt="" />
+						</c:otherwise> 
+					</c:choose> 
                   </div>
                   <div class="blog-details-post-content">
                     <div class="blog-details-meta-box">
