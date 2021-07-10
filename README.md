@@ -21,12 +21,9 @@
 * JSP
 * Servlet
 
-
-
 `Front-end`  
 * JSP
 * BootStrap 
-
 
 `Tool`   
 * Eclipse 2021-03
@@ -38,11 +35,13 @@
 
 ### 3. ERD 설계 
 
+<img width="732" alt="20210710100653" src="https://user-images.githubusercontent.com/74708028/125147491-98b75e80-e166-11eb-923a-8e140056fc10.png">
 
 
 <br>
 
 ## 4. 요구사항
+[블로그 요구사항.xlsx](https://github.com/6161990/Blog-Project/files/6794610/default.xlsx)
 
 
 <br>
@@ -76,13 +75,15 @@
 
 
 ## 7. 그 외 트러블 슈팅
-
+* npm run dev 실행 오류  📌[코드확인]()
+* vue-devtools 크롬 익스텐션 인식 오류 문제
 <br>
 
 
 ## 8. SERVLET & JSP 설명 
-about-us.jsp : 홈페이지 소개글 페이지 / 블로그 관리 기능은 따로 구현하지 않으므로 화면에서 처리
-author-post.jsp : 로그인 한 작성자의 글 목록 페이지 / 로그인 사용자가 등록한 글이 없다면 no-post.jsp로 보내 글쓰기 유도
+> about-us.jsp :
+>> 홈페이지 소개글 페이지 / 블로그 관리 기능은 따로 구현하지 않으므로 화면에서 처리
+>author-post.jsp : 로그인 한 작성자의 글 목록 페이지 / 로그인 사용자가 등록한 글이 없다면 no-post.jsp로 보내 글쓰기 유도
 blog-details.jsp : 작성글을 볼 수 있는 블로그 상세 페이지 / 작성한 글 뿐만 아니라 , 같은 카테고리의 다른 글과 다른 회원들이 최근 작성한 글 swiper-slide로 포함 
 category.jsp : 카테고리 별 글 목록 페이지
 contact-us.jsp : 비회원을 포함한 사용자가 문의를 남길 수 있는 페이지 / 보통 문의 확인을 작성한 사용자에게 email 보내주지만, 여기서는 DB에 문의 내역을 저장하기만 구현
