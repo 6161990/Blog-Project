@@ -29,6 +29,7 @@
 * Eclipse 2021-03
 * Navicat Premium 15.0.25v
 * XAMPP Control Panel v3.3.0
+* Visual Studio Code
 
 
 <br>
