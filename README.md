@@ -60,19 +60,24 @@
 
 ## 6. 핵심 트러블 슈팅 
 ▶ 6.1 blog-detail.jsp로 넘어가기 전 컨텐츠 필터 처리 문제 
-* `blog-detail.jsp` 는 작성글 상세 페이지입니다. `글 작성(write-post.jsp)`, '나의 가장 최신글`, '글 목록(author-post.jsp, index.jsp)` 총 3 곳에서 `PostDetailProc`를 거쳐 blog-detail.jsp로 넘어갑니다.
+* `blog-detail.jsp` 는 작성글 상세 페이지입니다. `글 작성(write-post.jsp)`, `나의 가장 최신글, 글 목록(author-post.jsp, index.jsp)` 총 3 곳에서 `PostDetailProc`를 거쳐 blog-detail.jsp로 넘어갑니다.
 * `PostDetailProc`의 역할은 다음과 같습니다. 
    * ##### 넘어온 페이지로부터 게시물 고유번호(post_idx)를 얻어 그 글의 객체를 request setting
    * ##### 게시물 고유 번호로 이미지 테이블에서 저장한 이미지 request setting 
    * ##### 사이드에 위치한 `최근 글 목록`에 뿌려줄 글 목록 얻어와 request setting 
    * ##### 하단에 위치한 `관련글`에 뿌려줄 글 목록 얻어와 request setting 
    * ##### 해당 글의 카테고리 이름을 카테고리 테이블에서 얻어와 request setting  
-* 이 중 포인트는 넘어온 페이지로부터 게시물 고유번호(post_idx)를 얻는 것이었습니다.
-* request가 어디서 넘어왔냐에 따라 상세 페이지에서 보여줄 data가 달라지기 때문이었습니다. 
-* `글 작성`에서 넘어왔다면, 내가 방금 작성한 글이 잘 등록되었는지 바로 확인하는 용도로 보여주고 싶었고
-* `나의 가장 최신글` 메뉴를 클릭해 넘어왔다면, 최근 내가 쓴 글을 보여주고 싶었습니다.
-* 그 외 index.jsp , author-post.jsp 에서도 글 상세를 보기위해 `PostDetailProc`로 넘어옵니다. 
-* 하지만 경우마다 servlet을 따로 만드는 것에 대해 고민되었습니다.
+   
+  <br>
+  
+✅ 이 중 포인트는 넘어온 페이지로부터 게시물 고유번호(post_idx)를 얻는 것이었습니다.     
+  request가 어디서 넘어왔냐에 따라 상세 페이지에서 보여줄 data가 달라지기 때문이었습니다.    
+
+  > ##### `글 작성`에서 넘어왔다면, 내가 방금 작성한 글이 잘 등록되었는지 바로 확인하는 용도로 보여주고 싶었고
+  > ##### `나의 가장 최신글` 메뉴를 클릭해 넘어왔다면, 최근 내가 쓴 글을 보여주고 싶었습니다.
+  > ##### 그 외 index.jsp , author-post.jsp 에서도 글 상세를 보기위해 `PostDetailProc`로 넘어옵니다.     
+
+* 하지만 경우마다 servlet을 따로 만드는 것에 대해 고민되었습니다.     
 * 넘겨받는 게시물 고유번호의 key값을 각각 다르게 받아보면 어떨까 생각했습니다. 📝 [코드확인](https://github.com/6161990/Blog-Project/blob/34ed83a1dcbf972e363469d04d58d54406ea3896/Blog/src/main/java/controller/PostDetailProc.java#L53)
 
 <br>
@@ -91,12 +96,13 @@
 
 ## 7. 그 외 트러블 슈팅
 * 테이블에 방금 INSERT한 데이터 RETURN 처리 문제 📌[코드확인](https://github.com/6161990/Blog-Project/blob/d1d108e7898eb24ad37249049a3f27f4c4410098/Blog/src/main/java/dao/PostDAO.java#L66)
-* `내가 관심갈만한 글` 에서 '내'가 없는 경우, 예외 처리 문제 
-  * ##### 홈화면(index.jsp)에서 `내가 관심갈만한 글` 목록은 내가 작성한 최신 글과 같은 카테고리 글 목록을 가져오는 것이었습니다. 
-  * ##### 하지만, 비 로그인 사용자나 아직 작성글이 없는 사용자의 경우는 data가 없어서 errorPage로 가게되었습니다.  
-  * ##### 이런 사용자의 경우 `내가 관심갈만한 글` 대신 `전체글목록`을 띄워줄까 고민했습니다. 
-  * ##### 하지만 해당 사이트가 이제 막 서비스를 시작했다는 가정 하에 많은 데이터를 확보하는 것이 우선이라 판단하여 
-  * ##### 아직 작성글이 없다면 글작성을 유도하는 버튼으로 예외처리를 했습니다.  📌[코드확인](https://github.com/6161990/Blog-Project/blob/d1d108e7898eb24ad37249049a3f27f4c4410098/Blog/src/main/webapp/index.jsp#L850)
+* `내가 관심갈만한 글` 에서 '내'가 없는 경우, 예외 처리 문제 📌[코드확인](https://github.com/6161990/Blog-Project/blob/d1d108e7898eb24ad37249049a3f27f4c4410098/Blog/src/main/webapp/index.jsp#L850)
+  * ###### 홈화면(index.jsp)에서 `내가 관심갈만한 글` 목록은 내가 작성한 최신 글과 같은 카테고리 글 목록을 가져오는 것이었습니다.    
+    ###### 하지만, 비 로그인 사용자나 아직 작성글이 없는 사용자의 경우는 data가 없어서 errorPage로 가게되었습니다.     
+    ###### 이런 사용자의 경우 `내가 관심갈만한 글` 대신 `전체글목록`을 띄워줄까 고민했습니다.    
+    ###### 하지만 해당 사이트가 이제 막 서비스를 시작했다는 가정 하에 많은 데이터를 확보하는 것이 우선이라 판단하여    
+    ###### 아직 작성글이 없다면 글작성을 유도하는 버튼으로 예외처리를 했습니다.     
+  
 
 <br>
 
