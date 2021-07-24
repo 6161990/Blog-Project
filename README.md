@@ -73,7 +73,7 @@
 * `나의 가장 최신글` 메뉴를 클릭해 넘어왔다면, 최근 내가 쓴 글을 보여주고 싶었습니다.
 * 그 외 index.jsp , author-post.jsp 에서도 글 상세를 보기위해 `PostDetailProc`로 넘어옵니다. 
 * 하지만 경우마다 servlet을 따로 만드는 것에 대해 고민되었습니다.
-* 넘겨받는 해당 글 고유번호의 key값을 각각 다르게 받아보면 어떨까 생각했습니다.  📌[코드확인](https://github.com/6161990/Blog-Project/blob/34ed83a1dcbf972e363469d04d58d54406ea3896/Blog/src/main/java/controller/PostDetailProc.java#L53)
+* 넘겨받는 해당 글 고유번호의 key값을 각각 다르게 받아보면 어떨까 생각했습니다. 📝 [코드확인](https://github.com/6161990/Blog-Project/blob/34ed83a1dcbf972e363469d04d58d54406ea3896/Blog/src/main/java/controller/PostDetailProc.java#L53)
 
 <br>
 
