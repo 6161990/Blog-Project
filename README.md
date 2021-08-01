@@ -22,7 +22,6 @@
 * Servlet
 
 `Front-end`  
-* JSP
 * BootStrap 
 * HTML, CSS3 
 
