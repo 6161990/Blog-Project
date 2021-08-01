@@ -6,7 +6,7 @@
 > #### 영화 리뷰 OPEN BLOG 
 
 
-<img width="706" alt="20210801130546" src="https://user-images.githubusercontent.com/74708028/127759004-305bf99f-1655-490d-9fa4-4c863fe5eb5e.png">
+<img width="576" height="420" alt="20210801130546" src="https://user-images.githubusercontent.com/74708028/127759004-305bf99f-1655-490d-9fa4-4c863fe5eb5e.png">
 
 <br>
 
