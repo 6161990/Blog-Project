@@ -19,10 +19,10 @@
 ## 2. 사용기술
 `Back-end`   
 * Java 15
-* MySQL 
+* MySQL 10.4.19v
 * Apache Tomcat 9.0v
-* JSP
-* Servlet
+* JSP 2.3
+* Servlet 4.0
 
 `Front-end`  
 * BootStrap 
